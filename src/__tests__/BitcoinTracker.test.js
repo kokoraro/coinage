@@ -4,10 +4,8 @@ import BitcoinTracker from '../components/BitcoinTracker';
 import CoinList from '../components/CoinList';
 
 jest.mock('../request');
-import * as coins from '../coins';
+import * as getCoins from '../getCoins';
 const app = shallow(<BitcoinTracker />);
-
-
 
 describe("Bitcoin Tracker app", () => {
   
@@ -15,19 +13,18 @@ describe("Bitcoin Tracker app", () => {
     expect(app).toMatchSnapshot();
   });
 
-  // A simple example test
+  it("shows coin list component", () => {
+    expect(app.find(CoinList).length).toBe(1);
+  });
+
   describe('#getPrice() using Promises', () => {
-    
     it('should load price', () => {
-      return coins.getPrice('btc')
+      return getCoins.getPrice('btc')
       .then(data => {
           expect(data).toBeDefined()
           expect(data).toEqual("8598.21572928")
         })
     })
   })
-
-  it("shows coin list component", () => {
-    expect(app.find(CoinList).length).toBe(1);
-  });
+  
 });

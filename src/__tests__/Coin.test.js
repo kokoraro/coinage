@@ -30,10 +30,5 @@ describe("Coin Component", () => {
     coin.setProps({ coinData: { id: 0, name: "Test Change", price: 2 } })
     expect(coin.find('.coin-price').text()).toBe("2");
   });
-
-  // xit("renders icon from props", () => {
-    
-  // });
   
-
 });
