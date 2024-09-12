@@ -44,9 +44,8 @@
     "webpack-dev-server": "^2.11.1"
   },
   "jest": {
-    "automock": false,
     "setupFiles": [
-      "./setupTests.js"
+      "./src/setupTests.js"
     ]
   }
 }
