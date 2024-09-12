@@ -8,9 +8,9 @@ const CoinList = ({ coinData }) => {
     ))
   ) : null;
   return (
-    <ol>
+    <ul className="coin-list">
       {coins} 
-    </ol>
+    </ul>
   )
 }
 
