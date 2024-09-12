@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Coin from '../components/Coin';
 
-const minProps = { id: 0, name: "Test", price: 1 };
+const minProps = { id: 0, name: "Test", price: {USD: 1} };
 
 describe("Coin Component", () => {
   it("renders correctly", () => {
@@ -19,16 +19,16 @@ describe("Coin Component", () => {
     const coin = shallow(<Coin coinData={minProps} />);
     expect(coin.find('.coin-name').text()).toBe('Test');
     
-    coin.setProps({ coinData: { id: 0, name: "Test Change", price: 1 } })
+    coin.setProps({ coinData: { id: 0, name: "Test Change", price: { USD: 1 } } })
     expect(coin.find('.coin-name').text()).toBe("Test Change");
   });
 
   it("renders price from props", () => {
     const coin = shallow(<Coin coinData={minProps} />);
-    expect(coin.find('.coin-price').text()).toBe("$1.00");
+    expect(coin.find('.coin-price').text()).toBe("$1");
     
-    coin.setProps({ coinData: { id: 0, name: "Test Change", price: 2 } })
-    expect(coin.find('.coin-price').text()).toBe("$2.00");
+    coin.setProps({ coinData: { id: 0, name: "Test Change", price: { USD: 2 } } })
+    expect(coin.find('.coin-price').text()).toBe("$2");
   });
   
 });
