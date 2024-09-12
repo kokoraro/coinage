@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Bitcoin Tracker App renders correctly 1`] = `
+exports[`Bitcoin Tracker app renders correctly 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -17,11 +17,37 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": "Working",
+      "children": Array [
+        <h1>
+          Bitcoin Tracker
+        </h1>,
+        <CoinList />,
+      ],
     },
     "ref": null,
-    "rendered": "Working",
-    "type": "h1",
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Bitcoin Tracker",
+        },
+        "ref": null,
+        "rendered": "Bitcoin Tracker",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -29,11 +55,37 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": "Working",
+        "children": Array [
+          <h1>
+            Bitcoin Tracker
+          </h1>,
+          <CoinList />,
+        ],
       },
       "ref": null,
-      "rendered": "Working",
-      "type": "h1",
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Bitcoin Tracker",
+          },
+          "ref": null,
+          "rendered": "Bitcoin Tracker",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

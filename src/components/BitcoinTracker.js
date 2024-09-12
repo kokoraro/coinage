@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import CoinList from './CoinList';
 
 class BitcoinTracker extends Component {
   render() {
-    return <h1>Working</h1>;
+    return (
+      <div>
+        <h1>Bitcoin Tracker</h1>
+        <CoinList />
+      </div>
+    )
   }
 }
 
