@@ -1,8 +1,8 @@
-export default function request(code) {
-  return fetch(`https://api.cryptonator.com/api/ticker/${code}-usd`)
+export default function request(codes) {
+  const to = "USD,GBP";
+  const from = codes.join(',');
+  return fetch(`https://min-api.cryptocompare.com/data/pricemulti?fsyms=${from}&tsyms=${to}`)
     .then(response => response.json())
     .then(data => data)
     .catch(error => error);
 }
-
-// module.exports = request;

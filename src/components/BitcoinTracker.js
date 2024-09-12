@@ -8,25 +8,24 @@ class BitcoinTracker extends Component {
     super(props);
     this.state = {
       coins: [
-        { id: 1, type: 'btc', name: "Bitcoin", price: 0 },
-        { id: 2, type: 'eth', name: "Etherium", price: 0 },
-        { id: 3, type: 'ltc', name: "Litecoin", price: 0 }
+        { id: 0, code: 'BTC', name: "Bitcoin", price: 0 },
+        { id: 1, code: 'ETH', name: "Etherium", price: 0 },
+        { id: 2, code: 'LTC', name: "Litecoin", price: 0 }
       ],
     }
     this.updateCoins = this.updateCoins.bind(this);
   }
 
-  updateCoins() {
-    const prices = this.state.coins.map(obj => {
-      return getPrice(obj.type).then(result => {
-        obj.price = result;
-        return obj;
-      })
-    });
+  async updateCoins() {
+    const codes = this.state.coins.map(c => c.code);
+    
+    const prices = await getPrice(codes);
 
-    Promise.all(prices).then(coins => {
-      this.setState({ coins });
-    });
+    const coins = this.state.coins.map(c => {
+      return {...c, price: prices[c.code]};
+    })
+
+    this.setState({coins});
   }
 
   componentDidMount() {
