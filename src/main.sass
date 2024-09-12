@@ -7,6 +7,7 @@ h1, .coin-code
   text-transform: uppercase
 
 h1
+  color: coral
   margin-top: 5px
 
 .container
@@ -37,8 +38,15 @@ ul
     grid-column: 6 / 8
 
 .control-panel
-  display: flex
-  justify-content: space-around
+  padding: 0 10px
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  grid-gap: 5px
+  // padding: 0 10px
+
+  input
+    border: 3px solid coral
+    border-radius: 5px
 
 button
   background: white
@@ -48,6 +56,7 @@ button
   border: 3px solid coral
   border-radius: 5px
   padding: 0.8rem 1.1rem
+  outline: none
 
   &:hover
     color: white
