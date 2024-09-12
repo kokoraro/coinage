@@ -4,7 +4,15 @@ exports[`Coin Component renders correctly 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Coin />,
+  Symbol(enzyme.__unrendered__): <Coin
+    coinData={
+      Object {
+        "id": 0,
+        "name": "Test",
+        "price": 1,
+      }
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -17,11 +25,47 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": "coin",
+      "children": Array [
+        <span
+          className="coin-name"
+        >
+          Test
+        </span>,
+        <span
+          className="coin-price"
+        >
+          1
+        </span>,
+      ],
     },
     "ref": null,
-    "rendered": "coin",
-    "type": "div",
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Test",
+          "className": "coin-name",
+        },
+        "ref": null,
+        "rendered": "Test",
+        "type": "span",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": 1,
+          "className": "coin-price",
+        },
+        "ref": null,
+        "rendered": 1,
+        "type": "span",
+      },
+    ],
+    "type": "li",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -29,11 +73,47 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": "coin",
+        "children": Array [
+          <span
+            className="coin-name"
+          >
+            Test
+          </span>,
+          <span
+            className="coin-price"
+          >
+            1
+          </span>,
+        ],
       },
       "ref": null,
-      "rendered": "coin",
-      "type": "div",
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Test",
+            "className": "coin-name",
+          },
+          "ref": null,
+          "rendered": "Test",
+          "type": "span",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": 1,
+            "className": "coin-price",
+          },
+          "ref": null,
+          "rendered": 1,
+          "type": "span",
+        },
+      ],
+      "type": "li",
     },
   ],
   Symbol(enzyme.__options__): Object {
