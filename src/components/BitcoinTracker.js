@@ -15,7 +15,7 @@ class BitcoinTracker extends Component {
     }
   }
 
-  componentDidMount() {
+  updateCoins() {
     const prices = this.state.coins.map(obj => {
       return getPrice(obj.type).then(result => {
         obj.price = result;
@@ -26,6 +26,10 @@ class BitcoinTracker extends Component {
     Promise.all(prices).then(coins => {
       this.setState({ coins });
     });
+  }
+
+  componentDidMount() {
+    this.updateCoins();
   }
 
   render() {
