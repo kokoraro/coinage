@@ -3,7 +3,8 @@ import { shallow } from 'enzyme';
 import CoinList from '../components/CoinList';
 import Coin from '../components/Coin'
 
-const app = shallow(<CoinList />);
+const minProps = [{ id: 1, name: "Bitcoin", price: 2000 }];
+const app = shallow(<CoinList coinData={minProps} />);
 
 describe("Coin list component", () => {
   it("renders correctly", () => {

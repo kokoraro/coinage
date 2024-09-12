@@ -4,7 +4,17 @@ exports[`Coin list component renders correctly 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CoinList />,
+  Symbol(enzyme.__unrendered__): <CoinList
+    coinData={
+      Array [
+        Object {
+          "id": 1,
+          "name": "Bitcoin",
+          "price": 2000,
+        },
+      ]
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -15,21 +25,77 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
-    "props": Object {},
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Coin
+          coinData={
+            Object {
+              "id": 1,
+              "name": "Bitcoin",
+              "price": 2000,
+            }
+          }
+        />,
+      ],
+    },
     "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "function",
+        "props": Object {
+          "coinData": Object {
+            "id": 1,
+            "name": "Bitcoin",
+            "price": 2000,
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "ol",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
-      "props": Object {},
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Coin
+            coinData={
+              Object {
+                "id": 1,
+                "name": "Bitcoin",
+                "price": 2000,
+              }
+            }
+          />,
+        ],
+      },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "function",
+          "props": Object {
+            "coinData": Object {
+              "id": 1,
+              "name": "Bitcoin",
+              "price": 2000,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "ol",
     },
   ],
   Symbol(enzyme.__options__): Object {

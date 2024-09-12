@@ -6,6 +6,8 @@ import CoinList from '../components/CoinList';
 const app = shallow(<BitcoinTracker />)
 
 describe("Bitcoin Tracker app", () => {
+  const getCoins = () => {};
+  
   it("renders correctly", () => {
     expect(app).toMatchSnapshot();
   });
