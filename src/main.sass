@@ -6,8 +6,11 @@ body
 h1, .coin-code
   text-transform: uppercase
 
+h1
+  margin-top: 5px
+
 .container
-  padding-top: 1px
+  padding: 20px 0
   border-radius: 5px
   background: white
   width: 100%
@@ -32,3 +35,20 @@ ul
     text-align: right
     padding-right: 10px
     grid-column: 6 / 8
+
+.control-panel
+  display: flex
+  justify-content: space-around
+
+button
+  background: white
+  color: coral
+  cursor: pointer
+  font-size: 1.2rem
+  border: 3px solid coral
+  border-radius: 5px
+  padding: 0.8rem 1.1rem
+
+  &:hover
+    color: white
+    background: coral
