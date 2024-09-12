@@ -8,9 +8,9 @@ class BitcoinTracker extends Component {
     super(props);
     this.state = {
       coins: [
-        { id: 1, type: 'btc', name: "Bitcoin", price: 2000 },
-        { id: 2, type: 'eth', name: "Etherium", price: 500 },
-        { id: 3, type: 'ltc', name: "Litecoin", price: 100 }
+        { id: 1, type: 'btc', name: "Bitcoin", price: 0 },
+        { id: 2, type: 'eth', name: "Etherium", price: 0 },
+        { id: 3, type: 'ltc', name: "Litecoin", price: 0 }
       ],
     }
   }
@@ -29,7 +29,7 @@ class BitcoinTracker extends Component {
   }
 
   componentDidMount() {
-    this.updateCoins();
+    this.updateCoins()
   }
 
   render() {

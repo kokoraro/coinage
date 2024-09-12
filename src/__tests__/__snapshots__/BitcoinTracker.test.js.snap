@@ -27,19 +27,19 @@ ShallowWrapper {
               Object {
                 "id": 1,
                 "name": "Bitcoin",
-                "price": 2000,
+                "price": 0,
                 "type": "btc",
               },
               Object {
                 "id": 2,
                 "name": "Etherium",
-                "price": 500,
+                "price": 0,
                 "type": "eth",
               },
               Object {
                 "id": 3,
                 "name": "Litecoin",
-                "price": 100,
+                "price": 0,
                 "type": "ltc",
               },
             ]
@@ -71,19 +71,19 @@ ShallowWrapper {
             Object {
               "id": 1,
               "name": "Bitcoin",
-              "price": 2000,
+              "price": 0,
               "type": "btc",
             },
             Object {
               "id": 2,
               "name": "Etherium",
-              "price": 500,
+              "price": 0,
               "type": "eth",
             },
             Object {
               "id": 3,
               "name": "Litecoin",
-              "price": 100,
+              "price": 0,
               "type": "ltc",
             },
           ],
@@ -120,19 +120,19 @@ ShallowWrapper {
                 Object {
                   "id": 1,
                   "name": "Bitcoin",
-                  "price": 2000,
+                  "price": 0,
                   "type": "btc",
                 },
                 Object {
                   "id": 2,
                   "name": "Etherium",
-                  "price": 500,
+                  "price": 0,
                   "type": "eth",
                 },
                 Object {
                   "id": 3,
                   "name": "Litecoin",
-                  "price": 100,
+                  "price": 0,
                   "type": "ltc",
                 },
               ]
@@ -164,19 +164,19 @@ ShallowWrapper {
               Object {
                 "id": 1,
                 "name": "Bitcoin",
-                "price": 2000,
+                "price": 0,
                 "type": "btc",
               },
               Object {
                 "id": 2,
                 "name": "Etherium",
-                "price": 500,
+                "price": 0,
                 "type": "eth",
               },
               Object {
                 "id": 3,
                 "name": "Litecoin",
-                "price": 100,
+                "price": 0,
                 "type": "ltc",
               },
             ],
