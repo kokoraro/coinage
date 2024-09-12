@@ -9,7 +9,12 @@ class ControlPanel extends Component {
   }
   render() {
     const {addOpen} = this.state;
-    const form = addOpen ? <input type="text" /> : null;
+    const form = addOpen ? (
+      <input 
+        type="text"
+        placeholder="Type coin name here"
+      />
+    ) : null;
 
     return (
       <div className="control-panel">    

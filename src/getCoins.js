@@ -1,7 +1,7 @@
 import request from './request';
 
-export function getPrice(code) {
-  return request(code)
-    .then(data => data.ticker.price)
-    .catch(error => console.log(error));
+export function getPrice(codes) {
+  return request(codes)
+    .then(data => data)
+    .catch(error => error);
 }

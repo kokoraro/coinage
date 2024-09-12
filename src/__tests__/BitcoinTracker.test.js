@@ -24,10 +24,10 @@ describe("Bitcoin Tracker app", () => {
 
   describe('#getPrice() using Promises', () => {
     it('should load price', () => {
-      return getCoins.getPrice('btc')
-      .then(data => {
+      return getCoins.getPrice('BTC')
+        .then(data => {
           expect(data).toBeDefined()
-          expect(data).toEqual("8598.21572928")
+          expect(data.GBP).toEqual(6249.91)
         })
     })
   })
