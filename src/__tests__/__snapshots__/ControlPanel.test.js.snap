@@ -17,10 +17,55 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": "CP",
+      "children": Array [
+        <button>
+          Add
+        </button>,
+        <button>
+          Remove
+        </button>,
+        <button>
+          Refresh
+        </button>,
+      ],
+      "className": "control-panel",
     },
     "ref": null,
-    "rendered": "CP",
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Add",
+        },
+        "ref": null,
+        "rendered": "Add",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Remove",
+        },
+        "ref": null,
+        "rendered": "Remove",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Refresh",
+        },
+        "ref": null,
+        "rendered": "Refresh",
+        "type": "button",
+      },
+    ],
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -29,10 +74,55 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": "CP",
+        "children": Array [
+          <button>
+            Add
+          </button>,
+          <button>
+            Remove
+          </button>,
+          <button>
+            Refresh
+          </button>,
+        ],
+        "className": "control-panel",
       },
       "ref": null,
-      "rendered": "CP",
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Add",
+          },
+          "ref": null,
+          "rendered": "Add",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Remove",
+          },
+          "ref": null,
+          "rendered": "Remove",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Refresh",
+          },
+          "ref": null,
+          "rendered": "Refresh",
+          "type": "button",
+        },
+      ],
       "type": "div",
     },
   ],
