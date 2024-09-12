@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CoinList from './CoinList';
+import { getPrice } from '../getCoins';
 
 class BitcoinTracker extends Component {
   constructor(props) {
@@ -11,6 +12,19 @@ class BitcoinTracker extends Component {
         { id: 3, type: 'ltc', name: "Litecoin", price: 100 }
       ],
     }
+  }
+
+  componentDidMount() {
+    const prices = this.state.coins.map(obj => {
+      return getPrice(obj.type).then(result => {
+        obj.price = result;
+        return obj;
+      })
+    });
+
+    Promise.all(prices).then(coins => {
+      this.setState({ coins });
+    });
   }
 
   render() {

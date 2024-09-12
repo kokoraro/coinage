@@ -1,26 +1,27 @@
 const mockData = {
   btc: {
     "ticker": {
-    "base": "BTC",
-    "target": "USD",
     "price": "8598.21572928",
-    "volume": "90138.57150030",
-    "change": "-90.30281903"
-    },
-    "timestamp": 1518445621,
-    "success": true,
-    "error": ""
+    }
+  },
+  eth: {
+    "ticker": {
+      "price": "500.21572928",
+    }
+  },
+  ltc: {
+    "ticker": {
+      "price": "122.21572928",
+    }
   }
 }
 
 export default function request(code) {
   return new Promise((resolve, reject) => {
     process.nextTick(
-      () =>
-        mockData[code] ? resolve(mockData[code])
-          : reject({
-            error: 'User with ' + code + ' not found.',
-          }),
+      () => mockData[code] 
+        ? resolve(mockData[code])
+        : reject({ error: 'User with ' + code + ' not found.' }),
     );
   });
 }
