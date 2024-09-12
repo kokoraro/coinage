@@ -9,7 +9,9 @@ ShallowWrapper {
       Object {
         "id": 0,
         "name": "Test",
-        "price": 1,
+        "price": Object {
+          "USD": 1,
+        },
       }
     }
   />,
@@ -42,7 +44,7 @@ ShallowWrapper {
         <div
           className="coin-price"
         >
-          $1.00
+          $1
         </div>,
       ],
       "className": "coin",
@@ -90,11 +92,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "$1.00",
+          "children": "$1",
           "className": "coin-price",
         },
         "ref": null,
-        "rendered": "$1.00",
+        "rendered": "$1",
         "type": "div",
       },
     ],
@@ -123,7 +125,7 @@ ShallowWrapper {
           <div
             className="coin-price"
           >
-            $1.00
+            $1
           </div>,
         ],
         "className": "coin",
@@ -171,11 +173,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "$1.00",
+            "children": "$1",
             "className": "coin-price",
           },
           "ref": null,
-          "rendered": "$1.00",
+          "rendered": "$1",
           "type": "div",
         },
       ],

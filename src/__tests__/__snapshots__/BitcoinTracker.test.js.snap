@@ -25,22 +25,22 @@ ShallowWrapper {
           coinData={
             Array [
               Object {
-                "id": 1,
+                "code": "BTC",
+                "id": 0,
                 "name": "Bitcoin",
                 "price": 0,
-                "type": "btc",
               },
               Object {
-                "id": 2,
+                "code": "ETH",
+                "id": 1,
                 "name": "Etherium",
                 "price": 0,
-                "type": "eth",
               },
               Object {
-                "id": 3,
+                "code": "LTC",
+                "id": 2,
                 "name": "Litecoin",
                 "price": 0,
-                "type": "ltc",
               },
             ]
           }
@@ -71,22 +71,22 @@ ShallowWrapper {
         "props": Object {
           "coinData": Array [
             Object {
-              "id": 1,
+              "code": "BTC",
+              "id": 0,
               "name": "Bitcoin",
               "price": 0,
-              "type": "btc",
             },
             Object {
-              "id": 2,
+              "code": "ETH",
+              "id": 1,
               "name": "Etherium",
               "price": 0,
-              "type": "eth",
             },
             Object {
-              "id": 3,
+              "code": "LTC",
+              "id": 2,
               "name": "Litecoin",
               "price": 0,
-              "type": "ltc",
             },
           ],
         },
@@ -122,22 +122,22 @@ ShallowWrapper {
             coinData={
               Array [
                 Object {
-                  "id": 1,
+                  "code": "BTC",
+                  "id": 0,
                   "name": "Bitcoin",
                   "price": 0,
-                  "type": "btc",
                 },
                 Object {
-                  "id": 2,
+                  "code": "ETH",
+                  "id": 1,
                   "name": "Etherium",
                   "price": 0,
-                  "type": "eth",
                 },
                 Object {
-                  "id": 3,
+                  "code": "LTC",
+                  "id": 2,
                   "name": "Litecoin",
                   "price": 0,
-                  "type": "ltc",
                 },
               ]
             }
@@ -168,22 +168,22 @@ ShallowWrapper {
           "props": Object {
             "coinData": Array [
               Object {
-                "id": 1,
+                "code": "BTC",
+                "id": 0,
                 "name": "Bitcoin",
                 "price": 0,
-                "type": "btc",
               },
               Object {
-                "id": 2,
+                "code": "ETH",
+                "id": 1,
                 "name": "Etherium",
                 "price": 0,
-                "type": "eth",
               },
               Object {
-                "id": 3,
+                "code": "LTC",
+                "id": 2,
                 "name": "Litecoin",
                 "price": 0,
-                "type": "ltc",
               },
             ],
           },
