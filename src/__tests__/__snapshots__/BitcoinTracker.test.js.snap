@@ -45,6 +45,7 @@ ShallowWrapper {
             ]
           }
         />,
+        <ControlPanel />,
       ],
       "className": "container",
     },
@@ -91,6 +92,15 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
     ],
     "type": "div",
   },
@@ -128,6 +138,7 @@ ShallowWrapper {
               ]
             }
           />,
+          <ControlPanel />,
         ],
         "className": "container",
       },
@@ -170,6 +181,15 @@ ShallowWrapper {
               },
             ],
           },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],
