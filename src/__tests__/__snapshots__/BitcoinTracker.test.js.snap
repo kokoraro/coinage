@@ -45,7 +45,9 @@ ShallowWrapper {
             ]
           }
         />,
-        <ControlPanel />,
+        <ControlPanel
+          handleRefresh={[Function]}
+        />,
       ],
       "className": "container",
     },
@@ -96,7 +98,9 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
-        "props": Object {},
+        "props": Object {
+          "handleRefresh": [Function],
+        },
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -138,7 +142,9 @@ ShallowWrapper {
               ]
             }
           />,
-          <ControlPanel />,
+          <ControlPanel
+            handleRefresh={[Function]}
+          />,
         ],
         "className": "container",
       },
@@ -189,7 +195,9 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "class",
-          "props": Object {},
+          "props": Object {
+            "handleRefresh": [Function],
+          },
           "ref": null,
           "rendered": null,
           "type": [Function],
