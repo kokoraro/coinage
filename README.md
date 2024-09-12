@@ -1,1 +1,2 @@
-# coinage
+# bitcoin-tracker
+Cryptocurrency price tracker
