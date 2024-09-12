@@ -18,15 +18,21 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <button>
+        <button
+          className="add-button"
+          onClick={[Function]}
+        >
           Add
         </button>,
         <button>
           Remove
         </button>,
-        <button>
+        <button
+          onClick={undefined}
+        >
           Refresh
         </button>,
+        null,
       ],
       "className": "control-panel",
     },
@@ -38,6 +44,8 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Add",
+          "className": "add-button",
+          "onClick": [Function],
         },
         "ref": null,
         "rendered": "Add",
@@ -60,11 +68,13 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Refresh",
+          "onClick": undefined,
         },
         "ref": null,
         "rendered": "Refresh",
         "type": "button",
       },
+      null,
     ],
     "type": "div",
   },
@@ -75,15 +85,21 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <button>
+          <button
+            className="add-button"
+            onClick={[Function]}
+          >
             Add
           </button>,
           <button>
             Remove
           </button>,
-          <button>
+          <button
+            onClick={undefined}
+          >
             Refresh
           </button>,
+          null,
         ],
         "className": "control-panel",
       },
@@ -95,6 +111,8 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Add",
+            "className": "add-button",
+            "onClick": [Function],
           },
           "ref": null,
           "rendered": "Add",
@@ -117,11 +135,13 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Refresh",
+            "onClick": undefined,
           },
           "ref": null,
           "rendered": "Refresh",
           "type": "button",
         },
+        null,
       ],
       "type": "div",
     },

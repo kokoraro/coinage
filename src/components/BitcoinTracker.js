@@ -13,6 +13,7 @@ class BitcoinTracker extends Component {
         { id: 3, type: 'ltc', name: "Litecoin", price: 0 }
       ],
     }
+    this.updateCoins = this.updateCoins.bind(this);
   }
 
   updateCoins() {
@@ -36,8 +37,8 @@ class BitcoinTracker extends Component {
     return (
       <div className="container">
         <h1>coinage</h1>
-        <CoinList coinData={ this.state.coins } />
-        <ControlPanel />
+        <CoinList coinData={this.state.coins} />
+        <ControlPanel handleRefresh={this.updateCoins} />
       </div>
     )
   }
