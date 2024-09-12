@@ -19,7 +19,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <h1>
-          COIN
+          coinage
         </h1>,
         <CoinList
           coinData={
@@ -46,6 +46,7 @@ ShallowWrapper {
           }
         />,
       ],
+      "className": "container",
     },
     "ref": null,
     "rendered": Array [
@@ -54,10 +55,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "COIN",
+          "children": "coinage",
         },
         "ref": null,
-        "rendered": "COIN",
+        "rendered": "coinage",
         "type": "h1",
       },
       Object {
@@ -101,7 +102,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <h1>
-            COIN
+            coinage
           </h1>,
           <CoinList
             coinData={
@@ -128,6 +129,7 @@ ShallowWrapper {
             }
           />,
         ],
+        "className": "container",
       },
       "ref": null,
       "rendered": Array [
@@ -136,10 +138,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "COIN",
+            "children": "coinage",
           },
           "ref": null,
-          "rendered": "COIN",
+          "rendered": "coinage",
           "type": "h1",
         },
         Object {

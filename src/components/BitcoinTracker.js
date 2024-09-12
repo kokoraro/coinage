@@ -29,8 +29,8 @@ class BitcoinTracker extends Component {
 
   render() {
     return (
-      <div>
-        <h1>COIN</h1>
+      <div className="container">
+        <h1>coinage</h1>
         <CoinList coinData={ this.state.coins } />
       </div>
     )
