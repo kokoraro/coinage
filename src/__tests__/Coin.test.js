@@ -31,9 +31,9 @@ describe("Coin Component", () => {
     expect(coin.find('.coin-price').text()).toBe("2");
   });
 
-  xit("renders icon from props", () => {
+  // xit("renders icon from props", () => {
     
-  });
+  // });
   
 
 });
