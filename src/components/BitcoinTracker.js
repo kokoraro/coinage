@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CoinList from './CoinList';
+import ControlPanel from './ControlPanel';
 import { getPrice } from '../getCoins';
 
 class BitcoinTracker extends Component {
@@ -32,6 +33,7 @@ class BitcoinTracker extends Component {
       <div className="container">
         <h1>coinage</h1>
         <CoinList coinData={ this.state.coins } />
+        <ControlPanel />
       </div>
     )
   }
