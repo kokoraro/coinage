@@ -8,21 +8,33 @@ class BitcoinTracker extends Component {
     super(props);
     this.state = {
       coins: [
-        { id: 0, code: 'BTC', name: "Bitcoin", price: 0 },
-        { id: 1, code: 'ETH', name: "Etherium", price: 0 },
-        { id: 2, code: 'LTC', name: "Litecoin", price: 0 }
+        { id: 0, code: '...', name: "Loading", price: 0 },
       ],
-      currDollar: true
+      currDollar: true,
+      altCoins: [
+        { id: 0, code: 'BTC',  name: 'Bitcoin',  showing: true   },
+        { id: 1, code: 'XRP',  name: 'Ripple',   showing: true   },
+        { id: 2, code: 'LTC',  name: 'Litecoin', showing: true   },
+        { id: 3, code: 'ETH',  name: 'Etherium', showing: true   },
+        { id: 4, code: 'DOGE', name: 'Dogecoin', showing: true   },
+        { id: 5, code: 'XMR',  name: 'Monero',   showing: true   },
+        { id: 6, code: 'ZEC',  name: 'Zcash',    showing: false  },
+        { id: 7, code: 'DSH',  name: 'Dash',     showing: false  },
+        { id: 8, code: 'NEO',  name: 'NEO',      showing: false  },
+        { id: 9, code: 'GNT',  name: 'Golem',    showing: false  }
+      ]
     }
     this.updateCoins = this.updateCoins.bind(this);
   }
 
   async updateCoins() {
-    const codes = this.state.coins.map(c => c.code);
+    const filtered = this.state.altCoins.filter(a => a.showing);
+    
+    const codes = filtered.map(c => c.code);
     
     const prices = await getPrice(codes);
 
-    const coins = this.state.coins.map(c => {
+    const coins = filtered.map(c => {
       return {...c, price: prices[c.code]};
     })
 

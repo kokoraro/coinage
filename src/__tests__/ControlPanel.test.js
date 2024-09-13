@@ -10,9 +10,9 @@ describe("ControlPanel component", () => {
   });
 
   it("add click shows input", () => {
-    expect(controlPanel.find('input').length).toBe(0);
+    expect(controlPanel.find('ul').length).toBe(0);
     controlPanel.find('.add-button').simulate('click');
-    expect(controlPanel.find('input').length).toBe(1);
+    expect(controlPanel.find('ul').length).toBe(1);
   });
 
 });
