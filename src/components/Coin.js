@@ -6,9 +6,10 @@ const Coin = ({ coinData, currDollar }) => {
   const value = Number(coinData.price[currency]).toFixed(2);
   const price = `${currSymbol}${value}`;
 
+  // const firstDiv = null; 
+
   return (
     <li className="coin">
-      <div className="coin-delete">X</div>
       <div className="coin-id">{coinData.id}</div>
       <div className="coin-code">{coinData.code}</div>
       <div className="coin-name">{coinData.name}</div>

@@ -11,6 +11,7 @@ class BitcoinTracker extends Component {
         { id: 0, code: '...', name: "Loading", price: 0 },
       ],
       currDollar: true,
+      addOpen: false,
       coinList: [
         { id: 0, code: 'BTC',  name: 'Bitcoin',  showing: true   },
         { id: 1, code: 'XRP',  name: 'Ripple',   showing: true   },
@@ -52,21 +53,22 @@ class BitcoinTracker extends Component {
 
   render() {
     const coinList = this.state.coinList.filter(c => !c.showing);
+    const { coins, currDollar, addOpen } = this.state;
 
     return (
       <div className="container">
         <h1>coinage</h1>
         <CoinList 
-          coinData={this.state.coins}
-          currDollar={this.state.currDollar}
+          coinData={coins}
+          currDollar={currDollar}
         />
         <ControlPanel 
           selectCoins={coinList}
           handleRefresh={this.updateCoins}
           handleAddCoins={this.handleAddCoins}
-          handleCurrency={() => this.setState({
-            currDollar: !this.state.currDollar}
-          )} 
+          addOpen={addOpen}
+          toggleAddOpen={() => this.setState({addOpen: !addOpen})}
+          handleCurrency={() => this.setState({currDollar: !currDollar})} 
         />
       </div>
     )
