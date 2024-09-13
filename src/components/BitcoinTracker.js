@@ -17,7 +17,7 @@ class BitcoinTracker extends Component {
         { id: 2, code: 'LTC',  name: 'Litecoin', showing: true   },
         { id: 3, code: 'ETH',  name: 'Etherium', showing: true   },
         { id: 4, code: 'DOGE', name: 'Dogecoin', showing: false  },
-        { id: 5, code: 'XMR',  name: 'Monero',   showing: true   },
+        { id: 5, code: 'XMR',  name: 'Monero',   showing: false  },
         { id: 6, code: 'ZEC',  name: 'Zcash',    showing: false  },
         { id: 7, code: 'DSH',  name: 'Dash',     showing: false  },
         { id: 8, code: 'NEO',  name: 'NEO',      showing: false  },
@@ -61,7 +61,7 @@ class BitcoinTracker extends Component {
           currDollar={this.state.currDollar}
         />
         <ControlPanel 
-          altCoins={coinList}
+          selectCoins={coinList}
           handleRefresh={this.updateCoins}
           handleAddCoins={this.handleAddCoins}
           handleCurrency={() => this.setState({
