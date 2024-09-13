@@ -1,16 +1,20 @@
 import React from 'react';
 
-const Coin = ({ coinData, currDollar }) => {
+const Coin = ({ coinData, currDollar, addOpen }) => {
   const currency = currDollar ? 'USD' : 'GBP';
   const currSymbol = currDollar ? '$' : '£';
   const value = Number(coinData.price[currency]).toFixed(2);
   const price = `${currSymbol}${value}`;
 
-  // const firstDiv = null; 
+  const firstDiv = addOpen ? (
+    <div className="coin-delete">X</div>
+  ) : (
+    <div className="coin-id">{coinData.id}</div>
+  ) 
 
   return (
     <li className="coin">
-      <div className="coin-id">{coinData.id}</div>
+      {firstDiv}
       <div className="coin-code">{coinData.code}</div>
       <div className="coin-name">{coinData.name}</div>
       <div className="coin-price">{price}</div>

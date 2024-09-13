@@ -61,6 +61,7 @@ class BitcoinTracker extends Component {
         <CoinList 
           coinData={coins}
           currDollar={currDollar}
+          addOpen={addOpen}
         />
         <ControlPanel 
           selectCoins={coinList}
