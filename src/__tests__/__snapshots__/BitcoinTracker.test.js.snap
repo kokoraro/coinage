@@ -35,6 +35,34 @@ ShallowWrapper {
           currDollar={true}
         />,
         <ControlPanel
+          altCoins={
+            Array [
+              Object {
+                "code": "ZEC",
+                "id": 6,
+                "name": "Zcash",
+                "showing": false,
+              },
+              Object {
+                "code": "DSH",
+                "id": 7,
+                "name": "Dash",
+                "showing": false,
+              },
+              Object {
+                "code": "NEO",
+                "id": 8,
+                "name": "NEO",
+                "showing": false,
+              },
+              Object {
+                "code": "GNT",
+                "id": 9,
+                "name": "Golem",
+                "showing": false,
+              },
+            ]
+          }
           handleCurrency={[Function]}
           handleRefresh={[Function]}
         />,
@@ -78,6 +106,32 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
+          "altCoins": Array [
+            Object {
+              "code": "ZEC",
+              "id": 6,
+              "name": "Zcash",
+              "showing": false,
+            },
+            Object {
+              "code": "DSH",
+              "id": 7,
+              "name": "Dash",
+              "showing": false,
+            },
+            Object {
+              "code": "NEO",
+              "id": 8,
+              "name": "NEO",
+              "showing": false,
+            },
+            Object {
+              "code": "GNT",
+              "id": 9,
+              "name": "Golem",
+              "showing": false,
+            },
+          ],
           "handleCurrency": [Function],
           "handleRefresh": [Function],
         },
@@ -112,6 +166,34 @@ ShallowWrapper {
             currDollar={true}
           />,
           <ControlPanel
+            altCoins={
+              Array [
+                Object {
+                  "code": "ZEC",
+                  "id": 6,
+                  "name": "Zcash",
+                  "showing": false,
+                },
+                Object {
+                  "code": "DSH",
+                  "id": 7,
+                  "name": "Dash",
+                  "showing": false,
+                },
+                Object {
+                  "code": "NEO",
+                  "id": 8,
+                  "name": "NEO",
+                  "showing": false,
+                },
+                Object {
+                  "code": "GNT",
+                  "id": 9,
+                  "name": "Golem",
+                  "showing": false,
+                },
+              ]
+            }
             handleCurrency={[Function]}
             handleRefresh={[Function]}
           />,
@@ -155,6 +237,32 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "altCoins": Array [
+              Object {
+                "code": "ZEC",
+                "id": 6,
+                "name": "Zcash",
+                "showing": false,
+              },
+              Object {
+                "code": "DSH",
+                "id": 7,
+                "name": "Dash",
+                "showing": false,
+              },
+              Object {
+                "code": "NEO",
+                "id": 8,
+                "name": "NEO",
+                "showing": false,
+              },
+              Object {
+                "code": "GNT",
+                "id": 9,
+                "name": "Golem",
+                "showing": false,
+              },
+            ],
             "handleCurrency": [Function],
             "handleRefresh": [Function],
           },
