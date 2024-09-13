@@ -1,10 +1,10 @@
 import React from 'react';
 import Coin from './Coin';
 
-const CoinList = ({ coinData, currDollar, addOpen }) => {
+const CoinList = ({ coinData, currDollar, addOpen, handleDelete }) => {
   const coins = coinData ? (
     coinData.map(c => (
-      <Coin coinData={c} currDollar={currDollar} key={c.id} addOpen={addOpen} />
+      <Coin coinData={c} currDollar={currDollar} key={c.id} addOpen={addOpen} handleDelete={handleDelete} />
     ))
   ) : null;
   return (

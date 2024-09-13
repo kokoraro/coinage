@@ -27,6 +27,7 @@ class BitcoinTracker extends Component {
       ]
     }
     this.updateCoins = this.updateCoins.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.handleAddCoins = this.handleAddCoins.bind(this);
   }
 
@@ -47,6 +48,13 @@ class BitcoinTracker extends Component {
     this.setState({coinList}, () => this.updateCoins());
   }
 
+  handleDelete(id) {
+    const coinList = this.state.coinList.map(c => (
+      c.id === id ? { ...c, showing: false } : c
+    ));
+    this.setState({ coinList }, () => this.updateCoins());
+  }
+
   componentDidMount() {
     this.updateCoins()
   }
@@ -62,6 +70,7 @@ class BitcoinTracker extends Component {
           coinData={coins}
           currDollar={currDollar}
           addOpen={addOpen}
+          handleDelete={this.handleDelete}
         />
         <ControlPanel 
           selectCoins={coinList}
