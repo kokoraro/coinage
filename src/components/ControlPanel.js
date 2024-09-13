@@ -12,13 +12,14 @@ class ControlPanel extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.selectCoins !== this.props.altCoins) {
-      this.setState({ selectCoins: this.props.altCoins });
+    const {selectCoins} = this.props;
+    if (nextProps.selectCoins !== selectCoins) {
+      this.setState({ selectCoins, addOpen: false });
     }
   }
     
   componentDidMount() {
-    const selectCoins = this.props.altCoins;
+    const selectCoins = this.props.selectCoins;
     this.setState({ selectCoins });
   }
 
@@ -40,6 +41,7 @@ class ControlPanel extends Component {
     const {addOpen} = this.state;
     const form = addOpen ? (
       <div>
+        <h4>choose coins to add</h4>
         <div className="add-coins"> 
           {this.state.selectCoins.map(c => (
             <AddCoinListItem 
@@ -60,8 +62,9 @@ class ControlPanel extends Component {
         <div className="control-panel">    
           <button 
             className="add-button"
-            onClick={() => this.setState({addOpen: !addOpen})}
-          >Add</button>    
+            onClick={() => this.setState({addOpen: !addOpen})} >
+            Add
+          </button>    
           <button onClick={this.props.handleCurrency}>Currency</button>
           <button onClick={this.props.handleRefresh}>Refresh</button>
         </div>
