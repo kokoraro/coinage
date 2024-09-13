@@ -10,10 +10,12 @@ ShallowWrapper {
         "id": 0,
         "name": "Test",
         "price": Object {
+          "GBP": 1,
           "USD": 1,
         },
       }
     }
+    currDollar={true}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -44,7 +46,7 @@ ShallowWrapper {
         <div
           className="coin-price"
         >
-          $1
+          $1.00
         </div>,
       ],
       "className": "coin",
@@ -92,11 +94,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "$1",
+          "children": "$1.00",
           "className": "coin-price",
         },
         "ref": null,
-        "rendered": "$1",
+        "rendered": "$1.00",
         "type": "div",
       },
     ],
@@ -125,7 +127,7 @@ ShallowWrapper {
           <div
             className="coin-price"
           >
-            $1
+            $1.00
           </div>,
         ],
         "className": "coin",
@@ -173,11 +175,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "$1",
+            "children": "$1.00",
             "className": "coin-price",
           },
           "ref": null,
-          "rendered": "$1",
+          "rendered": "$1.00",
           "type": "div",
         },
       ],
