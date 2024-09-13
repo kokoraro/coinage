@@ -1,7 +1,8 @@
 export default function request(codes) {
-  const to = "USD,GBP";
+  const url = 'https://min-api.cryptocompare.com/data/pricemulti?fsyms='
   const from = codes.join(',');
-  return fetch(`https://min-api.cryptocompare.com/data/pricemulti?fsyms=${from}&tsyms=${to}`)
+
+  return fetch(`${url}${from}&tsyms=USD,GBP`)
     .then(response => response.json())
     .then(data => data)
     .catch(error => error);
