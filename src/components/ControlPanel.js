@@ -7,23 +7,25 @@ class ControlPanel extends Component {
       addOpen: false
     }
   }
+
   render() {
     const {addOpen} = this.state;
     const form = addOpen ? (
-      <input 
-        type="text"
-        placeholder="Type coin name here"
-      />
+      <ul> 
+        List
+      </ul>
     ) : null;
 
     return (
-      <div className="control-panel">    
-        <button 
-          className="add-button"
-          onClick={() => this.setState({addOpen: !addOpen})}
-        >Add</button>    
-        <button onClick={this.props.handleCurrency} >Currency</button>
-        <button onClick={this.props.handleRefresh} >Refresh</button>
+      <div>
+        <div className="control-panel">    
+          <button 
+            className="add-button"
+            onClick={() => this.setState({addOpen: !addOpen})}
+          >Add</button>    
+          <button onClick={this.props.handleCurrency} >Currency</button>
+          <button onClick={this.props.handleRefresh} >Refresh</button>
+        </div>
         {form}
       </div>
     )

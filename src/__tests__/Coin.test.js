@@ -30,7 +30,7 @@ describe("Coin Component", () => {
     const coin = shallow(<Coin { ...minProps } />);
     expect(coin.find('.coin-price').text()).toBe("$1.00");
     
-    coin.setProps({ ...minProps, coinData:{price:{USD:2}} })
+    coin.setProps({ ...minProps, coinData:{ price:{ USD:2 } } })
     expect(coin.find('.coin-price').text()).toBe("$2.00");
   });
 
