@@ -69,6 +69,7 @@ ShallowWrapper {
               },
             ]
           }
+          handleAddCoins={[Function]}
           handleCurrency={[Function]}
           handleRefresh={[Function]}
         />,
@@ -144,6 +145,7 @@ ShallowWrapper {
               "showing": false,
             },
           ],
+          "handleAddCoins": [Function],
           "handleCurrency": [Function],
           "handleRefresh": [Function],
         },
@@ -212,6 +214,7 @@ ShallowWrapper {
                 },
               ]
             }
+            handleAddCoins={[Function]}
             handleCurrency={[Function]}
             handleRefresh={[Function]}
           />,
@@ -287,6 +290,7 @@ ShallowWrapper {
                 "showing": false,
               },
             ],
+            "handleAddCoins": [Function],
             "handleCurrency": [Function],
             "handleRefresh": [Function],
           },
