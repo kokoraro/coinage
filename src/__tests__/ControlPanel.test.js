@@ -14,4 +14,5 @@ describe("ControlPanel component", () => {
     controlPanel.find('.add-button').simulate('click');
     expect(controlPanel.find('input').length).toBe(1);
   });
+
 });

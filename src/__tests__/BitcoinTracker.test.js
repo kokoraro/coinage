@@ -22,7 +22,7 @@ describe("Bitcoin Tracker app", () => {
     expect(app.find(ControlPanel).length).toBe(1);
   });
 
-  describe('#getPrice() using Promises', () => {
+  describe('get price using promises', () => {
     it('should load price', () => {
       expect.assertions(1)
 
