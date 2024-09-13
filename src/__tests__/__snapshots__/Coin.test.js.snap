@@ -31,6 +31,11 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <div
+          className="coin-delete"
+        >
+          X
+        </div>,
+        <div
           className="coin-id"
         >
           0
@@ -53,6 +58,18 @@ ShallowWrapper {
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "X",
+          "className": "coin-delete",
+        },
+        "ref": null,
+        "rendered": "X",
+        "type": "div",
+      },
       Object {
         "instance": null,
         "key": undefined,
@@ -112,6 +129,11 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <div
+            className="coin-delete"
+          >
+            X
+          </div>,
+          <div
             className="coin-id"
           >
             0
@@ -134,6 +156,18 @@ ShallowWrapper {
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "X",
+            "className": "coin-delete",
+          },
+          "ref": null,
+          "rendered": "X",
+          "type": "div",
+        },
         Object {
           "instance": null,
           "key": undefined,
