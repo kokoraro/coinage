@@ -26,20 +26,25 @@ class BitcoinTracker extends Component {
       ]
     }
     this.updateCoins = this.updateCoins.bind(this);
+    this.handleAddCoins = this.handleAddCoins.bind(this);
   }
 
   async updateCoins() {
     const filtered = this.state.altCoins.filter(a => a.showing);
-    
     const codes = filtered.map(c => c.code);
-    
     const prices = await getPrice(codes);
-
     const coins = filtered.map(c => {
       return {...c, price: prices[c.code]};
-    })
-
+    });
     this.setState({coins});
+  }
+
+  handleAddCoins(ids) {
+    console.log(ids);
+    const altCoins = this.state.altCoins.map(c => (
+      ids.includes(c.id) ? { ...c, showing: true } : c
+    ));
+    this.setState({altCoins}, () => this.updateCoins());
   }
 
   componentDidMount() {
@@ -59,6 +64,7 @@ class BitcoinTracker extends Component {
         <ControlPanel 
           altCoins={altCoins}
           handleRefresh={this.updateCoins}
+          handleAddCoins={this.handleAddCoins}
           handleCurrency={() => this.setState({
             currDollar: !this.state.currDollar}
           )} 

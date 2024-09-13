@@ -6,20 +6,28 @@ class ControlPanel extends Component {
     super(props);
     this.state = {
       addOpen: false,
-      selectCoinsIds: null 
+      selectCoins: null 
     }
+    this.handleAddSubmit = this.handleAddSubmit.bind(this);
   }
 
   componentDidMount() {
-    const selectCoinsIds = this.props.altCoins;
-    this.setState({ selectCoinsIds });
+    const selectCoins = this.props.altCoins;
+    this.setState({ selectCoins });
   }
 
   handleAddCoinClick(id) {
-    const selectCoinsIds = this.state.selectCoinsIds.map(c => (
+    const selectCoins = this.state.selectCoins.map(c => (
       c.id === id ? {...c, showing: !c.showing } : c
     ));
-    this.setState({ selectCoinsIds });
+    this.setState({ selectCoins });
+  }
+
+  handleAddSubmit() {
+    const selectCoins = this.state.selectCoins
+      .filter(c => c.showing)
+      .map(c => c.id);
+    this.props.handleAddCoins(selectCoins);
   }
 
   render() {
@@ -27,7 +35,7 @@ class ControlPanel extends Component {
     const form = addOpen ? (
       <div>
         <div className="add-coins"> 
-          {this.state.selectCoinsIds.map(c => (
+          {this.state.selectCoins.map(c => (
             <AddCoinListItem 
               handleAddCoinClick={() => this.handleAddCoinClick(c.id)} 
               key={c.id} 
@@ -35,7 +43,9 @@ class ControlPanel extends Component {
             />
           ))}
         </div>
-        <button className="add-coins-submit">Submit</button>
+        <button 
+          onClick={this.handleAddSubmit} 
+          className="add-coins-submit">Submit</button>
       </div>
     ) : null;
 
