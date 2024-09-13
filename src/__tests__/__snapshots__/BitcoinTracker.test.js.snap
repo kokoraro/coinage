@@ -38,6 +38,12 @@ ShallowWrapper {
           altCoins={
             Array [
               Object {
+                "code": "DOGE",
+                "id": 4,
+                "name": "Dogecoin",
+                "showing": false,
+              },
+              Object {
                 "code": "ZEC",
                 "id": 6,
                 "name": "Zcash",
@@ -108,6 +114,12 @@ ShallowWrapper {
         "props": Object {
           "altCoins": Array [
             Object {
+              "code": "DOGE",
+              "id": 4,
+              "name": "Dogecoin",
+              "showing": false,
+            },
+            Object {
               "code": "ZEC",
               "id": 6,
               "name": "Zcash",
@@ -168,6 +180,12 @@ ShallowWrapper {
           <ControlPanel
             altCoins={
               Array [
+                Object {
+                  "code": "DOGE",
+                  "id": 4,
+                  "name": "Dogecoin",
+                  "showing": false,
+                },
                 Object {
                   "code": "ZEC",
                   "id": 6,
@@ -238,6 +256,12 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "altCoins": Array [
+              Object {
+                "code": "DOGE",
+                "id": 4,
+                "name": "Dogecoin",
+                "showing": false,
+              },
               Object {
                 "code": "ZEC",
                 "id": 6,
