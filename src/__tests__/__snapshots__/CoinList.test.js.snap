@@ -29,6 +29,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Coin
+          addOpen={undefined}
           coinData={
             Object {
               "id": 1,
@@ -48,6 +49,7 @@ ShallowWrapper {
         "key": "1",
         "nodeType": "function",
         "props": Object {
+          "addOpen": undefined,
           "coinData": Object {
             "id": 1,
             "name": "Bitcoin",
@@ -70,6 +72,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Coin
+            addOpen={undefined}
             coinData={
               Object {
                 "id": 1,
@@ -89,6 +92,7 @@ ShallowWrapper {
           "key": "1",
           "nodeType": "function",
           "props": Object {
+            "addOpen": undefined,
             "coinData": Object {
               "id": 1,
               "name": "Bitcoin",
