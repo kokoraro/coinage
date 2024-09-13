@@ -4,7 +4,15 @@ exports[`AddCoinsListItem component renders correctly 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <addCoinListItem />,
+  Symbol(enzyme.__unrendered__): <AddCoinListItem
+    data={
+      Object {
+        "id": 0,
+        "name": "Dogecoin",
+        "showing": false,
+      }
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -16,20 +24,28 @@ ShallowWrapper {
     "instance": null,
     "key": undefined,
     "nodeType": "host",
-    "props": Object {},
+    "props": Object {
+      "children": "Dogecoin",
+      "onClick": undefined,
+      "style": null,
+    },
     "ref": null,
-    "rendered": null,
-    "type": "addCoinListItem",
+    "rendered": "Dogecoin",
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
       "nodeType": "host",
-      "props": Object {},
+      "props": Object {
+        "children": "Dogecoin",
+        "onClick": undefined,
+        "style": null,
+      },
       "ref": null,
-      "rendered": null,
-      "type": "addCoinListItem",
+      "rendered": "Dogecoin",
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
