@@ -25,21 +25,9 @@ ShallowWrapper {
           coinData={
             Array [
               Object {
-                "code": "BTC",
+                "code": "...",
                 "id": 0,
-                "name": "Bitcoin",
-                "price": 0,
-              },
-              Object {
-                "code": "ETH",
-                "id": 1,
-                "name": "Etherium",
-                "price": 0,
-              },
-              Object {
-                "code": "LTC",
-                "id": 2,
-                "name": "Litecoin",
+                "name": "Loading",
                 "price": 0,
               },
             ]
@@ -73,21 +61,9 @@ ShallowWrapper {
         "props": Object {
           "coinData": Array [
             Object {
-              "code": "BTC",
+              "code": "...",
               "id": 0,
-              "name": "Bitcoin",
-              "price": 0,
-            },
-            Object {
-              "code": "ETH",
-              "id": 1,
-              "name": "Etherium",
-              "price": 0,
-            },
-            Object {
-              "code": "LTC",
-              "id": 2,
-              "name": "Litecoin",
+              "name": "Loading",
               "price": 0,
             },
           ],
@@ -126,21 +102,9 @@ ShallowWrapper {
             coinData={
               Array [
                 Object {
-                  "code": "BTC",
+                  "code": "...",
                   "id": 0,
-                  "name": "Bitcoin",
-                  "price": 0,
-                },
-                Object {
-                  "code": "ETH",
-                  "id": 1,
-                  "name": "Etherium",
-                  "price": 0,
-                },
-                Object {
-                  "code": "LTC",
-                  "id": 2,
-                  "name": "Litecoin",
+                  "name": "Loading",
                   "price": 0,
                 },
               ]
@@ -174,21 +138,9 @@ ShallowWrapper {
           "props": Object {
             "coinData": Array [
               Object {
-                "code": "BTC",
+                "code": "...",
                 "id": 0,
-                "name": "Bitcoin",
-                "price": 0,
-              },
-              Object {
-                "code": "ETH",
-                "id": 1,
-                "name": "Etherium",
-                "price": 0,
-              },
-              Object {
-                "code": "LTC",
-                "id": 2,
-                "name": "Litecoin",
+                "name": "Loading",
                 "price": 0,
               },
             ],
