@@ -5,7 +5,6 @@ class ControlPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      addOpen: false,
       selectCoins: null 
     }
     this.handleAddSubmit = this.handleAddSubmit.bind(this);
@@ -14,7 +13,7 @@ class ControlPanel extends Component {
   componentWillReceiveProps(nextProps) {
     const {selectCoins} = this.props;
     if (nextProps.selectCoins !== selectCoins) {
-      this.setState({ selectCoins, addOpen: false });
+      this.setState({ selectCoins });
     }
   }
     
@@ -38,7 +37,7 @@ class ControlPanel extends Component {
   }
 
   render() {
-    const {addOpen} = this.state;
+    const {addOpen} = this.props;
     const form = addOpen ? (
       <div>
         <h4>choose coins to add</h4>
@@ -62,7 +61,7 @@ class ControlPanel extends Component {
         <div className="control-panel">    
           <button 
             className="add-button"
-            onClick={() => this.setState({addOpen: !addOpen})} >
+            onClick={this.props.toggleAddOpen} >
             Add
           </button>    
           <button onClick={this.props.handleCurrency}>Currency</button>
