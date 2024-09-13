@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddCoinListItem from './AddCoinListItem'
 
 class ControlPanel extends Component {
   constructor(props) {
@@ -12,7 +13,9 @@ class ControlPanel extends Component {
     const {addOpen} = this.state;
     const form = addOpen ? (
       <ul> 
-        List
+        {this.props.altCoins.map(c => (
+          <AddCoinListItem key={c.id} name={c.name} />
+        ))}
       </ul>
     ) : null;
 
@@ -23,8 +26,8 @@ class ControlPanel extends Component {
             className="add-button"
             onClick={() => this.setState({addOpen: !addOpen})}
           >Add</button>    
-          <button onClick={this.props.handleCurrency} >Currency</button>
-          <button onClick={this.props.handleRefresh} >Refresh</button>
+          <button onClick={this.props.handleCurrency}>Currency</button>
+          <button onClick={this.props.handleRefresh}>Refresh</button>
         </div>
         {form}
       </div>
