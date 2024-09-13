@@ -20,14 +20,14 @@ h1
 .coin-list
   list-style: none
 
-ul
-  padding: 0
-
   li
     display: grid
     grid-template-columns: repeat(7, 1fr)
     padding: 25px 0
     border-top: 2px solid lightgrey
+
+ul
+  padding: 0
 
   .coin-name
     grid-column: 3 / 6
@@ -41,7 +41,6 @@ ul
   padding: 0 10px
   display: grid
   grid-template-columns: repeat(3, 1fr)
-  grid-template-rows: repeat(2, 1fr)
   grid-gap: 5px
 
   input
@@ -64,3 +63,19 @@ button
   &:hover
     color: white
     background: coral
+
+.add-coins
+  margin-top: 15px
+  padding: 0 6px
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  grid-gap: 6px
+
+  div
+    cursor: pointer
+    border: 1px solid lightgrey
+    padding: 20px 50px
+
+    &:hover
+      color: white
+      background: lightgrey
