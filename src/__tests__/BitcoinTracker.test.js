@@ -5,7 +5,7 @@ import CoinList from '../components/CoinList';
 import ControlPanel from '../components/ControlPanel';
 
 jest.mock('../request');
-import * as getCoins from '../getCoins';
+import { getPrice } from '../getCoins';
 const app = shallow(<BitcoinTracker />);
 
 describe("Bitcoin Tracker app", () => {
@@ -24,12 +24,12 @@ describe("Bitcoin Tracker app", () => {
 
   describe('#getPrice() using Promises', () => {
     it('should load price', () => {
-      return getCoins.getPrice('BTC')
-        .then(data => {
-          expect(data).toBeDefined()
-          expect(data.GBP).toEqual(6249.91)
-        })
+      expect.assertions(1)
+
+      return Promise.resolve(getPrice('BTC'))
+        .then(data => expect(data.GBP).toEqual(6249.91))
     })
+
   })
   
 });
