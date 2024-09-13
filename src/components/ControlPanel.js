@@ -12,11 +12,11 @@ class ControlPanel extends Component {
   render() {
     const {addOpen} = this.state;
     const form = addOpen ? (
-      <ul> 
+      <div className="add-coins"> 
         {this.props.altCoins.map(c => (
           <AddCoinListItem key={c.id} name={c.name} />
         ))}
-      </ul>
+      </div>
     ) : null;
 
     return (
