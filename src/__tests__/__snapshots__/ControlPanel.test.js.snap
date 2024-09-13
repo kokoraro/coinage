@@ -18,25 +18,28 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <button
-          className="add-button"
-          onClick={[Function]}
+        <div
+          className="control-panel"
         >
-          Add
-        </button>,
-        <button
-          onClick={undefined}
-        >
-          Currency
-        </button>,
-        <button
-          onClick={undefined}
-        >
-          Refresh
-        </button>,
+          <button
+            className="add-button"
+            onClick={[Function]}
+          >
+            Add
+          </button>
+          <button
+            onClick={undefined}
+          >
+            Currency
+          </button>
+          <button
+            onClick={undefined}
+          >
+            Refresh
+          </button>
+        </div>,
         null,
       ],
-      "className": "control-panel",
     },
     "ref": null,
     "rendered": Array [
@@ -45,37 +48,67 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Add",
-          "className": "add-button",
-          "onClick": [Function],
+          "children": Array [
+            <button
+              className="add-button"
+              onClick={[Function]}
+            >
+              Add
+            </button>,
+            <button
+              onClick={undefined}
+            >
+              Currency
+            </button>,
+            <button
+              onClick={undefined}
+            >
+              Refresh
+            </button>,
+          ],
+          "className": "control-panel",
         },
         "ref": null,
-        "rendered": "Add",
-        "type": "button",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Currency",
-          "onClick": undefined,
-        },
-        "ref": null,
-        "rendered": "Currency",
-        "type": "button",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Refresh",
-          "onClick": undefined,
-        },
-        "ref": null,
-        "rendered": "Refresh",
-        "type": "button",
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Add",
+              "className": "add-button",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Add",
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Currency",
+              "onClick": undefined,
+            },
+            "ref": null,
+            "rendered": "Currency",
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Refresh",
+              "onClick": undefined,
+            },
+            "ref": null,
+            "rendered": "Refresh",
+            "type": "button",
+          },
+        ],
+        "type": "div",
       },
       null,
     ],
@@ -88,25 +121,28 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <button
-            className="add-button"
-            onClick={[Function]}
+          <div
+            className="control-panel"
           >
-            Add
-          </button>,
-          <button
-            onClick={undefined}
-          >
-            Currency
-          </button>,
-          <button
-            onClick={undefined}
-          >
-            Refresh
-          </button>,
+            <button
+              className="add-button"
+              onClick={[Function]}
+            >
+              Add
+            </button>
+            <button
+              onClick={undefined}
+            >
+              Currency
+            </button>
+            <button
+              onClick={undefined}
+            >
+              Refresh
+            </button>
+          </div>,
           null,
         ],
-        "className": "control-panel",
       },
       "ref": null,
       "rendered": Array [
@@ -115,37 +151,67 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Add",
-            "className": "add-button",
-            "onClick": [Function],
+            "children": Array [
+              <button
+                className="add-button"
+                onClick={[Function]}
+              >
+                Add
+              </button>,
+              <button
+                onClick={undefined}
+              >
+                Currency
+              </button>,
+              <button
+                onClick={undefined}
+              >
+                Refresh
+              </button>,
+            ],
+            "className": "control-panel",
           },
           "ref": null,
-          "rendered": "Add",
-          "type": "button",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Currency",
-            "onClick": undefined,
-          },
-          "ref": null,
-          "rendered": "Currency",
-          "type": "button",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Refresh",
-            "onClick": undefined,
-          },
-          "ref": null,
-          "rendered": "Refresh",
-          "type": "button",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Add",
+                "className": "add-button",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Add",
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Currency",
+                "onClick": undefined,
+              },
+              "ref": null,
+              "rendered": "Currency",
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Refresh",
+                "onClick": undefined,
+              },
+              "ref": null,
+              "rendered": "Refresh",
+              "type": "button",
+            },
+          ],
+          "type": "div",
         },
         null,
       ],
