@@ -46,6 +46,8 @@ class BitcoinTracker extends Component {
   }
 
   render() {
+    const altCoins = this.state.altCoins.filter(c => !c.showing);
+
     return (
       <div className="container">
         <h1>coinage</h1>
@@ -54,7 +56,8 @@ class BitcoinTracker extends Component {
           currDollar={this.state.currDollar}
         />
         <ControlPanel 
-          handleRefresh={this.updateCoins} 
+          altCoins={altCoins}
+          handleRefresh={this.updateCoins}
           handleCurrency={() => this.setState({
             currDollar: !this.state.currDollar}
           )} 
