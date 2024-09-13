@@ -8,6 +8,7 @@ const Coin = ({ coinData, currDollar }) => {
 
   return (
     <li className="coin">
+      <div className="coin-delete">X</div>
       <div className="coin-id">{coinData.id}</div>
       <div className="coin-code">{coinData.code}</div>
       <div className="coin-name">{coinData.name}</div>

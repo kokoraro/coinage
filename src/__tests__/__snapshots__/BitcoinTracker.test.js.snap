@@ -35,12 +35,21 @@ ShallowWrapper {
           currDollar={true}
         />,
         <ControlPanel
-          altCoins={
+          handleAddCoins={[Function]}
+          handleCurrency={[Function]}
+          handleRefresh={[Function]}
+          selectCoins={
             Array [
               Object {
                 "code": "DOGE",
                 "id": 4,
                 "name": "Dogecoin",
+                "showing": false,
+              },
+              Object {
+                "code": "XMR",
+                "id": 5,
+                "name": "Monero",
                 "showing": false,
               },
               Object {
@@ -69,9 +78,6 @@ ShallowWrapper {
               },
             ]
           }
-          handleAddCoins={[Function]}
-          handleCurrency={[Function]}
-          handleRefresh={[Function]}
         />,
       ],
       "className": "container",
@@ -113,11 +119,20 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "altCoins": Array [
+          "handleAddCoins": [Function],
+          "handleCurrency": [Function],
+          "handleRefresh": [Function],
+          "selectCoins": Array [
             Object {
               "code": "DOGE",
               "id": 4,
               "name": "Dogecoin",
+              "showing": false,
+            },
+            Object {
+              "code": "XMR",
+              "id": 5,
+              "name": "Monero",
               "showing": false,
             },
             Object {
@@ -145,9 +160,6 @@ ShallowWrapper {
               "showing": false,
             },
           ],
-          "handleAddCoins": [Function],
-          "handleCurrency": [Function],
-          "handleRefresh": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -180,12 +192,21 @@ ShallowWrapper {
             currDollar={true}
           />,
           <ControlPanel
-            altCoins={
+            handleAddCoins={[Function]}
+            handleCurrency={[Function]}
+            handleRefresh={[Function]}
+            selectCoins={
               Array [
                 Object {
                   "code": "DOGE",
                   "id": 4,
                   "name": "Dogecoin",
+                  "showing": false,
+                },
+                Object {
+                  "code": "XMR",
+                  "id": 5,
+                  "name": "Monero",
                   "showing": false,
                 },
                 Object {
@@ -214,9 +235,6 @@ ShallowWrapper {
                 },
               ]
             }
-            handleAddCoins={[Function]}
-            handleCurrency={[Function]}
-            handleRefresh={[Function]}
           />,
         ],
         "className": "container",
@@ -258,11 +276,20 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "altCoins": Array [
+            "handleAddCoins": [Function],
+            "handleCurrency": [Function],
+            "handleRefresh": [Function],
+            "selectCoins": Array [
               Object {
                 "code": "DOGE",
                 "id": 4,
                 "name": "Dogecoin",
+                "showing": false,
+              },
+              Object {
+                "code": "XMR",
+                "id": 5,
+                "name": "Monero",
                 "showing": false,
               },
               Object {
@@ -290,9 +317,6 @@ ShallowWrapper {
                 "showing": false,
               },
             ],
-            "handleAddCoins": [Function],
-            "handleCurrency": [Function],
-            "handleRefresh": [Function],
           },
           "ref": null,
           "rendered": null,

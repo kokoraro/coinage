@@ -1,7 +1,7 @@
 body
   font-family: Roboto
   background: lightgrey
-  font-size: 22px
+  font-size: 20px
 
 h1, .coin-code
   text-transform: uppercase
@@ -25,20 +25,31 @@ h1
     grid-template-columns: repeat(7, 1fr)
     padding: 25px 0
     border-top: 2px solid lightgrey
+    position: relative
 
     &:last-of-type
       border-bottom: 2px solid lightgrey
 
+    &:hover .coin-delete
+      display: block
+
 ul
   padding: 0
 
-  .coin-name
-    grid-column: 3 / 6
+.coin-delete
+  display: none
+  background: white
+  color: red
+  position: absolute
+  padding: 25px 18px
 
-  .coin-price
-    text-align: right
-    padding-right: 10px
-    grid-column: 6 / 8
+.coin-name
+  grid-column: 3 / 6
+
+.coin-price
+  text-align: right
+  padding-right: 10px
+  grid-column: 6 / 8
 
 .control-panel
   padding: 0 10px 10px
@@ -67,6 +78,9 @@ button
     color: white
     background: coral
 
+h4
+  color: grey
+
 .add-coins
   margin-top: 15px
   padding: 0 10px
@@ -85,5 +99,5 @@ button
       background: lightgrey
 
 .add-coins-submit
-  margin: 10px 15px
+  margin: 20px 15px
   padding: 10px 50px
