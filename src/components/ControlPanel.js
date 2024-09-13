@@ -22,7 +22,7 @@ class ControlPanel extends Component {
           className="add-button"
           onClick={() => this.setState({addOpen: !addOpen})}
         >Add</button>    
-        <button>Remove</button>
+        <button onClick={this.props.handleCurrency} >Currency</button>
         <button onClick={this.props.handleRefresh} >Refresh</button>
         {form}
       </div>

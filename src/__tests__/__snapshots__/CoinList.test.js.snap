@@ -36,6 +36,7 @@ ShallowWrapper {
               "price": 2000,
             }
           }
+          currDollar={undefined}
         />,
       ],
       "className": "coin-list",
@@ -52,6 +53,7 @@ ShallowWrapper {
             "name": "Bitcoin",
             "price": 2000,
           },
+          "currDollar": undefined,
         },
         "ref": null,
         "rendered": null,
@@ -75,6 +77,7 @@ ShallowWrapper {
                 "price": 2000,
               }
             }
+            currDollar={undefined}
           />,
         ],
         "className": "coin-list",
@@ -91,6 +94,7 @@ ShallowWrapper {
               "name": "Bitcoin",
               "price": 2000,
             },
+            "currDollar": undefined,
           },
           "ref": null,
           "rendered": null,
