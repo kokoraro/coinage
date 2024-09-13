@@ -10,10 +10,10 @@ describe("ControlPanel component", () => {
     expect(controlPanel).toMatchSnapshot();
   });
 
-  it("add click shows input", () => {
-    expect(controlPanel.find('ul').length).toBe(0);
+  it("add click shows add coins items", () => {
+    expect(controlPanel.find('.add-coins').length).toBe(0);
     controlPanel.find('.add-button').simulate('click');
-    expect(controlPanel.find('ul').length).toBe(1);
+    expect(controlPanel.find('.add-coins').length).toBe(1);
   });
 
 });

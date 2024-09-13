@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AddCoinListItem = ({name}) => {
-  return <li>{name}</li>
+  return <div>{name}</div>
 }
 
 export default AddCoinListItem;
