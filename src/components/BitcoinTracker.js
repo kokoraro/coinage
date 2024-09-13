@@ -11,7 +11,7 @@ class BitcoinTracker extends Component {
         { id: 0, code: '...', name: "Loading", price: 0 },
       ],
       currDollar: true,
-      altCoins: [
+      coinList: [
         { id: 0, code: 'BTC',  name: 'Bitcoin',  showing: true   },
         { id: 1, code: 'XRP',  name: 'Ripple',   showing: true   },
         { id: 2, code: 'LTC',  name: 'Litecoin', showing: true   },
@@ -30,7 +30,7 @@ class BitcoinTracker extends Component {
   }
 
   async updateCoins() {
-    const filtered = this.state.altCoins.filter(a => a.showing);
+    const filtered = this.state.coinList.filter(a => a.showing);
     const codes = filtered.map(c => c.code);
     const prices = await getPrice(codes);
     const coins = filtered.map(c => {
@@ -40,11 +40,10 @@ class BitcoinTracker extends Component {
   }
 
   handleAddCoins(ids) {
-    console.log(ids);
-    const altCoins = this.state.altCoins.map(c => (
+    const coinList = this.state.coinList.map(c => (
       ids.includes(c.id) ? { ...c, showing: true } : c
     ));
-    this.setState({altCoins}, () => this.updateCoins());
+    this.setState({coinList}, () => this.updateCoins());
   }
 
   componentDidMount() {
@@ -52,7 +51,7 @@ class BitcoinTracker extends Component {
   }
 
   render() {
-    const altCoins = this.state.altCoins.filter(c => !c.showing);
+    const coinList = this.state.coinList.filter(c => !c.showing);
 
     return (
       <div className="container">
@@ -62,7 +61,7 @@ class BitcoinTracker extends Component {
           currDollar={this.state.currDollar}
         />
         <ControlPanel 
-          altCoins={altCoins}
+          altCoins={coinList}
           handleRefresh={this.updateCoins}
           handleAddCoins={this.handleAddCoins}
           handleCurrency={() => this.setState({

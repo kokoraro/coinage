@@ -11,6 +11,12 @@ class ControlPanel extends Component {
     this.handleAddSubmit = this.handleAddSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectCoins !== this.props.altCoins) {
+      this.setState({ selectCoins: this.props.altCoins });
+    }
+  }
+    
   componentDidMount() {
     const selectCoins = this.props.altCoins;
     this.setState({ selectCoins });
