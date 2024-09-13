@@ -5,17 +5,37 @@ class ControlPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      addOpen: false
+      addOpen: false,
+      selectCoinsIds: null 
     }
+  }
+
+  componentDidMount() {
+    const selectCoinsIds = this.props.altCoins;
+    this.setState({ selectCoinsIds });
+  }
+
+  handleAddCoinClick(id) {
+    const selectCoinsIds = this.state.selectCoinsIds.map(c => (
+      c.id === id ? {...c, showing: !c.showing } : c
+    ));
+    this.setState({ selectCoinsIds });
   }
 
   render() {
     const {addOpen} = this.state;
     const form = addOpen ? (
-      <div className="add-coins"> 
-        {this.props.altCoins.map(c => (
-          <AddCoinListItem key={c.id} name={c.name} />
-        ))}
+      <div>
+        <div className="add-coins"> 
+          {this.state.selectCoinsIds.map(c => (
+            <AddCoinListItem 
+              handleAddCoinClick={() => this.handleAddCoinClick(c.id)} 
+              key={c.id} 
+              data={c} 
+            />
+          ))}
+        </div>
+        <button className="add-coins-submit">Submit</button>
       </div>
     ) : null;
 

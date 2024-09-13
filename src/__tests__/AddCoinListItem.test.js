@@ -8,4 +8,9 @@ describe('AddCoinsListItem component', () => {
   it('renders correctly', () => {
     expect(app).toMatchSnapshot();
   });
+
+  xit("selecting coin adds styling changes", () => {
+    // controlPanel.find()
+    // expect(...).toHaveProperty(...)
+  });
 });
