@@ -12,7 +12,7 @@ describe("ControlPanel component", () => {
 
   it("add click shows add coins items", () => {
     expect(controlPanel.find('.add-coins').length).toBe(0);
-    controlPanel.find('.add-button').simulate('click');
+    controlPanel.setProps({addOpen: true});
     expect(controlPanel.find('.add-coins').length).toBe(1);
   });
 

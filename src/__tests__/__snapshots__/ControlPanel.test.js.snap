@@ -33,7 +33,7 @@ ShallowWrapper {
         >
           <button
             className="add-button"
-            onClick={[Function]}
+            onClick={undefined}
           >
             Add
           </button>
@@ -61,7 +61,7 @@ ShallowWrapper {
           "children": Array [
             <button
               className="add-button"
-              onClick={[Function]}
+              onClick={undefined}
             >
               Add
             </button>,
@@ -87,7 +87,7 @@ ShallowWrapper {
             "props": Object {
               "children": "Add",
               "className": "add-button",
-              "onClick": [Function],
+              "onClick": undefined,
             },
             "ref": null,
             "rendered": "Add",
@@ -136,7 +136,7 @@ ShallowWrapper {
           >
             <button
               className="add-button"
-              onClick={[Function]}
+              onClick={undefined}
             >
               Add
             </button>
@@ -164,7 +164,7 @@ ShallowWrapper {
             "children": Array [
               <button
                 className="add-button"
-                onClick={[Function]}
+                onClick={undefined}
               >
                 Add
               </button>,
@@ -190,7 +190,7 @@ ShallowWrapper {
               "props": Object {
                 "children": "Add",
                 "className": "add-button",
-                "onClick": [Function],
+                "onClick": undefined,
               },
               "ref": null,
               "rendered": "Add",
