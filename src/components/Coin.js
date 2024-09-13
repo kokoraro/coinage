@@ -1,7 +1,10 @@
 import React from 'react';
 
-const Coin = ({ coinData }) => {
-  const price = `$${coinData.price.USD}`;
+const Coin = ({ coinData, currDollar }) => {
+  const currency = currDollar ? 'USD' : 'GBP';
+  const currSymbol = currDollar ? '$' : '£';
+  const value = Number(coinData.price[currency]).toFixed(2);
+  const price = `${currSymbol}${value}`;
 
   return (
     <li className="coin">

@@ -44,8 +44,10 @@ ShallowWrapper {
               },
             ]
           }
+          currDollar={true}
         />,
         <ControlPanel
+          handleCurrency={[Function]}
           handleRefresh={[Function]}
         />,
       ],
@@ -89,6 +91,7 @@ ShallowWrapper {
               "price": 0,
             },
           ],
+          "currDollar": true,
         },
         "ref": null,
         "rendered": null,
@@ -99,6 +102,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
+          "handleCurrency": [Function],
           "handleRefresh": [Function],
         },
         "ref": null,
@@ -141,8 +145,10 @@ ShallowWrapper {
                 },
               ]
             }
+            currDollar={true}
           />,
           <ControlPanel
+            handleCurrency={[Function]}
             handleRefresh={[Function]}
           />,
         ],
@@ -186,6 +192,7 @@ ShallowWrapper {
                 "price": 0,
               },
             ],
+            "currDollar": true,
           },
           "ref": null,
           "rendered": null,
@@ -196,6 +203,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "handleCurrency": [Function],
             "handleRefresh": [Function],
           },
           "ref": null,

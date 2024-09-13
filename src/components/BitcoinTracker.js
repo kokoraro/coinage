@@ -12,6 +12,7 @@ class BitcoinTracker extends Component {
         { id: 1, code: 'ETH', name: "Etherium", price: 0 },
         { id: 2, code: 'LTC', name: "Litecoin", price: 0 }
       ],
+      currDollar: true
     }
     this.updateCoins = this.updateCoins.bind(this);
   }
@@ -36,8 +37,16 @@ class BitcoinTracker extends Component {
     return (
       <div className="container">
         <h1>coinage</h1>
-        <CoinList coinData={this.state.coins} />
-        <ControlPanel handleRefresh={this.updateCoins} />
+        <CoinList 
+          coinData={this.state.coins}
+          currDollar={this.state.currDollar}
+        />
+        <ControlPanel 
+          handleRefresh={this.updateCoins} 
+          handleCurrency={() => this.setState({
+            currDollar: !this.state.currDollar}
+          )} 
+        />
       </div>
     )
   }

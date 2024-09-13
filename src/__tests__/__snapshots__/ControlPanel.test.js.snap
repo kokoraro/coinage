@@ -24,8 +24,10 @@ ShallowWrapper {
         >
           Add
         </button>,
-        <button>
-          Remove
+        <button
+          onClick={undefined}
+        >
+          Currency
         </button>,
         <button
           onClick={undefined}
@@ -56,10 +58,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Remove",
+          "children": "Currency",
+          "onClick": undefined,
         },
         "ref": null,
-        "rendered": "Remove",
+        "rendered": "Currency",
         "type": "button",
       },
       Object {
@@ -91,8 +94,10 @@ ShallowWrapper {
           >
             Add
           </button>,
-          <button>
-            Remove
+          <button
+            onClick={undefined}
+          >
+            Currency
           </button>,
           <button
             onClick={undefined}
@@ -123,10 +128,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Remove",
+            "children": "Currency",
+            "onClick": undefined,
           },
           "ref": null,
-          "rendered": "Remove",
+          "rendered": "Currency",
           "type": "button",
         },
         Object {
