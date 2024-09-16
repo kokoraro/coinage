@@ -3,7 +3,8 @@ import React from 'react';
 const Coin = ({ coinData, currDollar, addOpen, handleDelete }) => {
   const currency = currDollar ? 'USD' : 'GBP';
   const currSymbol = currDollar ? '$' : '£';
-  const value = Number(coinData.price[currency]).toFixed(2);
+  let value = Number(coinData.price[currency]);
+  value = value >= 1 ? value.toFixed(2) : value.toFixed(4);
   const price = `${currSymbol}${value}`;
   const imgUrl = coinData.imageURL ? `https://www.cryptocompare.com${coinData.imageURL}` : null;
 
