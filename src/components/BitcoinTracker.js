@@ -5,10 +5,9 @@ import Footer from './Footer';
 import { getPrice } from '../getCoins';
 import { getData } from '../getCoinData';
 
-const coinArray = [
-  'BTC', 'XRP', 'LTC', 'ETH', 
-  'DOGE', 'XMR', 'ZEC', 'DSH', 
-  'NEO', 'GNT', 'ADA', 'XVG'
+const FAVOURITES = [
+  'BTC', 'XRP', 'LTC', 'ETH', 'XMR', 
+  'ZEC', 'DSH', 'GNT', 'ADA', 'XVG',
 ];
 
 class BitcoinTracker extends Component {
@@ -38,8 +37,16 @@ class BitcoinTracker extends Component {
   }
 
   async getCoinData() {
-    const coinList = await getData(coinArray);
-    console.log(coinList);
+    const coinData = await getData();
+    const coinList = Object.keys(coinData).map((coin, idx) => (
+      { 
+        id: idx, 
+        name: coinData[coin].CoinName,
+        imageURL: coinData[coin].ImageUrl,
+        code: coin,
+        showing: FAVOURITES.includes(coin)
+      }
+    ));
     this.setState({ coinList });
     this.updateCoins();
   }
