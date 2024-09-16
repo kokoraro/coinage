@@ -3,14 +3,15 @@ export default function requestData(codes) {
 
   return fetch(url)
     .then(response => response.json())
-    .then(data => codes.map((code, index) => (
-      { 
-        id: index, 
-        name: data.Data[code].CoinName,
-        imageURL: data.Data[code].ImageUrl,
-        code: code,
-        showing: index < 6
-      }
-    )))
+    // .then(data => codes.map((code, index) => (
+    //   { 
+    //     id: index, 
+    //     name: data.Data[code].CoinName,
+    //     imageURL: data.Data[code].ImageUrl,
+    //     code: code,
+    //     showing: index < 6
+    //   }
+    // )))
+    .then(data => data.Data)
     .catch(error => error);
 }
