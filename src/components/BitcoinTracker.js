@@ -3,6 +3,7 @@ import CoinList from './CoinList';
 import ControlPanel from './ControlPanel';
 import Footer from './Footer';
 import { getPrice } from '../getCoins';
+import { getData } from '../getCoinData';
 
 const coinArray = [
   'BTC', 'XRP', 'LTC', 'ETH', 
@@ -42,6 +43,8 @@ class BitcoinTracker extends Component {
     const filtered = this.state.coinList.filter(a => a.showing);
     const codes = filtered.map(c => c.code);
     const prices = await getPrice(codes);
+    const data = await getData(codes);
+    // console.log(data);
     const coins = filtered.map(c => {
       return {...c, price: prices[c.code]};
     });
