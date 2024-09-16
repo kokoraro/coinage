@@ -1,12 +1,12 @@
 {
-  "name": "bitcoin-tracker",
-  "version": "1.0.0",
-  "description": "Live crypto-currency price tracker",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack",
-    "test": "jest --setupTestFrameworkScriptFile --watchAll"
+  "name": "coinage",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "node-sass": "^4.11.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-scripts": "2.1.2"
   },
   "repository": {
     "type": "git",
@@ -23,30 +23,19 @@
     "url": "https://github.com/chazmcgrill/bitcoin-tracker/issues"
   },
   "homepage": "https://github.com/chazmcgrill/bitcoin-tracker#readme",
-  "dependencies": {
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.11",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "jest-cli": "^22.4.4",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^6.0.7",
-    "style-loader": "^0.20.3",
-    "webpack": "^3.12.0",
-    "webpack-dev-server": "^2.11.2"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "jest": {
-    "setupFiles": [
-      "./src/setupTests.js"
-    ]
-  }
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
