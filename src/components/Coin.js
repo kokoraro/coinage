@@ -7,7 +7,9 @@ const Coin = ({ coinData, currDollar, addOpen, handleDelete }) => {
   const price = `${currSymbol}${value}`;
 
   const firstDiv = addOpen ? (
-    <div className="coin-delete" onClick={() => handleDelete(coinData.id)} >X</div>
+    <div className="coin-delete" onClick={() => handleDelete(coinData.id)} >
+      <i className="fa fa-trash"></i>
+    </div>
   ) : (
     <div className="coin-id">{coinData.id}</div>
   ) 
