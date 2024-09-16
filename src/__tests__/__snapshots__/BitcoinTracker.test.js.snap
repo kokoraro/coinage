@@ -44,46 +44,7 @@ ShallowWrapper {
             handleAddCoins={[Function]}
             handleCurrency={[Function]}
             handleRefresh={[Function]}
-            selectCoins={
-              Array [
-                Object {
-                  "code": "DOGE",
-                  "id": 4,
-                  "name": "Dogecoin",
-                  "showing": false,
-                },
-                Object {
-                  "code": "XMR",
-                  "id": 5,
-                  "name": "Monero",
-                  "showing": false,
-                },
-                Object {
-                  "code": "ZEC",
-                  "id": 6,
-                  "name": "Zcash",
-                  "showing": false,
-                },
-                Object {
-                  "code": "DSH",
-                  "id": 7,
-                  "name": "Dash",
-                  "showing": false,
-                },
-                Object {
-                  "code": "NEO",
-                  "id": 8,
-                  "name": "NEO",
-                  "showing": false,
-                },
-                Object {
-                  "code": "GNT",
-                  "id": 9,
-                  "name": "Golem",
-                  "showing": false,
-                },
-              ]
-            }
+            selectCoins={Array []}
             toggleAddOpen={[Function]}
           />
         </div>,
@@ -121,46 +82,7 @@ ShallowWrapper {
               handleAddCoins={[Function]}
               handleCurrency={[Function]}
               handleRefresh={[Function]}
-              selectCoins={
-                Array [
-                  Object {
-                    "code": "DOGE",
-                    "id": 4,
-                    "name": "Dogecoin",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "XMR",
-                    "id": 5,
-                    "name": "Monero",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "ZEC",
-                    "id": 6,
-                    "name": "Zcash",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "DSH",
-                    "id": 7,
-                    "name": "Dash",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "NEO",
-                    "id": 8,
-                    "name": "NEO",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "GNT",
-                    "id": 9,
-                    "name": "Golem",
-                    "showing": false,
-                  },
-                ]
-              }
+              selectCoins={Array []}
               toggleAddOpen={[Function]}
             />,
           ],
@@ -209,44 +131,7 @@ ShallowWrapper {
               "handleAddCoins": [Function],
               "handleCurrency": [Function],
               "handleRefresh": [Function],
-              "selectCoins": Array [
-                Object {
-                  "code": "DOGE",
-                  "id": 4,
-                  "name": "Dogecoin",
-                  "showing": false,
-                },
-                Object {
-                  "code": "XMR",
-                  "id": 5,
-                  "name": "Monero",
-                  "showing": false,
-                },
-                Object {
-                  "code": "ZEC",
-                  "id": 6,
-                  "name": "Zcash",
-                  "showing": false,
-                },
-                Object {
-                  "code": "DSH",
-                  "id": 7,
-                  "name": "Dash",
-                  "showing": false,
-                },
-                Object {
-                  "code": "NEO",
-                  "id": 8,
-                  "name": "NEO",
-                  "showing": false,
-                },
-                Object {
-                  "code": "GNT",
-                  "id": 9,
-                  "name": "Golem",
-                  "showing": false,
-                },
-              ],
+              "selectCoins": Array [],
               "toggleAddOpen": [Function],
             },
             "ref": null,
@@ -301,46 +186,7 @@ ShallowWrapper {
               handleAddCoins={[Function]}
               handleCurrency={[Function]}
               handleRefresh={[Function]}
-              selectCoins={
-                Array [
-                  Object {
-                    "code": "DOGE",
-                    "id": 4,
-                    "name": "Dogecoin",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "XMR",
-                    "id": 5,
-                    "name": "Monero",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "ZEC",
-                    "id": 6,
-                    "name": "Zcash",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "DSH",
-                    "id": 7,
-                    "name": "Dash",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "NEO",
-                    "id": 8,
-                    "name": "NEO",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "GNT",
-                    "id": 9,
-                    "name": "Golem",
-                    "showing": false,
-                  },
-                ]
-              }
+              selectCoins={Array []}
               toggleAddOpen={[Function]}
             />
           </div>,
@@ -378,46 +224,7 @@ ShallowWrapper {
                 handleAddCoins={[Function]}
                 handleCurrency={[Function]}
                 handleRefresh={[Function]}
-                selectCoins={
-                  Array [
-                    Object {
-                      "code": "DOGE",
-                      "id": 4,
-                      "name": "Dogecoin",
-                      "showing": false,
-                    },
-                    Object {
-                      "code": "XMR",
-                      "id": 5,
-                      "name": "Monero",
-                      "showing": false,
-                    },
-                    Object {
-                      "code": "ZEC",
-                      "id": 6,
-                      "name": "Zcash",
-                      "showing": false,
-                    },
-                    Object {
-                      "code": "DSH",
-                      "id": 7,
-                      "name": "Dash",
-                      "showing": false,
-                    },
-                    Object {
-                      "code": "NEO",
-                      "id": 8,
-                      "name": "NEO",
-                      "showing": false,
-                    },
-                    Object {
-                      "code": "GNT",
-                      "id": 9,
-                      "name": "Golem",
-                      "showing": false,
-                    },
-                  ]
-                }
+                selectCoins={Array []}
                 toggleAddOpen={[Function]}
               />,
             ],
@@ -466,44 +273,7 @@ ShallowWrapper {
                 "handleAddCoins": [Function],
                 "handleCurrency": [Function],
                 "handleRefresh": [Function],
-                "selectCoins": Array [
-                  Object {
-                    "code": "DOGE",
-                    "id": 4,
-                    "name": "Dogecoin",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "XMR",
-                    "id": 5,
-                    "name": "Monero",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "ZEC",
-                    "id": 6,
-                    "name": "Zcash",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "DSH",
-                    "id": 7,
-                    "name": "Dash",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "NEO",
-                    "id": 8,
-                    "name": "NEO",
-                    "showing": false,
-                  },
-                  Object {
-                    "code": "GNT",
-                    "id": 9,
-                    "name": "Golem",
-                    "showing": false,
-                  },
-                ],
+                "selectCoins": Array [],
                 "toggleAddOpen": [Function],
               },
               "ref": null,

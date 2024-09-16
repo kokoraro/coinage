@@ -5,13 +5,14 @@ const Coin = ({ coinData, currDollar, addOpen, handleDelete }) => {
   const currSymbol = currDollar ? '$' : '£';
   const value = Number(coinData.price[currency]).toFixed(2);
   const price = `${currSymbol}${value}`;
+  const imgUrl = coinData.imageURL ? `https://www.cryptocompare.com${coinData.imageURL}` : null;
 
   const firstDiv = addOpen ? (
     <div className="coin-delete" onClick={() => handleDelete(coinData.id)} >
       <i className="fa fa-trash"></i>
     </div>
   ) : (
-    <div className="coin-id">{coinData.id}</div>
+    <img src={imgUrl} alt={coinData.name}/>
   ) 
 
   return (
