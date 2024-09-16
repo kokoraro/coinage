@@ -18,174 +18,12 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h1>
-          coinage
-        </h1>,
-        <CoinList
-          addOpen={false}
-          coinData={
-            Array [
-              Object {
-                "code": "...",
-                "id": 0,
-                "name": "Loading",
-                "price": 0,
-              },
-            ]
-          }
-          currDollar={true}
-          handleDelete={[Function]}
-        />,
-        <ControlPanel
-          addOpen={false}
-          handleAddCoins={[Function]}
-          handleCurrency={[Function]}
-          handleRefresh={[Function]}
-          selectCoins={
-            Array [
-              Object {
-                "code": "DOGE",
-                "id": 4,
-                "name": "Dogecoin",
-                "showing": false,
-              },
-              Object {
-                "code": "XMR",
-                "id": 5,
-                "name": "Monero",
-                "showing": false,
-              },
-              Object {
-                "code": "ZEC",
-                "id": 6,
-                "name": "Zcash",
-                "showing": false,
-              },
-              Object {
-                "code": "DSH",
-                "id": 7,
-                "name": "Dash",
-                "showing": false,
-              },
-              Object {
-                "code": "NEO",
-                "id": 8,
-                "name": "NEO",
-                "showing": false,
-              },
-              Object {
-                "code": "GNT",
-                "id": 9,
-                "name": "Golem",
-                "showing": false,
-              },
-            ]
-          }
-          toggleAddOpen={[Function]}
-        />,
-      ],
-      "className": "container",
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "coinage",
-        },
-        "ref": null,
-        "rendered": "coinage",
-        "type": "h1",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "addOpen": false,
-          "coinData": Array [
-            Object {
-              "code": "...",
-              "id": 0,
-              "name": "Loading",
-              "price": 0,
-            },
-          ],
-          "currDollar": true,
-          "handleDelete": [Function],
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "addOpen": false,
-          "handleAddCoins": [Function],
-          "handleCurrency": [Function],
-          "handleRefresh": [Function],
-          "selectCoins": Array [
-            Object {
-              "code": "DOGE",
-              "id": 4,
-              "name": "Dogecoin",
-              "showing": false,
-            },
-            Object {
-              "code": "XMR",
-              "id": 5,
-              "name": "Monero",
-              "showing": false,
-            },
-            Object {
-              "code": "ZEC",
-              "id": 6,
-              "name": "Zcash",
-              "showing": false,
-            },
-            Object {
-              "code": "DSH",
-              "id": 7,
-              "name": "Dash",
-              "showing": false,
-            },
-            Object {
-              "code": "NEO",
-              "id": 8,
-              "name": "NEO",
-              "showing": false,
-            },
-            Object {
-              "code": "GNT",
-              "id": 9,
-              "name": "Golem",
-              "showing": false,
-            },
-          ],
-          "toggleAddOpen": [Function],
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
+        <div
+          className="container"
+        >
           <h1>
             coinage
-          </h1>,
+          </h1>
           <CoinList
             addOpen={false}
             coinData={
@@ -200,7 +38,7 @@ ShallowWrapper {
             }
             currDollar={true}
             handleDelete={[Function]}
-          />,
+          />
           <ControlPanel
             addOpen={false}
             handleAddCoins={[Function]}
@@ -247,9 +85,267 @@ ShallowWrapper {
               ]
             }
             toggleAddOpen={[Function]}
-          />,
+          />
+        </div>,
+        <Footer />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h1>
+              coinage
+            </h1>,
+            <CoinList
+              addOpen={false}
+              coinData={
+                Array [
+                  Object {
+                    "code": "...",
+                    "id": 0,
+                    "name": "Loading",
+                    "price": 0,
+                  },
+                ]
+              }
+              currDollar={true}
+              handleDelete={[Function]}
+            />,
+            <ControlPanel
+              addOpen={false}
+              handleAddCoins={[Function]}
+              handleCurrency={[Function]}
+              handleRefresh={[Function]}
+              selectCoins={
+                Array [
+                  Object {
+                    "code": "DOGE",
+                    "id": 4,
+                    "name": "Dogecoin",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "XMR",
+                    "id": 5,
+                    "name": "Monero",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "ZEC",
+                    "id": 6,
+                    "name": "Zcash",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "DSH",
+                    "id": 7,
+                    "name": "Dash",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "NEO",
+                    "id": 8,
+                    "name": "NEO",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "GNT",
+                    "id": 9,
+                    "name": "Golem",
+                    "showing": false,
+                  },
+                ]
+              }
+              toggleAddOpen={[Function]}
+            />,
+          ],
+          "className": "container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "coinage",
+            },
+            "ref": null,
+            "rendered": "coinage",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "addOpen": false,
+              "coinData": Array [
+                Object {
+                  "code": "...",
+                  "id": 0,
+                  "name": "Loading",
+                  "price": 0,
+                },
+              ],
+              "currDollar": true,
+              "handleDelete": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "addOpen": false,
+              "handleAddCoins": [Function],
+              "handleCurrency": [Function],
+              "handleRefresh": [Function],
+              "selectCoins": Array [
+                Object {
+                  "code": "DOGE",
+                  "id": 4,
+                  "name": "Dogecoin",
+                  "showing": false,
+                },
+                Object {
+                  "code": "XMR",
+                  "id": 5,
+                  "name": "Monero",
+                  "showing": false,
+                },
+                Object {
+                  "code": "ZEC",
+                  "id": 6,
+                  "name": "Zcash",
+                  "showing": false,
+                },
+                Object {
+                  "code": "DSH",
+                  "id": 7,
+                  "name": "Dash",
+                  "showing": false,
+                },
+                Object {
+                  "code": "NEO",
+                  "id": 8,
+                  "name": "NEO",
+                  "showing": false,
+                },
+                Object {
+                  "code": "GNT",
+                  "id": 9,
+                  "name": "Golem",
+                  "showing": false,
+                },
+              ],
+              "toggleAddOpen": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
         ],
-        "className": "container",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="container"
+          >
+            <h1>
+              coinage
+            </h1>
+            <CoinList
+              addOpen={false}
+              coinData={
+                Array [
+                  Object {
+                    "code": "...",
+                    "id": 0,
+                    "name": "Loading",
+                    "price": 0,
+                  },
+                ]
+              }
+              currDollar={true}
+              handleDelete={[Function]}
+            />
+            <ControlPanel
+              addOpen={false}
+              handleAddCoins={[Function]}
+              handleCurrency={[Function]}
+              handleRefresh={[Function]}
+              selectCoins={
+                Array [
+                  Object {
+                    "code": "DOGE",
+                    "id": 4,
+                    "name": "Dogecoin",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "XMR",
+                    "id": 5,
+                    "name": "Monero",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "ZEC",
+                    "id": 6,
+                    "name": "Zcash",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "DSH",
+                    "id": 7,
+                    "name": "Dash",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "NEO",
+                    "id": 8,
+                    "name": "NEO",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "GNT",
+                    "id": 9,
+                    "name": "Golem",
+                    "showing": false,
+                  },
+                ]
+              }
+              toggleAddOpen={[Function]}
+            />
+          </div>,
+          <Footer />,
+        ],
       },
       "ref": null,
       "rendered": Array [
@@ -258,82 +354,170 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "coinage",
+            "children": Array [
+              <h1>
+                coinage
+              </h1>,
+              <CoinList
+                addOpen={false}
+                coinData={
+                  Array [
+                    Object {
+                      "code": "...",
+                      "id": 0,
+                      "name": "Loading",
+                      "price": 0,
+                    },
+                  ]
+                }
+                currDollar={true}
+                handleDelete={[Function]}
+              />,
+              <ControlPanel
+                addOpen={false}
+                handleAddCoins={[Function]}
+                handleCurrency={[Function]}
+                handleRefresh={[Function]}
+                selectCoins={
+                  Array [
+                    Object {
+                      "code": "DOGE",
+                      "id": 4,
+                      "name": "Dogecoin",
+                      "showing": false,
+                    },
+                    Object {
+                      "code": "XMR",
+                      "id": 5,
+                      "name": "Monero",
+                      "showing": false,
+                    },
+                    Object {
+                      "code": "ZEC",
+                      "id": 6,
+                      "name": "Zcash",
+                      "showing": false,
+                    },
+                    Object {
+                      "code": "DSH",
+                      "id": 7,
+                      "name": "Dash",
+                      "showing": false,
+                    },
+                    Object {
+                      "code": "NEO",
+                      "id": 8,
+                      "name": "NEO",
+                      "showing": false,
+                    },
+                    Object {
+                      "code": "GNT",
+                      "id": 9,
+                      "name": "Golem",
+                      "showing": false,
+                    },
+                  ]
+                }
+                toggleAddOpen={[Function]}
+              />,
+            ],
+            "className": "container",
           },
           "ref": null,
-          "rendered": "coinage",
-          "type": "h1",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "coinage",
+              },
+              "ref": null,
+              "rendered": "coinage",
+              "type": "h1",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "addOpen": false,
+                "coinData": Array [
+                  Object {
+                    "code": "...",
+                    "id": 0,
+                    "name": "Loading",
+                    "price": 0,
+                  },
+                ],
+                "currDollar": true,
+                "handleDelete": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "addOpen": false,
+                "handleAddCoins": [Function],
+                "handleCurrency": [Function],
+                "handleRefresh": [Function],
+                "selectCoins": Array [
+                  Object {
+                    "code": "DOGE",
+                    "id": 4,
+                    "name": "Dogecoin",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "XMR",
+                    "id": 5,
+                    "name": "Monero",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "ZEC",
+                    "id": 6,
+                    "name": "Zcash",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "DSH",
+                    "id": 7,
+                    "name": "Dash",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "NEO",
+                    "id": 8,
+                    "name": "NEO",
+                    "showing": false,
+                  },
+                  Object {
+                    "code": "GNT",
+                    "id": 9,
+                    "name": "Golem",
+                    "showing": false,
+                  },
+                ],
+                "toggleAddOpen": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {
-            "addOpen": false,
-            "coinData": Array [
-              Object {
-                "code": "...",
-                "id": 0,
-                "name": "Loading",
-                "price": 0,
-              },
-            ],
-            "currDollar": true,
-            "handleDelete": [Function],
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "addOpen": false,
-            "handleAddCoins": [Function],
-            "handleCurrency": [Function],
-            "handleRefresh": [Function],
-            "selectCoins": Array [
-              Object {
-                "code": "DOGE",
-                "id": 4,
-                "name": "Dogecoin",
-                "showing": false,
-              },
-              Object {
-                "code": "XMR",
-                "id": 5,
-                "name": "Monero",
-                "showing": false,
-              },
-              Object {
-                "code": "ZEC",
-                "id": 6,
-                "name": "Zcash",
-                "showing": false,
-              },
-              Object {
-                "code": "DSH",
-                "id": 7,
-                "name": "Dash",
-                "showing": false,
-              },
-              Object {
-                "code": "NEO",
-                "id": 8,
-                "name": "NEO",
-                "showing": false,
-              },
-              Object {
-                "code": "GNT",
-                "id": 9,
-                "name": "Golem",
-                "showing": false,
-              },
-            ],
-            "toggleAddOpen": [Function],
-          },
+          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],
