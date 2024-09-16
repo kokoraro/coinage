@@ -1,5 +1,5 @@
 const mockData = {
-  Data: { 
+  Data: {
     BTC: { 
       Id: "1182", 
       name: "Bitcoin", 
@@ -9,14 +9,13 @@ const mockData = {
   }
 }
 
-export default function requestData(codes) {
-  const code = codes[0];
+export default function requestData() {
   return new Promise((resolve, reject) => {
     process.nextTick(
-      () => mockData.Data[code] 
-        ? resolve([mockData.Data[code]])
+      () => mockData.Data 
+        ? resolve(mockData.Data)
         : reject({ 
-          error: 'Data for ' + code + ' not found.' 
+          error: 'Data for BTC not found.' 
         }),
     );
   });
