@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ControlPanel from '../components/ControlPanel';
 
-const minProps = { altCoins: [{ id: 9, code: 'GNT', name: 'Golem' }] };
+const minProps = { selectCoins: [{ id: 9, code: 'GNT', name: 'Golem' }] };
 const controlPanel = shallow(<ControlPanel { ...minProps } />);
 
 describe("ControlPanel component", () => {
@@ -12,7 +12,7 @@ describe("ControlPanel component", () => {
 
   it("add click shows add coins items", () => {
     expect(controlPanel.find('.add-coins').length).toBe(0);
-    controlPanel.find('.add-button').simulate('click');
+    controlPanel.setProps({addOpen: true});
     expect(controlPanel.find('.add-coins').length).toBe(1);
   });
 
