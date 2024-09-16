@@ -3,6 +3,12 @@ import CoinList from './CoinList';
 import ControlPanel from './ControlPanel';
 import { getPrice } from '../getCoins';
 
+const coinArray = [
+  'BTC', 'XRP', 'LTC', 'ETH', 
+  'DOGE', 'XMR', 'ZEC', 'DSH', 
+  'NEO', 'GNT', 'ADA', 'XVG'
+];
+
 class BitcoinTracker extends Component {
   constructor(props) {
     super(props);
@@ -64,22 +70,27 @@ class BitcoinTracker extends Component {
     const { coins, currDollar, addOpen } = this.state;
 
     return (
-      <div className="container">
-        <h1>coinage</h1>
-        <CoinList 
-          coinData={coins}
-          currDollar={currDollar}
-          addOpen={addOpen}
-          handleDelete={this.handleDelete}
-        />
-        <ControlPanel 
-          selectCoins={coinList}
-          handleRefresh={this.updateCoins}
-          handleAddCoins={this.handleAddCoins}
-          addOpen={addOpen}
-          toggleAddOpen={() => this.setState({addOpen: !addOpen})}
-          handleCurrency={() => this.setState({currDollar: !currDollar})} 
-        />
+      <div>
+        <div className="container">
+          <h1>coinage</h1>
+          <CoinList 
+            coinData={coins}
+            currDollar={currDollar}
+            addOpen={addOpen}
+            handleDelete={this.handleDelete}
+          />
+          <ControlPanel 
+            selectCoins={coinList}
+            handleRefresh={this.updateCoins}
+            handleAddCoins={this.handleAddCoins}
+            addOpen={addOpen}
+            toggleAddOpen={() => this.setState({addOpen: !addOpen})}
+            handleCurrency={() => this.setState({currDollar: !currDollar})} 
+          />
+        </div>
+        <footer>
+          <a href="https://www.cryptocompare.com/api/">data from cryptocompare</a>
+        </footer>
       </div>
     )
   }
