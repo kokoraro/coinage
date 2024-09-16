@@ -1,5 +1,12 @@
 const mockData = {
-  Data: { BTC: { Id: "1182"} }
+  Data: { 
+    BTC: { 
+      Id: "1182", 
+      name: "Bitcoin", 
+      imageURL: "/media/19633/btc.png", 
+      code: "BTC" 
+    }
+  }
 }
 
 export default function requestData(codes) {
@@ -7,7 +14,7 @@ export default function requestData(codes) {
   return new Promise((resolve, reject) => {
     process.nextTick(
       () => mockData.Data[code] 
-        ? resolve(mockData.Data[code])
+        ? resolve([mockData.Data[code]])
         : reject({ 
           error: 'Data for ' + code + ' not found.' 
         }),

@@ -20,19 +20,7 @@ class BitcoinTracker extends Component {
       ],
       currDollar: true,
       addOpen: false,
-      coinList: [
-        { id: 0, code: 'BTC',  name: 'Bitcoin',  showing: true   },
-        { id: 1, code: 'XRP',  name: 'Ripple',   showing: true   },
-        { id: 2, code: 'LTC',  name: 'Litecoin', showing: true   },
-        { id: 3, code: 'ETH',  name: 'Etherium', showing: true   },
-        { id: 4, code: 'DOGE', name: 'Dogecoin', showing: false  },
-        { id: 5, code: 'XMR',  name: 'Monero',   showing: false  },
-        { id: 6, code: 'ZEC',  name: 'Zcash',    showing: false  },
-        { id: 7, code: 'DSH',  name: 'Dash',     showing: false  },
-        { id: 8, code: 'NEO',  name: 'NEO',      showing: false  },
-        { id: 9, code: 'GNT',  name: 'Golem',    showing: false  },
-        { id: 10, code: 'ADA',  name: 'Cardano',  showing: true  }
-      ]
+      coinList: []
     }
     this.updateCoins = this.updateCoins.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -42,13 +30,18 @@ class BitcoinTracker extends Component {
   async updateCoins() {
     const filtered = this.state.coinList.filter(a => a.showing);
     const codes = filtered.map(c => c.code);
-    const prices = await getPrice(codes);
-    const data = await getData(codes);
-    // console.log(data);
+    const prices = await getPrice(codes); 
     const coins = filtered.map(c => {
-      return {...c, price: prices[c.code]};
+      return {...c, price: prices[c.code] };
     });
     this.setState({coins});
+  }
+
+  async getCoinData() {
+    const coinList = await getData(coinArray);
+    console.log(coinList);
+    this.setState({ coinList });
+    this.updateCoins();
   }
 
   handleAddCoins(ids) {
@@ -66,7 +59,7 @@ class BitcoinTracker extends Component {
   }
 
   componentDidMount() {
-    this.updateCoins()
+    this.getCoinData();
   }
 
   render() {
