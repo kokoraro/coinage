@@ -40,7 +40,7 @@ class ControlPanel extends Component {
     const {addOpen} = this.props;
     const form = addOpen ? (
       <div>
-        <h4>choose coins to add</h4>
+        <h4>choose coins to add...</h4>
         <div className="add-coins"> 
           {this.state.selectCoins.map(c => (
             <AddCoinListItem 
@@ -62,7 +62,7 @@ class ControlPanel extends Component {
           <button 
             className="add-button"
             onClick={this.props.toggleAddOpen} >
-            Add
+            Edit
           </button>    
           <button onClick={this.props.handleCurrency}>Currency</button>
           <button onClick={this.props.handleRefresh}>Refresh</button>

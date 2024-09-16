@@ -35,7 +35,7 @@ ShallowWrapper {
             className="add-button"
             onClick={undefined}
           >
-            Add
+            Edit
           </button>
           <button
             onClick={undefined}
@@ -63,7 +63,7 @@ ShallowWrapper {
               className="add-button"
               onClick={undefined}
             >
-              Add
+              Edit
             </button>,
             <button
               onClick={undefined}
@@ -85,12 +85,12 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Add",
+              "children": "Edit",
               "className": "add-button",
               "onClick": undefined,
             },
             "ref": null,
-            "rendered": "Add",
+            "rendered": "Edit",
             "type": "button",
           },
           Object {
@@ -138,7 +138,7 @@ ShallowWrapper {
               className="add-button"
               onClick={undefined}
             >
-              Add
+              Edit
             </button>
             <button
               onClick={undefined}
@@ -166,7 +166,7 @@ ShallowWrapper {
                 className="add-button"
                 onClick={undefined}
               >
-                Add
+                Edit
               </button>,
               <button
                 onClick={undefined}
@@ -188,12 +188,12 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Add",
+                "children": "Edit",
                 "className": "add-button",
                 "onClick": undefined,
               },
               "ref": null,
-              "rendered": "Add",
+              "rendered": "Edit",
               "type": "button",
             },
             Object {
