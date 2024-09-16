@@ -3,8 +3,11 @@ import { shallow } from 'enzyme';
 import BitcoinTracker from '../components/BitcoinTracker';
 import CoinList from '../components/CoinList';
 import ControlPanel from '../components/ControlPanel';
+
+jest.mock('../request');
 import { getPrice } from '../getCoins';
-import { getCoinData } from '../getCoinData';
+jest.mock('../requestData');
+import { getData } from '../getCoinData';
 
 const app = shallow(<BitcoinTracker />);
 
@@ -22,8 +25,6 @@ describe("Bitcoin Tracker app", () => {
     expect(app.find(ControlPanel).length).toBe(1);
   });
 
-  jest.mock('../request');
-
   describe('get price using promises', () => {
     it('should load price', () => {
       expect.assertions(1)
@@ -33,14 +34,12 @@ describe("Bitcoin Tracker app", () => {
     });
   });
 
-  jest.mock('../requestData');
-
   describe("get coin data using promises", () => {
     it("fetches coin id", () => {
       expect.assertions(1)
 
-      return Promise.resolve(getCoinData('BTC'))
-        .then(data => expect(Data['BTC'].Id).toEqual("1182"))
+      return Promise.resolve(getData(['BTC']))
+        .then(data => expect(data.Id).toEqual("1182"))
     });
   });
   
