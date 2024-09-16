@@ -1,0 +1,21 @@
+<ng-container *ngIf="menu">
+
+  <mat-divider *ngIf="menu.divider"></mat-divider>
+  <mat-list>
+    <ng-container *ngFor="let item of menu.items; let i = index;">
+      <mat-list-item [routerLink]="(clickedItem == i) ? null : item.link" [class.selected_item]="selectedItem == i"
+        [class.clicked_item]="clickedItem == i" (mouseover)="selectedItem = i" (mouseout)="selectedItem = -1" (click)="clickedItem = (clickedItem == i) ? -1 : i">
+        <span *ngIf="menu.indentation" [fxFlex]="menu.indentation"></span>
+        <span>{{ item.name }}</span>
+        <span fxFlex></span>
+        <mat-icon [color]="menu.iconsColor" [style.transform]="iconsScale()">{{ item.icon }}</mat-icon>
+      </mat-list-item>
+      <ng-container *ngIf="(item.menu) && (clickedItem == i)">
+        <div @slider style="overflow: hidden;">
+          <app-side-menu [menu]="item.menu"></app-side-menu>
+        </div>
+      </ng-container>
+    </ng-container>
+  </mat-list>
+
+</ng-container>

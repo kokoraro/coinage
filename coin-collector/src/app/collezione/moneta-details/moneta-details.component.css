@@ -1,0 +1,28 @@
+#image_wrapper {
+  background-image: url("src/assets/transparent.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.image {
+  max-height: 40vh;
+  width: auto;
+  height: auto;
+  cursor: pointer;
+}
+
+.bottom_spacer {
+  margin-bottom: 15px;
+}
+
+.justify {
+  display: inline-block;
+  text-align: justify;
+}
+
+.nowrap {
+  white-space: nowrap;
+}

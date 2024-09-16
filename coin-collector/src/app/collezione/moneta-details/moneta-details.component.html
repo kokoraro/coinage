@@ -1,0 +1,140 @@
+<h2 mat-dialog-title fxLayoutAlign="center center">Dettagli moneta</h2>
+<mat-dialog-content>
+
+  <div fxFlexFill fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <!-- IMAGE -->
+    <div fxFlexAlign="stretch" fxLayout="row" fxLayoutAlign="center center" id="image_wrapper">
+      <img *ngIf="!defaultImage" [src]="domSanitazer.bypassSecurityTrustUrl(moneta.immagine)" class="image" (click)="openImmagine()" (error)="defaultImage = true" #image/>
+      <img *ngIf="defaultImage" src="assets/not_found.png" class="image">
+    </div>
+    <!-- DESCRIPTION AND NOTES -->
+    <div fxFlexAlign="stretch" fxLayout="row wrap" class="bottom_spacer">
+      <div fxFlex="48" fxFlex.lt-sm="100%">
+        <strong>DESCRIZIONE: </strong><br />
+        <span [innerHTML]="moneta.descrizione | pre:'Nessuna descrizione'" class="justify"></span>
+      </div>
+      <span fxFlex="4" fxHide.xs></span>
+      <div *ngIf="moneta.note" fxFlex="48" fxFlex.lt-sm="100%">
+        <strong>NOTE: </strong><br />
+        <span [innerHTML]="moneta.note | pre:'Nessuna nota'" class="justify"></span>
+      </div>
+    </div>
+    <!-- GENERA DETAILS -->
+    <div fxFlexAlign="stretch" fxLayout="row wrap" fxLayoutWrap>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>CODICE: </strong>
+        <span>{{ moneta.codice }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>STATO: </strong>
+        <span>{{ moneta.stato }}</span>
+      </div>
+      <div *ngIf="moneta.sovrano" class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>SOVRANO: </strong>
+        <span>{{ moneta.sovrano }}</span>
+      </div>
+      <div *ngIf="moneta.sovranita" class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>SOVRANITÀ: </strong>
+        <span>{{ moneta.sovranita }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>NOMINALE: </strong>
+        <span>{{ moneta.nominale }}</span>
+      </div>
+      <div *ngIf="moneta.denominazione" class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>DENOMINAZIONE: </strong>
+        <span>{{ moneta.denominazione }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>ANNO: </strong>
+        <span>{{ moneta.anno }}</span>
+      </div>
+      <div *ngIf="moneta.segnoAnno" class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>SEGNO ANNO: </strong>
+        <span>{{ moneta.segnoAnno }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>ZECCA: </strong>
+        <span>{{ moneta.zecca }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>SEGNO ZECCA: </strong>
+        <span>{{ moneta.segnoZecca }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>TIRATURA: </strong>
+        <span>{{ moneta.tiratura }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>MATERIALE: </strong>
+        <span>{{ moneta.materiale }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>RARITA: </strong>
+        <span>{{ moneta.rarita }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>DIAMETRO: </strong>
+        <span>{{ moneta.diametro }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>PESO: </strong>
+        <span>{{ moneta.peso }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>CONTORNO: </strong>
+        <span>{{ moneta.contorno }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>VALORE: </strong>
+        <span>{{ '€ ' + moneta.valore }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>CONSERVAZIONE: </strong>
+        <span>{{ moneta.conservazione }}</span>
+      </div>
+    </div>
+    <!-- PURCHASE DETAILS -->
+    <div fxFlexAlign="stretch" fxLayout="row wrap" fxLayoutWrap>
+      <div *ngIf="moneta.fornitore" class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>FORNITORE: </strong>
+        <span>{{ moneta.fornitore }}</span>
+      </div>
+      <div *ngIf="moneta.dataAcquisto" class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50"
+        [fxFlex.gt-sm]="25">
+        <strong>DATA ACQUISTO: </strong>
+        <span>{{ getDataAcquisto() }}</span>
+      </div>
+      <div  *ngIf="moneta.prezzoAcquisto" class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50"
+        [fxFlex.gt-sm]="25">
+        <strong>PREZZO ACQUISTO: </strong>
+        <span>{{ '€ ' + moneta.prezzoAcquisto }}</span>
+      </div>
+      <div class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong>PERIZIATO: </strong>
+        <span>{{ moneta.perizia ? 'SI' : 'NO' }}</span>
+      </div>
+      <div *ngIf="moneta.fattura" class="nowrap" fxLayout="row" fxLayoutGap="8px" fxFlex="100%" [fxFlex.gt-xs]="50" [fxFlex.gt-sm]="25">
+        <strong fxFlexAlign="center">FATTURA: </strong>
+        <button mat-button color="primary" (click)="openFattura()" tabindex="-1">OPEN</button>
+      </div>
+    </div>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions fxLayoutAlign="center center">
+
+  <button color="primary" mat-button (click)="dismiss()" tabindex="-1">
+    <mat-icon>close</mat-icon>
+    <span style="margin-left: 5px;" fxHide.lt-sm>CHIUDI</span>
+  </button>
+  <button color="accent" mat-button (click)="edit()" tabindex="-1">
+    <mat-icon>edit</mat-icon>
+    <span style="margin-left: 5px;" fxHide.lt-sm>MODIFICA</span>
+  </button>
+  <button color="warn" mat-button (click)="delete()" tabindex="-1">
+    <mat-icon>delete</mat-icon>
+    <span style="margin-left: 5px;" fxHide.lt-sm>ELIMINA</span>
+  </button>
+
+</mat-dialog-actions>

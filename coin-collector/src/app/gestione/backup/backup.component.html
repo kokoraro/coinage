@@ -1,0 +1,13 @@
+<div fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+  <h2>BACKUP</h2>
+  <p>
+    Qui puoi gestire il backup della tua collezione. Puoi creare un nuovo backup della collezione,
+    dove verranno copiati i dati delle monete, le immagini e le fatture per poi essere compressi
+    in un file zip. Puoi ripristinare i dati da un backup vecchio, selezionando il file zip
+    contenente il backup. Dopo un ripristino, tutti i dati attuali vengono rimossi.
+  </p>
+  <div fxLayout="row" fxFlexAlign="stretch" fxLayoutAlign="space-evenly center">
+    <button mat-flat-button color="primary" (click)="newBackup()">CREA BACKUP</button>
+    <button mat-flat-button color="primary" (click)="execBackup()">ESEGUI BACKUP</button>
+  </div>
+</div>

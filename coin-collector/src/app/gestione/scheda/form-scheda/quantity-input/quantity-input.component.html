@@ -1,0 +1,10 @@
+<div [formGroup]="quantityForm" fxFlex>
+  <input fxFlex formControlName="value" type="number" placeholder="Valore" min="0">
+  <span id="space"></span>
+  <mat-select fxFlex="10" id="mat-select" formControlName="unit">
+    <mat-option value="" selected> Unità </mat-option>
+    <mat-option *ngFor="let unit of showUnits" [value]="unit">
+      {{ unit }}
+    </mat-option>
+  </mat-select>
+</div>

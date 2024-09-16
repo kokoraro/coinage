@@ -1,0 +1,10 @@
+div#content {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mat-sidenav {
+  min-width: 300px;
+  box-shadow: -1px 0px 30px 0px black;
+}

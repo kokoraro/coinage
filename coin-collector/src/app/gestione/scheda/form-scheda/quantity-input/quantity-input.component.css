@@ -1,0 +1,21 @@
+input, mat-select {
+  border: none;
+  background: none;
+  padding: 0;
+  opacity: 0;
+  outline: none;
+  font: inherit;
+  transition: 200ms opacity ease-in-out;
+}
+
+span#space {
+  width: 8px;
+}
+
+:host.quantity-floating input {
+  opacity: 1;
+}
+
+:host.quantity-floating mat-select {
+  opacity: 1;
+}

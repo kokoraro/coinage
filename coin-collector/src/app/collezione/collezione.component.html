@@ -1,0 +1,8 @@
+<div fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+
+  <div fxFlexAlign="stretch" fxLayout="column" fxLayoutAlign="center center">
+    <h2>{{ title }}</h2>
+    <app-monete-table [monete]="monete" fxFlexAlign="stretch" (select)="openDialog($event)"></app-monete-table>
+  </div>
+
+</div>
