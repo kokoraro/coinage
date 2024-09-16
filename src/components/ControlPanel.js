@@ -41,6 +41,12 @@ class ControlPanel extends Component {
     const form = addOpen ? (
       <div>
         <h4>choose coins to add...</h4>
+        <button
+          onClick={this.handleAddSubmit}
+          className="add-coins-submit"
+        >
+        Submit
+        </button>
         <div className="add-coins"> 
           {this.state.selectCoins.map(c => (
             <AddCoinListItem 
@@ -52,7 +58,10 @@ class ControlPanel extends Component {
         </div>
         <button 
           onClick={this.handleAddSubmit} 
-          className="add-coins-submit">Submit</button>
+          className="add-coins-submit"
+        >
+        Submit
+        </button>
       </div>
     ) : null;
 

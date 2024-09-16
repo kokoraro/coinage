@@ -27,6 +27,8 @@ Temporary Items
 
 # Other Folders
 node_modules
+design
+dist
 
 # Sass
 .sass-cache/
