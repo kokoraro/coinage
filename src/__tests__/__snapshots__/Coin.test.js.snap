@@ -30,11 +30,10 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <div
-          className="coin-id"
-        >
-          0
-        </div>,
+        <img
+          alt="Test"
+          src={null}
+        />,
         <div
           className="coin-code"
         />,
@@ -58,12 +57,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": 0,
-          "className": "coin-id",
+          "alt": "Test",
+          "src": null,
         },
         "ref": null,
-        "rendered": 0,
-        "type": "div",
+        "rendered": null,
+        "type": "img",
       },
       Object {
         "instance": null,
@@ -111,11 +110,10 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <div
-            className="coin-id"
-          >
-            0
-          </div>,
+          <img
+            alt="Test"
+            src={null}
+          />,
           <div
             className="coin-code"
           />,
@@ -139,12 +137,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": 0,
-            "className": "coin-id",
+            "alt": "Test",
+            "src": null,
           },
           "ref": null,
-          "rendered": 0,
-          "type": "div",
+          "rendered": null,
+          "type": "img",
         },
         Object {
           "instance": null,

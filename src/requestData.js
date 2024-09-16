@@ -3,6 +3,14 @@ export default function requestData(codes) {
 
   return fetch(url)
     .then(response => response.json())
-    .then(data => data)
+    .then(data => codes.map((code, index) => (
+      { 
+        id: index, 
+        name: data.Data[code].CoinName,
+        imageURL: data.Data[code].ImageUrl,
+        code: code,
+        showing: index < 6
+      }
+    )))
     .catch(error => error);
 }

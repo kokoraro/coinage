@@ -39,7 +39,7 @@ describe("Bitcoin Tracker app", () => {
       expect.assertions(1)
 
       return Promise.resolve(getData(['BTC']))
-        .then(data => expect(data.Id).toEqual("1182"))
+        .then(data => expect(data[0].Id).toEqual("1182"))
     });
   });
   
