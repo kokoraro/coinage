@@ -44,10 +44,17 @@ ShallowWrapper {
             />
           </a>
           <a
-            href="http://www.behance.net/chazhurricane"
+            href="https://codepen.io/chazmcgrill"
           >
             <i
-              className="fa fa-behance"
+              className="fa fa-codepen"
+            />
+          </a>
+          <a
+            href="https://github.com/chazmcgrill"
+          >
+            <i
+              className="fa fa-github"
             />
           </a>
         </div>,
@@ -116,10 +123,17 @@ ShallowWrapper {
               />
             </a>,
             <a
-              href="http://www.behance.net/chazhurricane"
+              href="https://codepen.io/chazmcgrill"
             >
               <i
-                className="fa fa-behance"
+                className="fa fa-codepen"
+              />
+            </a>,
+            <a
+              href="https://github.com/chazmcgrill"
+            >
+              <i
+                className="fa fa-github"
               />
             </a>,
           ],
@@ -181,9 +195,9 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": <i
-                className="fa fa-behance"
+                className="fa fa-codepen"
               />,
-              "href": "http://www.behance.net/chazhurricane",
+              "href": "https://codepen.io/chazmcgrill",
             },
             "ref": null,
             "rendered": Object {
@@ -191,7 +205,31 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "className": "fa fa-behance",
+                "className": "fa fa-codepen",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "i",
+            },
+            "type": "a",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <i
+                className="fa fa-github"
+              />,
+              "href": "https://github.com/chazmcgrill",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "fa fa-github",
               },
               "ref": null,
               "rendered": null,
@@ -270,10 +308,17 @@ ShallowWrapper {
               />
             </a>
             <a
-              href="http://www.behance.net/chazhurricane"
+              href="https://codepen.io/chazmcgrill"
             >
               <i
-                className="fa fa-behance"
+                className="fa fa-codepen"
+              />
+            </a>
+            <a
+              href="https://github.com/chazmcgrill"
+            >
+              <i
+                className="fa fa-github"
               />
             </a>
           </div>,
@@ -342,10 +387,17 @@ ShallowWrapper {
                 />
               </a>,
               <a
-                href="http://www.behance.net/chazhurricane"
+                href="https://codepen.io/chazmcgrill"
               >
                 <i
-                  className="fa fa-behance"
+                  className="fa fa-codepen"
+                />
+              </a>,
+              <a
+                href="https://github.com/chazmcgrill"
+              >
+                <i
+                  className="fa fa-github"
                 />
               </a>,
             ],
@@ -407,9 +459,9 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <i
-                  className="fa fa-behance"
+                  className="fa fa-codepen"
                 />,
-                "href": "http://www.behance.net/chazhurricane",
+                "href": "https://codepen.io/chazmcgrill",
               },
               "ref": null,
               "rendered": Object {
@@ -417,7 +469,31 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "className": "fa fa-behance",
+                  "className": "fa fa-codepen",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "i",
+              },
+              "type": "a",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <i
+                  className="fa fa-github"
+                />,
+                "href": "https://github.com/chazmcgrill",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "fa fa-github",
                 },
                 "ref": null,
                 "rendered": null,
