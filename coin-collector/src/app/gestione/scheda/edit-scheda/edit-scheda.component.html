@@ -1,0 +1,17 @@
+<mat-card>
+
+  <mat-card-header fxLayoutAlign="center center">
+    <mat-card-title>
+      <h2>Modifica scheda</h2>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <app-form-scheda [moneta]="moneta" fxFlexFill></app-form-scheda>
+  </mat-card-content>
+
+  <mat-card-actions fxLayoutAlign="center center">
+    <button mat-raised-button color="primary" [disabled]="!scheda.valid()" (click)="editMoneta()">MODIFICA</button>
+  </mat-card-actions>
+
+</mat-card>

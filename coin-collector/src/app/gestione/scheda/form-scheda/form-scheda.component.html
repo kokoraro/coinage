@@ -1,0 +1,179 @@
+<form fxFlexFill [formGroup]="scheda" fxLayout="column" fxLayoutAlign="center center">
+
+  <mat-form-field fxFlexAlign="stretch">
+    <input matInput formControlName="codice" type="text" placeholder="Codice" required />
+    <mat-error *ngIf="codice.hasError('required')">Codice è <strong>obbligatorio</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <mat-select formControlName="ambito" placeholder="Ambito" required>
+      <mat-option *ngFor="let ambito of ambiti" [value]="ambito.id">
+        {{ ambito.id }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="ambito.hasError('required')">Ambito è <strong>obbligatorio</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <mat-select formControlName="stato" placeholder="Stato" required>
+      <mat-option *ngFor="let stato of stati" [value]="stato.value">
+        {{ stato.value }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="stato.hasError('required')">Stato è <strong>obbligatorio</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <mat-select formControlName="sovrano" placeholder="Sovrano">
+      <mat-option [value]="null"></mat-option>
+      <mat-option *ngFor="let sovrano of sovrani" [value]="sovrano.value">
+        {{ sovrano.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <mat-select formControlName="sovranita" placeholder="Sovranità">
+      <mat-option [value]="null"></mat-option>
+      <mat-option *ngFor="let sovranita of sovranitas" [value]="sovranita.value">
+        {{ sovranita.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <mat-select formControlName="nominale" placeholder="Nominale" required>
+      <mat-option *ngFor="let nominale of nominali" [value]="nominale.value">
+        {{ nominale.value }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="nominale.hasError('required')">Nominale è <strong>obbligatorio</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <mat-select formControlName="denominazione" placeholder="Denominazione">
+      <mat-option [value]="null"></mat-option>
+      <mat-option *ngFor="let denominazione of denominazioni" [value]="denominazione.value">
+        {{ denominazione.value }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <textarea matInput formControlName="descrizione" placeholder="Descrizione" required cdkTextareaAutosize #autosize="cdkTextareaAutosize"></textarea>
+    <mat-error *ngIf="descrizione.hasError('required')">Descrizione è <strong>obbligatoria</strong></mat-error>
+  </mat-form-field>
+
+  <app-year-input [control]="anno" fxFlexAlign="stretch" [max]="maxDate" required></app-year-input>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <input matInput formControlName="segnoAnno" type="text" placeholder="Segno anno" />
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <mat-select formControlName="zecca" placeholder="Zecca" required>
+      <mat-option *ngFor="let zecca of zecche" [value]="zecca.value">
+        {{ zecca.value }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="zecca.hasError('required')">Zecca è <strong>obbligatorio</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <mat-select formControlName="segnoZecca" placeholder="Segno zecca" required>
+      <mat-option *ngFor="let segnoZecca of segniZecche" [value]="segnoZecca.value">
+        {{ segnoZecca.value }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="segnoZecca.hasError('required')">Segno zecca è <strong>obbligatorio</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <input matInput formControlName="tiratura" type="number" placeholder="Tiratura" min="1" required />
+    <mat-error *ngIf="tiratura.hasError('required')">Tiratura è <strong>obbligatorio</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <mat-select formControlName="materiale" placeholder="Materiale" required>
+      <mat-option *ngFor="let materiale of materiali" [value]="materiale.value">
+        {{ materiale.value }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="materiale.hasError('required')">Materiale è <strong>obbligatorio</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <mat-select formControlName="rarita" placeholder="Rarità" required>
+      <mat-option *ngFor="let rarita of raritas" [value]="rarita.value">
+        {{ rarita.value }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="rarita.hasError('required')">Rarita è <strong>obbligatorio</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <mat-select formControlName="conservazione" placeholder="Conservazione" required>
+      <mat-option *ngFor="let conservazione of conservazioni" [value]="conservazione.value">
+        {{ conservazione.value }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="conservazione.hasError('required')">Conservazione è <strong>obbligatorio</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <app-quantity-input formControlName="diametro" [units]="lengths" placeholder="Diametro" required></app-quantity-input>
+    <mat-error *ngIf="diametro.invalid">errore</mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <app-quantity-input formControlName="peso" [units]="weights" placeholder="Peso" required></app-quantity-input>
+    <mat-error *ngIf="peso.invalid">errore</mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <mat-select formControlName="contorno" placeholder="Contorno" required>
+      <mat-option *ngFor="let contorno of contorni" [value]="contorno.value">
+        {{ contorno.value }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="contorno.hasError('required')">Contorno è <strong>obbligatorio</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <input matInput formControlName="valore" type="number" placeholder="Valore" required />
+  </mat-form-field>
+
+  <app-resource-input fxFlexAlign="stretch" placeholder="Immagine" dir="images" icon="image" [control]="immagine"
+    [resources]="images" required></app-resource-input>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <input matInput formControlName="fornitore" type="text" placeholder="Fornitore" />
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <input matInput formControlName="dataAcquisto" style="cursor: pointer;" [matDatepicker]="data_acquisto_picker"
+      placeholder="Data acquisto" (click)="data_acquisto_picker.open()" readonly>
+    <mat-datepicker-toggle matSuffix [for]="data_acquisto_picker"></mat-datepicker-toggle>
+    <mat-datepicker #data_acquisto_picker startView="multi-year"></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <input matInput formControlName="prezzoAcquisto" type="number" placeholder="Prezzo acquisto" />
+  </mat-form-field>
+
+  <app-resource-input fxFlexAlign="stretch" placeholder="Fattura" dir="invoices" icon="insert_drive_file" [control]="fattura"
+    [resources]="invoices"></app-resource-input>
+
+  <div fxFlexAlign="stretch" fxLayoutAlign="center center" style="cursor: pointer; margin: 5px 0 5px 0;">
+    <mat-form-field fxFlex>
+      <input matInput type="text" placeholder="Perizia *" (click)="perizia.toggle()" style="cursor: pointer;"
+        readonly />
+    </mat-form-field>
+    <mat-slide-toggle formControlName="perizia" #perizia></mat-slide-toggle>
+  </div>
+
+  <mat-form-field fxFlexAlign="stretch">
+    <textarea matInput formControlName="note" placeholder="Note"></textarea>
+  </mat-form-field>
+
+</form>

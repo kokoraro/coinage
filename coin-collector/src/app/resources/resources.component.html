@@ -1,0 +1,13 @@
+<div fxFlexFill fxLayout="column" fxLayoutAlign="center center">
+  <h2>{{ title }}</h2>
+  <p>
+    Qui puoi gestire le {{ resourcePlural() }} della tua collezione. Puoi aprire
+    la cartella delle {{ resourcePlural() }} e rinominare, eliminare, trascinare dentro i file.
+    Puoi scegliere un' {{ resourceSingolar() }}, che sarà aggiunta alla cartella delle risorse in
+    automatico.
+  </p>
+  <div fxLayout="row" fxFlexAlign="stretch" fxLayoutAlign="space-evenly center">
+    <button mat-flat-button color="primary" (click)="openResourceFolder()">APRI CARTELLA</button>
+    <button mat-flat-button color="primary" (click)="addResource()">AGGIUNGI {{ resourceSingolar().toUpperCase() }}</button>
+  </div>
+</div>

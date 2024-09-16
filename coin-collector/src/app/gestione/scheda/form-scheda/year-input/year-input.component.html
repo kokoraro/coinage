@@ -1,0 +1,6 @@
+<mat-form-field fxFlex>
+  <input matInput [formControl]="control" [placeholder]="placeholder" [matDatepicker]="anno_picker" [max]="max" [min]="min" (click)="anno_picker.open()" [required]="required" readonly>
+  <mat-datepicker-toggle matSuffix [for]="anno_picker"></mat-datepicker-toggle>
+  <mat-datepicker #anno_picker startView="multi-year" (yearSelected)="annoYearChosen($event, anno_picker)"></mat-datepicker>
+  <mat-error *ngIf="control.getError('required')">Anno è <strong>obbligatorio</strong></mat-error>
+</mat-form-field> 

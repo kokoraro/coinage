@@ -1,0 +1,29 @@
+<div fxFill fxLayout="column">
+
+  <mat-toolbar [color]="uiState.color || 'primary'" *ngIf="uiState && uiState.toolbar">
+    <mat-toolbar-row>
+      <div fxFlex>
+        <button mat-icon-button [style.background]="(sidenav.opened) ? '#ff4081' : '#ffffff00'" (click)="sidenav.toggle()"
+          *ngIf="uiState.menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <span id="title" *ngIf="uiState.title">{{ uiState.title }}</span>
+      <span fxFlex></span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlex>
+    <mat-sidenav mode="side" #sidenav>
+      <perfect-scrollbar fxFlexFill>
+        <app-side-menu *ngIf="uiState" [menu]="uiState.menu"></app-side-menu>
+      </perfect-scrollbar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div id="content" fxFlexFill>
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

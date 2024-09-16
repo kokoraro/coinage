@@ -1,0 +1,18 @@
+<div fxFlexFill fxLayout="column" fxLayoutAlign="center center" (click)="selected = -1">
+  <h2>{{ title }}</h2>
+  <mat-form-field>
+    <mat-chip-list #chipList>
+      <mat-chip *ngFor="let parametro of parametri; let i = index;" removable color="accent" [selected]="(selected == i) ? 'accent' : null" (removed)="remove(parametro)" (click)="select(i)">
+        <span>{{ parametro.value }}</span>
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="Nuovo parametro..."
+        [matChipInputFor]="chipList"
+        (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+  </mat-form-field>
+  <button mat-fab color="primary" *ngIf="history && history.length" (click)="undo(); $event.stopPropagation()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</div>

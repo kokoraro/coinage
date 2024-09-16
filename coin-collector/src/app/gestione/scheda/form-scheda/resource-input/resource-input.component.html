@@ -1,0 +1,13 @@
+<div fxFlex fxLayoutAlign="center center">
+  <mat-form-field fxFlex>
+    <mat-select [formControl]="formControl" [placeholder]="placeholder" [required]="required">
+      <mat-option *ngFor="let resource of resources" [value]="resource.path">
+        {{ resource.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="formControl.hasError('required')">{{ placeholder }} è <strong>obbligatoria</strong></mat-error>
+  </mat-form-field>
+  <button matSuffix mat-icon-button>
+    <mat-icon (click)="openDialog()">{{ icon }}</mat-icon>
+  </button>
+</div>

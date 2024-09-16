@@ -1,0 +1,42 @@
+<div fxFlexFill fxLayout="column" fxLayoutAlign="center center" id="main_container">
+
+  <!-- FILTER -->
+  <div *ngIf="monete && monete.length" fxFlexAlign="stretch" fxLayout="row" fxLayoutAlign="center center">
+    <mat-form-field fxFlex class="filter">
+      <input matInput placeholder="Filtra" [formControl]="filterControl">
+    </mat-form-field>
+    <mat-slide-toggle [formControl]="caseControl"></mat-slide-toggle>
+  </div>
+  <!-- TABLE -->
+  <div id="table_container" fxFlexAlign="stretch" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container *ngFor="let column of columns" [matColumnDef]="column.name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column.display }} </th>
+        <td mat-cell *matCellDef="let moneta" class="cell"> {{ column.value ? column.value(moneta) : moneta[column.name] }} </td>
+        <td mat-footer-cell *matFooterCellDef  class="footer_cell" [style.padding-right]="column.paddingRight ? '10px' : '0'"> {{ column.footer ? column.footer() : '' }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="azioni">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let moneta" class="cell">
+          <div class="actions_container">
+            <button mat-icon-button (click)="edit(moneta.id); $event.stopPropagation()">
+              <mat-icon color="primary">edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="delete(moneta); $event.stopPropagation()">
+              <mat-icon color="warn">delete</mat-icon>
+            </button>
+          </div>
+        </td>
+        <td mat-footer-cell *matFooterCellDef class="footer_cell"></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="select(row)" class="moneta_row"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true" class="moneta_footer_row"></tr>
+
+    </table>
+  </div>
+
+</div>

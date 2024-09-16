@@ -1,0 +1,19 @@
+<div fxFlexFill fxLayout="column" fxLayoutAlign="center center" (click)="selected = -1">
+  <h2>{{ title }}</h2>
+  <div id="inputs_container" fxLayoutAlign="center center">
+    <mat-form-field fxFlex>
+      <mat-chip-list #chipList>
+        <mat-chip *ngFor="let unit of units; let i = index;" color="accent" [selected]="(selected == i) ? 'accent' : null"
+          removable (removed)="remove(unit)" (click)="select(i)">
+          <span>{{ unit.unit }}</span>
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="Nuova unità..." [matChipInputFor]="chipList" (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+    </mat-form-field>
+    <mat-slide-toggle *ngIf="selected != -1 && units.length" [checked]="units[selected].prefix" (click)="togglePrefix(); $event.stopPropagation()"></mat-slide-toggle>
+  </div>
+  <button mat-fab color="primary" *ngIf="history && history.length" (click)="undo(); $event.stopPropagation()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</div>

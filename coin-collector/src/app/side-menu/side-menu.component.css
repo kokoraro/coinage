@@ -1,0 +1,16 @@
+mat-divider {
+  background-color: #dddde0;
+}
+
+mat-list {
+  padding: 0;
+  cursor: pointer;
+}
+
+.selected_item {
+  background-color: #efefef;
+}
+
+.clicked_item {
+  background-color: #e4e4e4;
+}
