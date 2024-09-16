@@ -1,0 +1,475 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Footer />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <p>
+          designed and coded by 
+          <a
+            href="https://www.charlietaylorcoder.com"
+          >
+            charlie taylor
+          </a>
+        </p>,
+        <div
+          className="footer-icons"
+        >
+          <a
+            href="http://twitter.com/charlietcoder"
+          >
+            <i
+              className="fa fa-twitter"
+            />
+          </a>
+          <a
+            href="http://www.instagram.com/charlietcoder"
+          >
+            <i
+              className="fa fa-instagram"
+            />
+          </a>
+          <a
+            href="http://www.behance.net/chazhurricane"
+          >
+            <i
+              className="fa fa-behance"
+            />
+          </a>
+        </div>,
+        <p>
+          data from 
+          <a
+            href="https://www.cryptocompare.com/api/"
+          >
+            cryptocompare api
+          </a>
+        </p>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "designed and coded by ",
+            <a
+              href="https://www.charlietaylorcoder.com"
+            >
+              charlie taylor
+            </a>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "designed and coded by ",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "charlie taylor",
+              "href": "https://www.charlietaylorcoder.com",
+            },
+            "ref": null,
+            "rendered": "charlie taylor",
+            "type": "a",
+          },
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <a
+              href="http://twitter.com/charlietcoder"
+            >
+              <i
+                className="fa fa-twitter"
+              />
+            </a>,
+            <a
+              href="http://www.instagram.com/charlietcoder"
+            >
+              <i
+                className="fa fa-instagram"
+              />
+            </a>,
+            <a
+              href="http://www.behance.net/chazhurricane"
+            >
+              <i
+                className="fa fa-behance"
+              />
+            </a>,
+          ],
+          "className": "footer-icons",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <i
+                className="fa fa-twitter"
+              />,
+              "href": "http://twitter.com/charlietcoder",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "fa fa-twitter",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "i",
+            },
+            "type": "a",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <i
+                className="fa fa-instagram"
+              />,
+              "href": "http://www.instagram.com/charlietcoder",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "fa fa-instagram",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "i",
+            },
+            "type": "a",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <i
+                className="fa fa-behance"
+              />,
+              "href": "http://www.behance.net/chazhurricane",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "fa fa-behance",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "i",
+            },
+            "type": "a",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "data from ",
+            <a
+              href="https://www.cryptocompare.com/api/"
+            >
+              cryptocompare api
+            </a>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "data from ",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "cryptocompare api",
+              "href": "https://www.cryptocompare.com/api/",
+            },
+            "ref": null,
+            "rendered": "cryptocompare api",
+            "type": "a",
+          },
+        ],
+        "type": "p",
+      },
+    ],
+    "type": "footer",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <p>
+            designed and coded by 
+            <a
+              href="https://www.charlietaylorcoder.com"
+            >
+              charlie taylor
+            </a>
+          </p>,
+          <div
+            className="footer-icons"
+          >
+            <a
+              href="http://twitter.com/charlietcoder"
+            >
+              <i
+                className="fa fa-twitter"
+              />
+            </a>
+            <a
+              href="http://www.instagram.com/charlietcoder"
+            >
+              <i
+                className="fa fa-instagram"
+              />
+            </a>
+            <a
+              href="http://www.behance.net/chazhurricane"
+            >
+              <i
+                className="fa fa-behance"
+              />
+            </a>
+          </div>,
+          <p>
+            data from 
+            <a
+              href="https://www.cryptocompare.com/api/"
+            >
+              cryptocompare api
+            </a>
+          </p>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "designed and coded by ",
+              <a
+                href="https://www.charlietaylorcoder.com"
+              >
+                charlie taylor
+              </a>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "designed and coded by ",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "charlie taylor",
+                "href": "https://www.charlietaylorcoder.com",
+              },
+              "ref": null,
+              "rendered": "charlie taylor",
+              "type": "a",
+            },
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <a
+                href="http://twitter.com/charlietcoder"
+              >
+                <i
+                  className="fa fa-twitter"
+                />
+              </a>,
+              <a
+                href="http://www.instagram.com/charlietcoder"
+              >
+                <i
+                  className="fa fa-instagram"
+                />
+              </a>,
+              <a
+                href="http://www.behance.net/chazhurricane"
+              >
+                <i
+                  className="fa fa-behance"
+                />
+              </a>,
+            ],
+            "className": "footer-icons",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <i
+                  className="fa fa-twitter"
+                />,
+                "href": "http://twitter.com/charlietcoder",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "fa fa-twitter",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "i",
+              },
+              "type": "a",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <i
+                  className="fa fa-instagram"
+                />,
+                "href": "http://www.instagram.com/charlietcoder",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "fa fa-instagram",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "i",
+              },
+              "type": "a",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <i
+                  className="fa fa-behance"
+                />,
+                "href": "http://www.behance.net/chazhurricane",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "fa fa-behance",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "i",
+              },
+              "type": "a",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "data from ",
+              <a
+                href="https://www.cryptocompare.com/api/"
+              >
+                cryptocompare api
+              </a>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "data from ",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "cryptocompare api",
+                "href": "https://www.cryptocompare.com/api/",
+              },
+              "ref": null,
+              "rendered": "cryptocompare api",
+              "type": "a",
+            },
+          ],
+          "type": "p",
+        },
+      ],
+      "type": "footer",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

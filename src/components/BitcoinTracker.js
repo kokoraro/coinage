@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CoinList from './CoinList';
 import ControlPanel from './ControlPanel';
+import Footer from './Footer';
 import { getPrice } from '../getCoins';
 
 const coinArray = [
@@ -88,9 +89,7 @@ class BitcoinTracker extends Component {
             handleCurrency={() => this.setState({currDollar: !currDollar})} 
           />
         </div>
-        <footer>
-          <a href="https://www.cryptocompare.com/api/">data from cryptocompare</a>
-        </footer>
+        <Footer />
       </div>
     )
   }
