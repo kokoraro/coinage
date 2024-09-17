@@ -2,13 +2,13 @@
 
 exports[`Footer renders correctly 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Footer />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -19,7 +19,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <p>
-          designed and coded by 
+          coded by 
           <a
             href="https://www.charlietaylorcoder.com"
           >
@@ -59,7 +59,7 @@ ShallowWrapper {
           </a>
         </div>,
         <p>
-          data from 
+          uses 
           <a
             href="https://www.cryptocompare.com/api/"
           >
@@ -76,7 +76,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            "designed and coded by ",
+            "coded by ",
             <a
               href="https://www.charlietaylorcoder.com"
             >
@@ -86,7 +86,7 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
-          "designed and coded by ",
+          "coded by ",
           Object {
             "instance": null,
             "key": undefined,
@@ -246,7 +246,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            "data from ",
+            "uses ",
             <a
               href="https://www.cryptocompare.com/api/"
             >
@@ -256,7 +256,7 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
-          "data from ",
+          "uses ",
           Object {
             "instance": null,
             "key": undefined,
@@ -283,7 +283,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <p>
-            designed and coded by 
+            coded by 
             <a
               href="https://www.charlietaylorcoder.com"
             >
@@ -323,7 +323,7 @@ ShallowWrapper {
             </a>
           </div>,
           <p>
-            data from 
+            uses 
             <a
               href="https://www.cryptocompare.com/api/"
             >
@@ -340,7 +340,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              "designed and coded by ",
+              "coded by ",
               <a
                 href="https://www.charlietaylorcoder.com"
               >
@@ -350,7 +350,7 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": Array [
-            "designed and coded by ",
+            "coded by ",
             Object {
               "instance": null,
               "key": undefined,
@@ -510,7 +510,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              "data from ",
+              "uses ",
               <a
                 href="https://www.cryptocompare.com/api/"
               >
@@ -520,7 +520,7 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": Array [
-            "data from ",
+            "uses ",
             Object {
               "instance": null,
               "key": undefined,
@@ -544,6 +544,16 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
   },
