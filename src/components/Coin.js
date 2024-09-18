@@ -1,4 +1,5 @@
 import React from 'react';
+import './Coin.sass';
 
 const Coin = ({
     coinData,
