@@ -4,6 +4,7 @@ import ControlPanel from './ControlPanel';
 import Footer from './Footer';
 import { getPrice } from '../getCoins';
 import { getData } from '../getCoinData';
+import './BitcoinTracker.sass';
 
 const FAVOURITES = [
     'BTC', 'XRP', 'LTC', 'ETH', 'XMR',

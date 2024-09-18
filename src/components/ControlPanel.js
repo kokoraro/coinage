@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AddCoinListItem from './AddCoinListItem';
+import './ControlPanel.sass';
 
 class ControlPanel extends Component {
     constructor(props) {
