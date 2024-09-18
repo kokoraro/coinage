@@ -1,0 +1,78 @@
+{
+    "extends": [
+        "react-app",
+        "airbnb"
+    ],
+    "env": {
+        "es6": true,
+        "node": true,
+        "jest": true
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "no-console": [
+            "warn",
+            {
+                "allow": [
+                    "warn",
+                    "error"
+                ]
+            }
+        ],
+        "react/jsx-filename-extension": 0,
+        "react/jsx-indent": [
+            "error",
+            4
+        ],
+        "react/jsx-indent-props": [
+            "error",
+            4
+        ],
+        "max-len": "off",
+        "react/prop-types": "off",
+        "import/extensions": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "class-methods-use-this": "off",
+        "no-underscore-dangle": "off",
+        "linebreak-style": "off",
+        "no-mixed-operators": [
+            "error",
+            {
+                "allowSamePrecedence": true
+            }
+        ],
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "all",
+                "args": "after-used",
+                "ignoreRestSiblings": true
+            }
+        ],
+        "react/no-will-update-set-state": "warn",
+        "react/no-multi-comp": "warn",
+        "no-plusplus": 0,
+        "no-restricted-syntax": [
+            "error",
+            "ForInStatement",
+            "LabeledStatement",
+            "WithStatement"
+        ]
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js"
+                ]
+            }
+        }
+    }
+}
