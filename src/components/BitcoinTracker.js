@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 import CoinList from './CoinList';
 import ControlPanel from './ControlPanel';
 import Footer from './Footer';
-import { getCoinData, getCoinPrice, addCoins } from '../actions';
+import {
+    getCoinData,
+    getCoinPrice,
+    addCoins,
+    removeCoin,
+} from '../actions';
 import './BitcoinTracker.sass';
 
 class BitcoinTracker extends Component {
@@ -12,7 +17,6 @@ class BitcoinTracker extends Component {
         this.state = {
             currDollar: true,
             addOpen: false,
-            coinList: [],
         };
     }
 
@@ -24,25 +28,20 @@ class BitcoinTracker extends Component {
 
     updateCoins = () => {
         const { coinList, fetchCoinPrice } = this.props;
-        const filtered = coinList.filter(a => a.showing);
-        const codes = filtered.map(c => c.code);
+        const codes = coinList.filter(c => c.showing).map(c => c.code);
         fetchCoinPrice(codes);
     }
 
     handleAddCoins = async (ids) => {
-        const { addCoinsHandler, fetchCoinPrice } = this.props;
+        const { addCoinsHandler } = this.props;
         await addCoinsHandler(ids);
-        const { coinList } = this.props;
-        const codes = coinList.filter(coin => coin.showing).map(c => c.code);
-        fetchCoinPrice(codes);
+        this.updateCoins();
     }
 
     handleDelete = (id) => {
-        const { coinList } = this.state;
-        const newCoinList = coinList.map(c => (
-            c.id === id ? { ...c, showing: false } : c
-        ));
-        this.setState({ coinList: newCoinList }, () => this.updateCoins());
+        const { removeCoinHandler } = this.props;
+        removeCoinHandler(id);
+        this.updateCoins();
     }
 
     render() {
@@ -86,6 +85,7 @@ const mapDispatchToProps = dispatch => ({
     fetchCoinData: () => dispatch(getCoinData()),
     fetchCoinPrice: codes => dispatch(getCoinPrice(codes)),
     addCoinsHandler: ids => dispatch(addCoins(ids)),
+    removeCoinHandler: id => dispatch(removeCoin(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BitcoinTracker);
