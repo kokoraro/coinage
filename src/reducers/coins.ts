@@ -12,6 +12,7 @@ export interface Coin {
     showing: boolean;
     code: string;
     name: string;
+    imageURL: string;
 }
 
 export interface CoinState {

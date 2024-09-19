@@ -1,14 +1,15 @@
 import React from 'react';
 import '../styles/Coin.sass';
+import { Coin } from '../reducers/coins';
 
 interface CoinProps {
-    coinData: any;
+    coinData: Coin;
     currDollar: boolean;
     addOpen: boolean;
-    handleDelete: any;
+    handleDelete: (id: number) => void;
 }
 
-const Coin = ({
+const CoinItem = ({
     coinData,
     currDollar,
     addOpen,
@@ -40,4 +41,4 @@ const Coin = ({
     );
 };
 
-export default Coin;
+export default CoinItem;
