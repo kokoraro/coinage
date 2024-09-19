@@ -5,11 +5,11 @@ import { Coin } from '../reducers/coins';
 
 interface ControlPanelProps {
     selectCoins: Coin[];
-    handleAddCoins: any;
-    addOpen: any;
-    toggleAddOpen: any;
-    handleCurrency: any;
-    handleRefresh: any;
+    handleAddCoins: (coins: number[]) => void;
+    addOpen: boolean;
+    toggleAddOpen: () => void;
+    handleCurrency: () => void;
+    handleRefresh: () => void;
 }
 
 interface ControlPanelState {
