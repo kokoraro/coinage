@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { GET_COIN_DATA, GET_COIN_DATA_ERROR, GET_COIN_PRICE } from './types';
+import {
+    GET_COIN_DATA,
+    GET_COIN_DATA_ERROR,
+    GET_COIN_PRICE,
+    ADD_COINS,
+} from './types';
 
 const FAVOURITES = [
     'BTC', 'XRP', 'LTC', 'ETH', 'XMR',
@@ -33,4 +38,8 @@ export const getCoinPrice = codes => async (dispatch) => {
     } catch (e) {
         dispatch({ type: GET_COIN_DATA_ERROR, payload: 'Error Fetching Data' });
     }
+};
+
+export const addCoins = ids => (dispatch) => {
+    dispatch({ type: ADD_COINS, payload: ids });
 };
