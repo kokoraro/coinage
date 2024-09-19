@@ -1,6 +1,6 @@
 import React from 'react';
 import Coin from './Coin';
-import './CoinList.sass';
+import '../styles/CoinList.sass';
 
 interface CoinList {
     coinData: any[];

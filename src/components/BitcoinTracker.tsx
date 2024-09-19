@@ -9,7 +9,7 @@ import {
     addCoins,
     removeCoin,
 } from '../actions';
-import './BitcoinTracker.sass';
+import '../styles/BitcoinTracker.sass';
 import { Coin } from '../reducers/coins';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
