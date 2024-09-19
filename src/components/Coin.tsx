@@ -1,5 +1,5 @@
 import React from 'react';
-import './Coin.sass';
+import '../styles/Coin.sass';
 
 interface CoinProps {
     coinData: any;
