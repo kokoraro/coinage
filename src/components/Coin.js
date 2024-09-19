@@ -21,7 +21,7 @@ const Coin = ({
             className="coin-delete"
             onClick={() => handleDelete(coinData.id)}
         >
-            <i className="fa fa-trash" />
+            <i className="fas fa-trash-alt" />
         </div>
     ) : (
         <img src={imgUrl} alt={coinData.name} />
