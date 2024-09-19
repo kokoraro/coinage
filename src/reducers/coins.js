@@ -3,7 +3,6 @@ import { GET_COIN_DATA, GET_COIN_DATA_ERROR, GET_COIN_PRICE } from '../actions/t
 const INITIAL_STATE = {
     coins: [],
     errorMessage: false,
-    selectedCoins: [],
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -14,9 +13,9 @@ export default function (state = INITIAL_STATE, action) {
             return { ...state, errorMessage: action.payload };
         case GET_COIN_PRICE:
             return Object.assign({}, state, {
-                selectedCoins: state.coins
-                    .filter(coin => coin.showing)
-                    .map(c => ({ ...c, price: action.payload[c.code] })),
+                coins: state.coins.map(coin => (
+                    coin.showing ? { ...coin, price: action.payload[coin.code] } : coin
+                )),
             });
         default:
             return state;
