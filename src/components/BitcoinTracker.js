@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import CoinList from './CoinList';
 import ControlPanel from './ControlPanel';
 import Footer from './Footer';
 import { getPrice } from '../getCoins';
-import { getData } from '../getCoinData';
+// import { getData } from '../getCoinData';
+import { getCoinData } from '../actions';
 import './BitcoinTracker.sass';
 
-const FAVOURITES = [
-    'BTC', 'XRP', 'LTC', 'ETH', 'XMR',
-    'ZEC', 'DSH', 'GNT', 'ADA', 'XVG',
-];
+// const FAVOURITES = [
+//     'BTC', 'XRP', 'LTC', 'ETH', 'XMR',
+//     'ZEC', 'DSH', 'GNT', 'ADA', 'XVG',
+// ];
 
 class BitcoinTracker extends Component {
     constructor(props) {
@@ -32,27 +34,14 @@ class BitcoinTracker extends Component {
         this.handleAddCoins = this.handleAddCoins.bind(this);
     }
 
-    componentDidMount() {
-        this.getCoinData();
-    }
-
-    async getCoinData() {
-        const coinData = await getData();
-        const coinList = Object.keys(coinData).map((coin, idx) => (
-            {
-                id: idx,
-                name: coinData[coin].CoinName,
-                imageURL: coinData[coin].ImageUrl,
-                code: coin,
-                showing: FAVOURITES.includes(coin),
-            }
-        ));
-        this.setState({ coinList });
+    componentDidMount = async () => {
+        const { fetchCoinData } = this.props;
+        await fetchCoinData();
         this.updateCoins();
     }
 
     async updateCoins() {
-        const { coinList } = this.state;
+        const { coinList } = this.props;
         const filtered = coinList.filter(a => a.showing);
         const codes = filtered.map(c => c.code);
         const prices = await getPrice(codes);
@@ -77,7 +66,7 @@ class BitcoinTracker extends Component {
     }
 
     render() {
-        const { coinList } = this.state;
+        const { coinList } = this.props;
         const selectedCoins = coinList.filter(c => !c.showing);
         const { coins, currDollar, addOpen } = this.state;
 
@@ -106,4 +95,13 @@ class BitcoinTracker extends Component {
     }
 }
 
-export default BitcoinTracker;
+const mapStateToProps = state => ({
+    errorMessage: state.coins.errorMessage,
+    coinList: state.coins.coins,
+});
+
+const mapDispatchToProps = dispatch => ({
+    fetchCoinData: () => dispatch(getCoinData()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BitcoinTracker);
