@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_COIN_DATA, GET_COIN_DATA_ERROR } from './types';
+import { GET_COIN_DATA, GET_COIN_DATA_ERROR, GET_COIN_PRICE } from './types';
 
 const FAVOURITES = [
     'BTC', 'XRP', 'LTC', 'ETH', 'XMR',
@@ -23,4 +23,15 @@ export const getCoinData = () => async (dispatch) => {
     } catch (e) {
         dispatch({ type: GET_COIN_DATA_ERROR, payload: 'Error Fetching Data' });
     }
-}
+};
+
+export const getCoinPrice = codes => async (dispatch) => {
+    try {
+        const url = `https://min-api.cryptocompare.com/data/pricemulti?fsyms=${codes.join(',')}&tsyms=USD,GBP`;
+        const response = await axios.get(url);
+        const { data: coinData } = response;
+        dispatch({ type: GET_COIN_PRICE, payload: coinData });
+    } catch (e) {
+        dispatch({ type: GET_COIN_DATA_ERROR, payload: 'Error Fetching Data' });
+    }
+};
