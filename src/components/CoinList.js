@@ -7,15 +7,19 @@ const CoinList = ({
     currDollar,
     addOpen,
     handleDelete,
-}) => {
-    const coins = coinData ? (coinData.map(c => (
-        <Coin coinData={c} currDollar={currDollar} key={c.id} addOpen={addOpen} handleDelete={handleDelete} />
-    ))) : null;
-    return (
-        <ul className="coin-list">
-            {coins}
-        </ul>
-    );
-};
+}) => (
+    <ul className="coin-list">
+        {coinData.map(c => (
+            <Coin
+                coinData={c}
+                currDollar={currDollar}
+                key={c.id}
+                addOpen={addOpen}
+                handleDelete={handleDelete}
+            />
+        ))}
+    </ul>
+);
+
 
 export default CoinList;
