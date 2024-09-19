@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CoinList from './CoinList';
 import ControlPanel from './ControlPanel';
 import Footer from './Footer';
-import { getCoinData, getCoinPrice } from '../actions';
+import { getCoinData, getCoinPrice, addCoins } from '../actions';
 import './BitcoinTracker.sass';
 
 class BitcoinTracker extends Component {
@@ -29,12 +29,12 @@ class BitcoinTracker extends Component {
         fetchCoinPrice(codes);
     }
 
-    handleAddCoins = (ids) => {
-        const { coinList } = this.state;
-        const newCoinList = coinList.map(c => (
-            ids.includes(c.id) ? { ...c, showing: true } : c
-        ));
-        this.setState({ coinList: newCoinList }, () => this.updateCoins());
+    handleAddCoins = async (ids) => {
+        const { addCoinsHandler, fetchCoinPrice } = this.props;
+        await addCoinsHandler(ids);
+        const { coinList } = this.props;
+        const codes = coinList.filter(coin => coin.showing).map(c => c.code);
+        fetchCoinPrice(codes);
     }
 
     handleDelete = (id) => {
@@ -47,9 +47,9 @@ class BitcoinTracker extends Component {
 
     render() {
         const { coinList } = this.props;
-        const addCoinList = coinList.filter(c => !c.showing);
         const { currDollar, addOpen } = this.state;
 
+        const addCoinList = coinList.filter(coin => !coin.showing);
         const selectedCoins = coinList.filter(coin => coin.showing);
 
         return (
@@ -85,6 +85,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     fetchCoinData: () => dispatch(getCoinData()),
     fetchCoinPrice: codes => dispatch(getCoinPrice(codes)),
+    addCoinsHandler: ids => dispatch(addCoins(ids)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BitcoinTracker);
