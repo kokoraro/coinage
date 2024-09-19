@@ -7,7 +7,7 @@ interface CoinList {
     coinData: Coin[];
     currDollar: boolean;
     addOpen: boolean;
-    handleDelete: () => void;
+    handleDelete: (id: number) => void;
 }
 
 const CoinList = ({
