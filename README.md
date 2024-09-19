@@ -7,6 +7,7 @@ from cryptocompare api via async AJAX requests.
 
 Tech: 
 - React
+- Redux
 - Javascript
 - Sass
 - Webpack
