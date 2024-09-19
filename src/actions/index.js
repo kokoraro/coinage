@@ -4,6 +4,7 @@ import {
     GET_COIN_DATA_ERROR,
     GET_COIN_PRICE,
     ADD_COINS,
+    REMOVE_COIN,
 } from './types';
 
 const FAVOURITES = [
@@ -42,4 +43,8 @@ export const getCoinPrice = codes => async (dispatch) => {
 
 export const addCoins = ids => (dispatch) => {
     dispatch({ type: ADD_COINS, payload: ids });
+};
+
+export const removeCoin = id => (dispatch) => {
+    dispatch({ type: REMOVE_COIN, payload: id });
 };

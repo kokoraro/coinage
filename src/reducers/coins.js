@@ -3,6 +3,7 @@ import {
     GET_COIN_DATA_ERROR,
     GET_COIN_PRICE,
     ADD_COINS,
+    REMOVE_COIN,
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -26,6 +27,12 @@ export default function (state = INITIAL_STATE, action) {
             return Object.assign({}, state, {
                 coins: state.coins.map(coin => (
                     action.payload.includes(coin.id) ? { ...coin, showing: true } : coin
+                )),
+            });
+        case REMOVE_COIN:
+            return Object.assign({}, state, {
+                coins: state.coins.map(coin => (
+                    coin.id === action.payload ? { ...coin, showing: false } : coin
                 )),
             });
         default:
