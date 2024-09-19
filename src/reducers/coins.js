@@ -1,4 +1,9 @@
-import { GET_COIN_DATA, GET_COIN_DATA_ERROR, GET_COIN_PRICE } from '../actions/types';
+import {
+    GET_COIN_DATA,
+    GET_COIN_DATA_ERROR,
+    GET_COIN_PRICE,
+    ADD_COINS,
+} from '../actions/types';
 
 const INITIAL_STATE = {
     coins: [],
@@ -15,6 +20,12 @@ export default function (state = INITIAL_STATE, action) {
             return Object.assign({}, state, {
                 coins: state.coins.map(coin => (
                     coin.showing ? { ...coin, price: action.payload[coin.code] } : coin
+                )),
+            });
+        case ADD_COINS:
+            return Object.assign({}, state, {
+                coins: state.coins.map(coin => (
+                    action.payload.includes(coin.id) ? { ...coin, showing: true } : coin
                 )),
             });
         default:
