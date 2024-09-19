@@ -46,9 +46,11 @@ class BitcoinTracker extends Component {
     }
 
     render() {
-        const { coinList, selectedCoins } = this.props;
+        const { coinList } = this.props;
         const addCoinList = coinList.filter(c => !c.showing);
         const { currDollar, addOpen } = this.state;
+
+        const selectedCoins = coinList.filter(coin => coin.showing);
 
         return (
             <div>
@@ -78,7 +80,6 @@ class BitcoinTracker extends Component {
 const mapStateToProps = state => ({
     errorMessage: state.coins.errorMessage,
     coinList: state.coins.coins,
-    selectedCoins: state.coins.selectedCoins,
 });
 
 const mapDispatchToProps = dispatch => ({
