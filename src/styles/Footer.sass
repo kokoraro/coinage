@@ -1,36 +1,27 @@
 footer
-  display: grid
-  grid-auto-rows: 2em
-  padding: 20px 0
-  margin-top: 20px
-
-  p, .footer-icons
-    align-self: center
-    justify-self: center
+    display: flex
+    justify-content: space-between
+    padding: 20px 0
+    background-color: pink
+    align-items: center
+    flex-direction: column
       
-  p
-    margin: 0
-    font-size: 0.5em
+    p
+        margin: 10px 0
+        font-size: 0.6rem
 
-  a
-    color: black
-    text-decoration: none
-
-    &:hover
-      color: coral
-
-  .footer-icons
+.footer-icons
     width: 180px
     display: grid
     grid-template-columns: repeat(4, 1fr)
     text-align: center
-    font-size: 1.5rem
+    font-size: 1.3rem
 
 @media screen and (min-width: 700px)
-  footer
-    grid-template-rows: 1fr
-    grid-template-columns: repeat(3, 1fr)
-    padding: 40px 20px
+    footer
+        flex-direction: row
+        padding: 40px 20px
 
-    p
-      font-size: 0.6em
+        p
+            margin: 0
+            font-size: 0.6rem
