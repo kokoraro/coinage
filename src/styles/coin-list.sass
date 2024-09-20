@@ -1,0 +1,40 @@
+.coin-list
+    list-style: none
+
+    li
+        display: grid
+        grid-template-columns: repeat(7, 1fr)
+        padding: 25px 0
+        border-top: 2px solid lightgrey
+        position: relative
+
+        &:last-of-type
+            border-bottom: 2px solid lightgrey
+
+        &:hover .coin-delete
+            display: block
+
+ul
+    padding: 0
+
+.coin img
+    width: 25px
+    margin: 0 auto
+
+.coin-delete
+    color: red
+    font-size: 1.3rem
+    cursor: pointer
+    &:hover
+        transform: scale(1.2)
+
+.coin-name
+    grid-column: 3 / 6
+
+.coin-price
+    text-align: right
+    padding-right: 10px
+    grid-column: 6 / 8
+
+.coin-code
+    text-transform: uppercase

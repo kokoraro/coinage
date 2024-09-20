@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/Coin.sass';
 import { Coin } from '../reducers/coins';
 
 interface CoinProps {

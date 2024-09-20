@@ -5,7 +5,7 @@ interface HeaderProps {
 }
 
 const Header = ({ ...props }: HeaderProps): JSX.Element => (
-    <div style={{ padding: 20 }}>
+    <div className="header">
         <h1>Title</h1>
     </div>
 );

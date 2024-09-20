@@ -1,14 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Bitter|Roboto')
 
 body
-  font-family: Roboto
-  background: lightgrey
-  font-size: 20px
-
-.coin-code
-  text-transform: uppercase
+    font-family: Roboto
+    background: lightgrey
+    font-size: 20px
 
 h1
-  color: coral
-  font-family: 'Bitter', serif
-  margin-top: 5px
+    color: coral
+    font-family: 'Bitter', serif
+    margin-top: 5px
+
+.container
+    padding: 20px 0
+    border-radius: 5px
+    background: white
+    width: 100%
+    text-align: center
+
+.main
+    display: flex
+
+.list
+    width: 60%
+    background-color: pink
+
+.detail
+    width: 40%
+    background-color: lightskyblue
+
+@import './footer.sass'
+@import './control-panel.sass'
+@import './coin-list.sass'

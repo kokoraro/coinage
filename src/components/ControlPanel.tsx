@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AddCoinListItem from './AddCoinListItem';
-import '../styles/ControlPanel.sass';
 import { Coin } from '../reducers/coins';
 
 interface ControlPanelProps {
