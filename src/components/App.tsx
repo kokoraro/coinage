@@ -9,7 +9,6 @@ import {
     addCoins,
     removeCoin,
 } from '../actions';
-import '../styles/BitcoinTracker.sass';
 import { Coin } from '../reducers/coins';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
@@ -66,22 +65,30 @@ class BitcoinTracker extends Component<BitcoinTrackerProps, BitcoinTrackerState>
 
         return (
             <Fragment>
-                <Header />
                 <div className="container">
-                    <CoinList
-                        coinData={selectedCoins}
-                        currDollar={currDollar}
-                        addOpen={addOpen}
-                        handleDelete={this.handleDelete}
-                    />
-                    <ControlPanel
-                        selectCoins={addCoinList}
-                        handleRefresh={this.updateCoins}
-                        handleAddCoins={this.handleAddCoins}
-                        addOpen={addOpen}
-                        toggleAddOpen={() => this.setState({ addOpen: !addOpen })}
-                        handleCurrency={() => this.setState({ currDollar: !currDollar })}
-                    />
+                    <Header />
+
+                    <div className="main">
+                        <div className="list">
+                            <CoinList
+                                coinData={selectedCoins}
+                                currDollar={currDollar}
+                                addOpen={addOpen}
+                                handleDelete={this.handleDelete}
+                            />
+                            <ControlPanel
+                                selectCoins={addCoinList}
+                                handleRefresh={this.updateCoins}
+                                handleAddCoins={this.handleAddCoins}
+                                addOpen={addOpen}
+                                toggleAddOpen={() => this.setState({ addOpen: !addOpen })}
+                                handleCurrency={() => this.setState({ currDollar: !currDollar })}
+                            />
+                        </div>
+                        <div className="detail">
+
+                        </div>
+                    </div>
                 </div>
                 <Footer />
             </Fragment>

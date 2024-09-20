@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/Footer.sass';
 
 interface IconProps {
     url: string;
