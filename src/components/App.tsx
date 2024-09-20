@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CoinList from './CoinList';
 import ControlPanel from './ControlPanel';
@@ -64,34 +64,33 @@ class BitcoinTracker extends Component<BitcoinTrackerProps, BitcoinTrackerState>
         const selectedCoins = coinList.filter(coin => coin.showing);
 
         return (
-            <Fragment>
-                <div className="container">
-                    <Header />
+            <div className="container">
+                <Header />
 
-                    <div className="main">
-                        <div className="list">
-                            <CoinList
-                                coinData={selectedCoins}
-                                currDollar={currDollar}
-                                addOpen={addOpen}
-                                handleDelete={this.handleDelete}
-                            />
-                            <ControlPanel
-                                selectCoins={addCoinList}
-                                handleRefresh={this.updateCoins}
-                                handleAddCoins={this.handleAddCoins}
-                                addOpen={addOpen}
-                                toggleAddOpen={() => this.setState({ addOpen: !addOpen })}
-                                handleCurrency={() => this.setState({ currDollar: !currDollar })}
-                            />
-                        </div>
-                        <div className="detail">
+                <div className="main">
+                    <div className="list">
+                        <CoinList
+                            coinData={selectedCoins}
+                            currDollar={currDollar}
+                            addOpen={addOpen}
+                            handleDelete={this.handleDelete}
+                        />
+                        <ControlPanel
+                            selectCoins={addCoinList}
+                            handleRefresh={this.updateCoins}
+                            handleAddCoins={this.handleAddCoins}
+                            addOpen={addOpen}
+                            toggleAddOpen={() => this.setState({ addOpen: !addOpen })}
+                            handleCurrency={() => this.setState({ currDollar: !currDollar })}
+                        />
+                    </div>
+                    <div className="detail">
 
-                        </div>
                     </div>
                 </div>
+
                 <Footer />
-            </Fragment>
+            </div>
         );
     }
 }
