@@ -1,6 +1,5 @@
 import React from 'react';
 import CoinItem from './Coin';
-import '../styles/CoinList.sass';
 import { Coin } from '../reducers/coins';
 
 interface CoinList {
