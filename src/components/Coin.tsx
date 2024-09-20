@@ -20,7 +20,7 @@ const CoinItem = ({
     const value = price >= 1 ? price.toFixed(2) : price.toFixed(4);
 
     return (
-        <li className="coin">
+        <div className="coin">
             {addOpen ? (
                 <div
                     role="button"
@@ -36,7 +36,7 @@ const CoinItem = ({
             <div className="coin-code">{coinData.code}</div>
             <div className="coin-name">{coinData.name}</div>
             <div className="coin-price">{`${currSymbol}${value}`}</div>
-        </li>
+        </div>
     );
 };
 
