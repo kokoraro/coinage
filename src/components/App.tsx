@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import CoinList from './CoinList';
 import ControlPanel from './ControlPanel';
@@ -14,6 +14,7 @@ import { Coin } from '../reducers/coins';
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { AppState } from '../reducers';
+import Header from './Header';
 
 interface Props {
     coinList: Coin[];
@@ -64,9 +65,9 @@ class BitcoinTracker extends Component<BitcoinTrackerProps, BitcoinTrackerState>
         const selectedCoins = coinList.filter(coin => coin.showing);
 
         return (
-            <div>
+            <Fragment>
+                <Header />
                 <div className="container">
-                    <h1>coinage</h1>
                     <CoinList
                         coinData={selectedCoins}
                         currDollar={currDollar}
@@ -83,7 +84,7 @@ class BitcoinTracker extends Component<BitcoinTrackerProps, BitcoinTrackerState>
                     />
                 </div>
                 <Footer />
-            </div>
+            </Fragment>
         );
     }
 }
