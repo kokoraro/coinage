@@ -15,7 +15,7 @@ const CoinList = ({
     addOpen,
     handleDelete,
 }: CoinList) => (
-    <ul className="coin-list">
+    <div className="coin-list">
         {coinData.map(c => (
             <CoinItem
                 coinData={c}
@@ -25,7 +25,7 @@ const CoinList = ({
                 handleDelete={handleDelete}
             />
         ))}
-    </ul>
+    </div>
 );
 
 export default CoinList;
