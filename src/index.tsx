@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { compose, createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
-import BitcoinTracker from './components/BitcoinTracker';
+import BitcoinTracker from './components/App';
 import './styles/main.sass';
 
 import reducers from './reducers';
