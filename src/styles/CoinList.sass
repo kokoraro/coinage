@@ -1,0 +1,18 @@
+.coin-list
+  list-style: none
+
+  li
+    display: grid
+    grid-template-columns: repeat(7, 1fr)
+    padding: 25px 0
+    border-top: 2px solid lightgrey
+    position: relative
+
+    &:last-of-type
+      border-bottom: 2px solid lightgrey
+
+    &:hover .coin-delete
+      display: block
+
+ul
+  padding: 0

@@ -1,0 +1,52 @@
+.control-panel
+    padding: 10px
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    grid-gap: 5px
+
+    input
+        font-size: 1.2rem
+        padding: 0 10px
+        grid-column: 1 / 4
+        border: 3px solid coral
+        border-radius: 5px
+
+button
+    background: white
+    color: coral
+    cursor: pointer
+    font-size: 1.2rem
+    border: 3px solid coral
+    border-radius: 5px
+    padding: 0.8rem 1.1rem
+    outline: none
+
+    &:hover
+        color: white
+        background: coral
+
+h4
+    color: grey
+
+.add-coins
+    font-size: 0.8em
+    max-width: 90%
+    margin-top: 15px
+    padding: 0 10px
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-gap: 6px
+
+    div
+        cursor: pointer
+        border: 1px solid lightgrey
+        border-radius: 5px
+        padding: 20px 0
+
+        &:hover
+            color: white
+            background: lightgrey
+
+.add-coins-submit
+    margin: 20px 15px
+    padding: 10px 50px

@@ -1,0 +1,27 @@
+footer
+    display: flex
+    justify-content: space-between
+    padding: 20px 0
+    background-color: pink
+    align-items: center
+    flex-direction: column
+      
+    p
+        margin: 10px 0
+        font-size: 0.6rem
+
+.footer-icons
+    width: 180px
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    text-align: center
+    font-size: 1.3rem
+
+@media screen and (min-width: 700px)
+    footer
+        flex-direction: row
+        padding: 40px 20px
+
+        p
+            margin: 0
+            font-size: 0.6rem
