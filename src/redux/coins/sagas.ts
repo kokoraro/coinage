@@ -3,12 +3,11 @@ import { CoinsActionTypes } from './types'
 import { getCoinDataError, getCoinDataSuccess, getCoinPriceError, getCoinPriceSuccess } from './actions'
 import fetcher from '../../utils/fetcher'
 import { AnyAction } from 'redux'
-
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://min-api.cryptocompare.com'
+import config from '../../utils/config'
 
 function* handleGetCoinData() {
     try {
-        const response = yield call(fetcher, 'get', API_ENDPOINT, 'data/all/coinlist');
+        const response = yield call(fetcher, 'get', config.apiUrl, 'data/all/coinlist');
 
         if (response.error) {
             yield put(getCoinDataError(response.error));
@@ -27,7 +26,7 @@ function* handleGetCoinData() {
 function* handleGetCoinPrice({ payload }: AnyAction) {
     try {
         const path = `data/pricemulti?fsyms=${payload.join(',')}&tsyms=USD,GBP`;
-        const response = yield call(fetcher, 'get', API_ENDPOINT, path);
+        const response = yield call(fetcher, 'get', config.apiUrl, path);
 
         if (response.error) {
             yield put(getCoinPriceError(response.error));
