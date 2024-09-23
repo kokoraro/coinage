@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { AnyAction, Dispatch } from 'redux';
+
+import { getCoinData, getCoinPrice } from '../redux/coins/actions';
+import { Coin } from '../redux/coins/types';
+import { ApplicationState } from '../redux';
+import Header from './Header';
 import CoinList from './CoinList';
 import ControlPanel from './ControlPanel';
 import Footer from './Footer';
-import {
-    getCoinData,
-    getCoinPrice,
-    addCoins,
-    removeCoin,
-} from '../actions';
-import { Coin } from '../reducers/coins';
-import { AnyAction } from 'redux';
-import { ThunkDispatch } from 'redux-thunk';
-import { AppState } from '../reducers';
-import Header from './Header';
+
 
 interface Props {
     coinList: Coin[];
@@ -33,15 +29,14 @@ class BitcoinTracker extends Component<BitcoinTrackerProps, BitcoinTrackerState>
     }
 
     componentDidMount = async () => {
-        const { fetchCoinData } = this.props;
-        await fetchCoinData();
+        await this.props.getCoinData();
         this.updateCoins();
     }
 
     updateCoins = () => {
-        const { coinList, fetchCoinPrice } = this.props;
+        const { coinList } = this.props;
         const codes = coinList.filter(c => c.showing).map(c => c.code);
-        fetchCoinPrice(codes);
+        this.props.getCoinPrice(codes);
     }
 
     handleAddCoins = async (ids: number[]) => {
@@ -95,16 +90,14 @@ class BitcoinTracker extends Component<BitcoinTrackerProps, BitcoinTrackerState>
     }
 }
 
-const mapStateToProps = (state: AppState) => ({
-    errorMessage: state.coins.errorMessage,
-    coinList: state.coins.coins,
+const mapStateToProps = ({ coins }: ApplicationState) => ({
+    errorMessage: coins.errors,
+    coinList: coins.data,
 });
 
-const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, AnyAction>) => ({
-    fetchCoinData: () => dispatch(getCoinData()),
-    fetchCoinPrice: (codes: string[]) => dispatch(getCoinPrice(codes)),
-    addCoinsHandler: (ids: string[]) => dispatch(addCoins(ids)),
-    removeCoinHandler: (id: string) => dispatch(removeCoin(id)),
-});
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    getCoinData: () => dispatch(getCoinData()),
+    getCoinPrice: (codes: string[]) => dispatch(getCoinPrice(codes))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(BitcoinTracker);
