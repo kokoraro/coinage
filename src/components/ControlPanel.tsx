@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AddCoinListItem from './AddCoinListItem';
-import { Coin } from '../reducers/coins';
+import { Coin } from '../redux/coins/types';
 
 interface ControlPanelProps {
     selectCoins: Coin[];

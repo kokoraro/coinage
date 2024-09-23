@@ -1,6 +1,6 @@
 import React from 'react';
 import CoinItem from './Coin';
-import { Coin } from '../reducers/coins';
+import { Coin } from '../redux/coins/types';
 
 interface CoinList {
     coinData: Coin[];
