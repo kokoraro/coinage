@@ -42,7 +42,6 @@ const App = () => {
     const handleDelete = (id: number) => {
         const action = removeCoin(id);
         dispatch(action);
-        updateCoins();
     }
 
     const addCoinList = coins.filter(coin => !coin.showing);
