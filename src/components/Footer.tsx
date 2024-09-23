@@ -1,18 +1,17 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
 
 interface IconProps {
     url: string;
-    icon: string;
+    icon: IconName;
 }
 
-const Icon = ({ url, icon }: IconProps) => {
-    const iconClass = `fab fa-${icon}`;
-    return (
-        <a href={url}>
-            <i className={iconClass} />
-        </a>
-    );
-};
+const Icon = ({ url, icon }: IconProps) => (
+    <a href={url}>
+        <FontAwesomeIcon icon={['fab', icon]} />
+    </a>
+);
 
 const Footer = () => (
     <footer>
