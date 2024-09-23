@@ -1,17 +1,25 @@
 import React from 'react';
 import Coin from './Coin';
+import './CoinList.sass';
 
-const CoinList = ({ coinData, currDollar, addOpen, handleDelete }) => {
-  const coins = coinData ? (
-    coinData.map(c => (
-      <Coin coinData={c} currDollar={currDollar} key={c.id} addOpen={addOpen} handleDelete={handleDelete} />
-    ))
-  ) : null;
-  return (
+const CoinList = ({
+    coinData,
+    currDollar,
+    addOpen,
+    handleDelete,
+}) => (
     <ul className="coin-list">
-      {coins} 
+        {coinData.map(c => (
+            <Coin
+                coinData={c}
+                currDollar={currDollar}
+                key={c.id}
+                addOpen={addOpen}
+                handleDelete={handleDelete}
+            />
+        ))}
     </ul>
-  )
-}
+);
+
 
 export default CoinList;

@@ -2,7 +2,6 @@
 
 exports[`ControlPanel component renders correctly 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ControlPanel
     selectCoins={
@@ -19,6 +18,7 @@ ShallowWrapper {
     "batchedUpdates": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -33,18 +33,13 @@ ShallowWrapper {
         >
           <button
             className="add-button"
-            onClick={undefined}
           >
             Edit
           </button>
-          <button
-            onClick={undefined}
-          >
+          <button>
             Currency
           </button>
-          <button
-            onClick={undefined}
-          >
+          <button>
             Refresh
           </button>
         </div>,
@@ -61,18 +56,13 @@ ShallowWrapper {
           "children": Array [
             <button
               className="add-button"
-              onClick={undefined}
             >
               Edit
             </button>,
-            <button
-              onClick={undefined}
-            >
+            <button>
               Currency
             </button>,
-            <button
-              onClick={undefined}
-            >
+            <button>
               Refresh
             </button>,
           ],
@@ -136,18 +126,13 @@ ShallowWrapper {
           >
             <button
               className="add-button"
-              onClick={undefined}
             >
               Edit
             </button>
-            <button
-              onClick={undefined}
-            >
+            <button>
               Currency
             </button>
-            <button
-              onClick={undefined}
-            >
+            <button>
               Refresh
             </button>
           </div>,
@@ -164,18 +149,13 @@ ShallowWrapper {
             "children": Array [
               <button
                 className="add-button"
-                onClick={undefined}
               >
                 Edit
               </button>,
-              <button
-                onClick={undefined}
-              >
+              <button>
                 Currency
               </button>,
-              <button
-                onClick={undefined}
-              >
+              <button>
                 Refresh
               </button>,
             ],
@@ -232,6 +212,16 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
   },
