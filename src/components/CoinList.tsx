@@ -14,18 +14,21 @@ const CoinList = ({
     currDollar,
     addOpen,
     handleDelete,
-}: CoinList) => (
-    <div className="coin-list">
-        {coinData.map(c => (
-            <CoinItem
-                coinData={c}
-                currDollar={currDollar}
-                key={c.id}
-                addOpen={addOpen}
-                handleDelete={handleDelete}
-            />
-        ))}
-    </div>
-);
+}: CoinList) => {
+    return (
+        <div className="coin-list">
+            {coinData.map(c => (
+                <CoinItem
+                    coinData={c}
+                    currDollar={currDollar}
+                    key={c.id}
+                    addOpen={addOpen}
+                    handleDelete={handleDelete}
+                />
+            ))}
+        </div>
+    );
+}
+
 
 export default CoinList;

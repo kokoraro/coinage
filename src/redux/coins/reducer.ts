@@ -4,13 +4,14 @@ import { CoinState, CoinsActionTypes } from './types'
 const INITIAL_STATE: CoinState = {
     data: [],
     errors: '',
-    loading: false
+    loading: true,
+    loadingPrice: true,
 }
 
 const FAVOURITES = [
     'BTC', 'XRP', 'LTC', 'ETH', 'XMR',
     'ZEC', 'DSH', 'GNT', 'ADA', 'XVG',
-];
+]; // TODO: move to config (default favs)
 
 const reducer: Reducer<CoinState> = (state = INITIAL_STATE, action) => {
     switch (action.type) {
@@ -36,28 +37,29 @@ const reducer: Reducer<CoinState> = (state = INITIAL_STATE, action) => {
             return { ...state, loading: false, errors: action.payload };
 
         case CoinsActionTypes.GET_COIN_PRICE:
-            return { ...state, loading: true };
+            return { ...state, loadingPrice: true };
 
         case CoinsActionTypes.GET_COIN_PRICE_SUCCESS:
             return Object.assign({}, state, {
-                coins: state.data.map(coin => (
+                loadingPrice: false,
+                data: state.data.map(coin => (
                     coin.showing ? { ...coin, price: action.payload[coin.code] } : coin
                 )),
             });
 
         case CoinsActionTypes.GET_COIN_PRICE_ERROR:
-            return { ...state, loading: false, errors: action.payload };
+            return { ...state, loadingPrice: false, errors: action.payload };
 
         case CoinsActionTypes.ADD_COINS:
             return Object.assign({}, state, {
-                coins: state.data.map(coin => (
+                data: state.data.map(coin => (
                     action.payload.includes(coin.id) ? { ...coin, showing: true } : coin
                 )),
             });
 
         case CoinsActionTypes.REMOVE_COIN:
             return Object.assign({}, state, {
-                coins: state.data.map(coin => (
+                data: state.data.map(coin => (
                     coin.id === action.payload ? { ...coin, showing: false } : coin
                 )),
             });
