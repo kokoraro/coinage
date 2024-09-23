@@ -14,7 +14,7 @@ Try the app [here](https://coinage.charlietaylorcoder.com)
 - [Typescript](https://www.typescriptlang.org/)
 - [Sass](https://sass-lang.com/)
 - [Redux](https://redux.js.org/)
-- [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+- [Redux Saga](https://redux-saga.js.org/)
 
 #### To Run Locally
 
