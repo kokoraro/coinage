@@ -6,7 +6,6 @@ import { Coin } from '../redux/coins/types';
 import { ApplicationState } from '../redux';
 import Header from './Header';
 import CoinList from './CoinList';
-import ControlPanel from './ControlPanel';
 import Footer from './Footer';
 
 const getActiveCoinCodes = (coins: Coin[]) => coins
@@ -16,7 +15,6 @@ const getActiveCoinCodes = (coins: Coin[]) => coins
 const App = () => {
     const { data: coins, loading, loadingPrice } = useSelector((state: ApplicationState) => state.coins);
     const [currDollar, setCurrDollar] = useState<boolean>(true);
-    const [addOpen, setAddOpen] = useState<boolean>(false);
     const dispatch = useDispatch();
 
     const updateCoins = useCallback(() => {
@@ -33,39 +31,28 @@ const App = () => {
         if (!loading && loadingPrice) updateCoins();
     }, [loading, loadingPrice, updateCoins]);
 
-    const handleAddCoins = async (ids: number[]) => {
-        const action = addCoins(ids);
-        dispatch(action);
-        // updateCoins();
-    }
+    // const handleAddCoins = async (ids: number[]) => {
+    //     const action = addCoins(ids);
+    //     dispatch(action);
+    //     // updateCoins();
+    // }
 
-    const handleDelete = (id: number) => {
-        const action = removeCoin(id);
-        dispatch(action);
-    }
+    // const handleDelete = (id: number) => {
+    //     const action = removeCoin(id);
+    //     dispatch(action);
+    // }
 
-    const addCoinList = coins.filter(coin => !coin.showing);
     const selectedCoins = coins.filter(coin => coin.showing);
 
     return (
         <div className="container">
-            <Header />
+            <Header onRefresh={updateCoins} />
 
             <div className="main">
                 <div className="list">
                     <CoinList
                         coinData={selectedCoins}
                         currDollar={currDollar}
-                        addOpen={addOpen}
-                        handleDelete={handleDelete}
-                    />
-                    <ControlPanel
-                        selectCoins={addCoinList}
-                        handleRefresh={updateCoins}
-                        handleAddCoins={handleAddCoins}
-                        addOpen={addOpen}
-                        toggleAddOpen={() => setAddOpen(!addOpen)}
-                        handleCurrency={() => setCurrDollar(!currDollar)}
                     />
                 </div>
                 <div className="detail">

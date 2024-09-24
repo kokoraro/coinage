@@ -4,15 +4,11 @@ import { Coin } from '../redux/coins/types';
 interface CoinProps {
     coinData: Coin;
     currDollar: boolean;
-    addOpen: boolean;
-    handleDelete: (id: number) => void;
 }
 
 const CoinItem = ({
     coinData,
     currDollar,
-    addOpen,
-    handleDelete,
 }: CoinProps) => {
     const currency = currDollar ? 'USD' : 'GBP';
     const currSymbol = currDollar ? '$' : '£';
@@ -21,18 +17,7 @@ const CoinItem = ({
 
     return (
         <div className="coin">
-            {addOpen ? (
-                <div
-                    role="button"
-                    tabIndex={0}
-                    className="coin-delete"
-                    onClick={() => handleDelete(coinData.id)}
-                >
-                    <i className="fas fa-trash-alt" />
-                </div>
-            ) : (
-                <img src={coinData.imageURL && `https://www.cryptocompare.com${coinData.imageURL}`} alt={coinData.name} />
-            )}
+            <img src={coinData.imageURL && `https://www.cryptocompare.com${coinData.imageURL}`} alt={coinData.name} />
             <div className="coin-code">{coinData.code}</div>
             <div className="coin-name">{coinData.name}</div>
             <div className="coin-price">{`${currSymbol}${value}`}</div>
