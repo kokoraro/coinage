@@ -5,15 +5,11 @@ import { Coin } from '../redux/coins/types';
 interface CoinList {
     coinData: Coin[];
     currDollar: boolean;
-    addOpen: boolean;
-    handleDelete: (id: number) => void;
 }
 
 const CoinList = ({
     coinData,
     currDollar,
-    addOpen,
-    handleDelete,
 }: CoinList) => {
     return (
         <div className="coin-list">
@@ -22,8 +18,6 @@ const CoinList = ({
                     coinData={c}
                     currDollar={currDollar}
                     key={c.id}
-                    addOpen={addOpen}
-                    handleDelete={handleDelete}
                 />
             ))}
         </div>
