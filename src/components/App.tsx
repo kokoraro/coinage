@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getCoinData, getCoinPrice, addCoins, removeCoin } from '../redux/coins/actions';
+import { getCoinData, getCoinPrice } from '../redux/coins/actions';
 import { Coin } from '../redux/coins/types';
 import { ApplicationState } from '../redux';
 import Header from './Header';
@@ -53,6 +53,7 @@ const App = () => {
                     <CoinList
                         coinData={selectedCoins}
                         currDollar={currDollar}
+                        loading={loading}
                     />
                 </div>
                 <div className="detail">
