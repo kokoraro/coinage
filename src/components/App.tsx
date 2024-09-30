@@ -53,13 +53,15 @@ const App = () => {
                 loadingPrice={loadingPrice}
                 onSelectFavourites={() => setIsFavouritesView(true)}
                 onSelectList={() => setIsFavouritesView(false)}
+                onClickCurrency={() => setCurrDollar(!currDollar)}
                 isFavouritesView={isFavouritesView}
+                currDollar={currDollar}
             />
 
             <div className="main">
                 <div className="list">
                     <CoinList
-                        coinData={selectedCoins}
+                        coinData={!isFavouritesView ? coins : selectedCoins}
                         currDollar={currDollar}
                         loading={loading}
                         isFavouritesView={isFavouritesView}
