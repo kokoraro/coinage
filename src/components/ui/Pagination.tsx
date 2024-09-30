@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface PaginationProps {
     currentPageIndex: number;
@@ -6,12 +7,11 @@ interface PaginationProps {
     onChangePage: (newPage: number) => void;
 }
 
-const Divider = () => <div className="pagination-button"><span>...</span></div>;
+const Divider = () => <div className="pagination-divider"><span>...</span></div>;
 
 const PageNumber = ({ page, onPageClick, active }: { page: number, onPageClick: (page: number) => void, active: boolean }) => (
     <div
-        className="pagination-button"
-        style={{ backgroundColor: active ? 'red' : '#fff' }}
+        className={`pagination-button${active ? '_active' : ''}`}
         onClick={() => onPageClick(page - 1)}
     >
         <span>{page}</span>
@@ -62,11 +62,31 @@ const Pagination = ({
 
     return (
         <div className="pagination">
+            {currentPageIndex > 0 && (
+                <FontAwesomeIcon
+                    icon="long-arrow-alt-left"
+                    className="pagination-icon"
+                    onClick={() => onChangePage(currentPageIndex - 1)}
+                />
+            )}
             {pages.map((page) => (
                 <Fragment>
-                    {page ? <PageNumber page={page} onPageClick={onChangePage} active={(currentPageIndex + 1) === page} /> : <Divider />}
+                    {page ? (
+                        <PageNumber
+                        page={page}
+                        onPageClick={onChangePage}
+                        active={(currentPageIndex + 1) === page}
+                        />
+                        ) : <Divider />}
                 </Fragment>
             ))}
+            {currentPageIndex < totalPages - 1 && (
+                <FontAwesomeIcon
+                    icon="long-arrow-alt-right"
+                    className="pagination-icon"
+                    onClick={() => onChangePage(currentPageIndex + 1)}
+                />
+            )}
         </div>
     );
 }
