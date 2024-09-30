@@ -18,13 +18,15 @@ const CoinList = ({
 }: CoinList) => {
     if (loading) return <LoadingPanel />;
 
+    const selectedCoins = coinData.filter(coin => coin.showing);
+
     return (
         <div className="coin-list">
-            {coinData.map(c => (
+            {selectedCoins.map(coin => (
                 <CoinItem
-                    coinData={c}
+                    coinData={coin}
                     currDollar={currDollar}
-                    key={c.id}
+                    key={coin.id}
                     isFavouritesView={isFavouritesView}
                 />
             ))}

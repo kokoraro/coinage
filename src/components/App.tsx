@@ -8,6 +8,7 @@ import Header from './Header';
 import CoinList from './coins/CoinList';
 import Footer from './Footer';
 import NewsFeed from './news/NewsFeed';
+import FullCoinList from './coins/FullCoinList';
 
 const getActiveCoinCodes = (coins: Coin[]) => coins
     .filter(coin => coin.showing)
@@ -15,7 +16,7 @@ const getActiveCoinCodes = (coins: Coin[]) => coins
 
 const App = () => {
     const { data: coins, loading, loadingPrice } = useSelector((state: ApplicationState) => state.coins);
-    const [isFavouritesView, setIsFavouritesView] = useState<boolean>(true);
+    const [isFavouritesView, setIsFavouritesView] = useState<boolean>(false);
     const [currDollar, setCurrDollar] = useState<boolean>(true);
     const dispatch = useDispatch();
 
@@ -44,7 +45,7 @@ const App = () => {
     //     dispatch(action);
     // }
 
-    const selectedCoins = coins.filter(coin => coin.showing);
+    
 
     return (
         <div className="container">
@@ -60,12 +61,20 @@ const App = () => {
 
             <div className="main">
                 <div className="list">
-                    <CoinList
-                        coinData={!isFavouritesView ? coins : selectedCoins}
-                        currDollar={currDollar}
-                        loading={loading}
-                        isFavouritesView={isFavouritesView}
-                    />
+                    {isFavouritesView ? (
+                        <CoinList
+                            coinData={coins}
+                            currDollar={currDollar}
+                            loading={loading}
+                            isFavouritesView={isFavouritesView}
+                        />
+                    ) : (
+                        <FullCoinList
+                            coinData={coins}
+                            currDollar={currDollar}
+                            loading={loading}
+                        />
+                    )}
                 </div>
                 <div className="detail">
                     <NewsFeed />
