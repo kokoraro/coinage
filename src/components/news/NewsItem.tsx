@@ -1,15 +1,18 @@
 import React from 'react';
+import { NewsArticle } from '../../redux/news/types';
 
 interface NewsItemProps {
-
+    article: NewsArticle;
 }
 
-const NewsItem = ({ ...props }: NewsItemProps): JSX.Element => {
-    return (
-        <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, corporis provident hic culpa dolor a accusantium deserunt mollitia consectetur doloribus officia unde exercitationem nulla praesentium? Vel dolorum natus suscipit consectetur?
+const NewsItem = ({ article }: NewsItemProps): JSX.Element => (
+    <div className="news-item">
+        <div className="news-article">
+            <h3 className="new-title">{article.title}</h3>
+            <p>{article.body}</p>
+            <a href={article.url}>read more.</a>
         </div>
-    );
-};
+    </div>
+);
 
 export default NewsItem;
