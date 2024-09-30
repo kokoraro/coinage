@@ -42,9 +42,9 @@ const Header = ({
         <div className="controls">
             <ControlItem icon="star" active={isFavouritesView} text="Favourites" onClick={onSelectFavourites} />
             <ControlItem icon="list" active={!isFavouritesView} text="Full List" onClick={onSelectList} />
-            <ControlItem icon="sync" onClick={onRefresh} iconSpin={loadingPrice} />
             <ControlItem icon={currDollar ? 'pound-sign' : 'dollar-sign'} onClick={onClickCurrency} />
-            <ControlItem icon="cog" onClick={onClickCurrency} />
+            <ControlItem icon="sync" onClick={onRefresh} iconSpin={loadingPrice} />
+            {/* <ControlItem icon="cog" onClick={onClickCurrency} /> */}
         </div>
     </div>
 );

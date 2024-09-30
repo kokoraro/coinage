@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CoinItem from './Coin';
+import CoinListItem from './CoinListItem';
 import { Coin } from '../../redux/coins/types';
 import LoadingPanel from '../ui/LoadingPanel';
 import PageNumbers from '../ui/Pagination';
@@ -32,7 +32,7 @@ const FullCoinList = ({
     return (
         <div className="coin-list">
             {pages[pageIndex].map(coin => (
-                <CoinItem
+                <CoinListItem
                     coinData={coin}
                     currDollar={currDollar}
                     key={coin.id}
