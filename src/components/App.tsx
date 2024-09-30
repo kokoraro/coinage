@@ -46,7 +46,7 @@ const App = () => {
 
     return (
         <div className="container">
-            <Header onRefresh={updateCoins} />
+            <Header onRefresh={updateCoins} loadingPrice={loadingPrice} />
 
             <div className="main">
                 <div className="list">
