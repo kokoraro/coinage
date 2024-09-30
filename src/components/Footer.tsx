@@ -22,7 +22,7 @@ const Footer = () => (
             <Icon url="https://codepen.io/chazmcgrill" icon="codepen" />
             <Icon url="https://github.com/chazmcgrill" icon="github" />
         </div>
-        <p>uses<a href="https://www.cryptocompare.com/api/"> cryptocompare api</a></p>
+        <p>data sourced from<a href="https://www.cryptocompare.com/api/"> cryptocompare api</a></p>
     </footer>
 );
 

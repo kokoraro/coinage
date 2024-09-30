@@ -27,15 +27,20 @@ a
 .main
     display: flex
     border: 2px solid #e8e8e8
+    height: calc(100vh - 7rem)
+    overflow: hidden
 
 .list
-    width: 60%
+    flex: 6
     background-color: #f6f6f6
+    overflow: scroll
 
 .detail
-    width: 40%
+    flex: 4
+    max-width: 350px
     background-color: #f6f6f6
     border-left: 1px solid #e8e8e8
+    overflow: scroll
 
 @import './header.sass'
 @import './footer.sass'
@@ -43,3 +48,4 @@ a
 @import './coin-list.sass'
 @import './loading-spinner.sass'
 @import './loading-panel.sass'
+@import './news-feed.sass'
