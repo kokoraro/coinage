@@ -5,7 +5,7 @@ import { getCoinData, getCoinPrice } from '../redux/coins/actions';
 import { Coin } from '../redux/coins/types';
 import { ApplicationState } from '../redux';
 import Header from './Header';
-import CoinList from './CoinList';
+import CoinList from './coins/CoinList';
 import Footer from './Footer';
 import NewsFeed from './news/NewsFeed';
 
@@ -15,6 +15,7 @@ const getActiveCoinCodes = (coins: Coin[]) => coins
 
 const App = () => {
     const { data: coins, loading, loadingPrice } = useSelector((state: ApplicationState) => state.coins);
+    const [isFavouritesView, setIsFavouritesView] = useState<boolean>(true);
     const [currDollar, setCurrDollar] = useState<boolean>(true);
     const dispatch = useDispatch();
 
@@ -47,7 +48,13 @@ const App = () => {
 
     return (
         <div className="container">
-            <Header onRefresh={updateCoins} loadingPrice={loadingPrice} />
+            <Header
+                onRefresh={updateCoins}
+                loadingPrice={loadingPrice}
+                onSelectFavourites={() => setIsFavouritesView(true)}
+                onSelectList={() => setIsFavouritesView(false)}
+                isFavouritesView={isFavouritesView}
+            />
 
             <div className="main">
                 <div className="list">
@@ -55,6 +62,7 @@ const App = () => {
                         coinData={selectedCoins}
                         currDollar={currDollar}
                         loading={loading}
+                        isFavouritesView={isFavouritesView}
                     />
                 </div>
                 <div className="detail">
