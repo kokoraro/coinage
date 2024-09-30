@@ -1,5 +1,5 @@
 import React from 'react';
-import CoinItem from './Coin';
+import CoinListItem from './CoinListItem';
 import { Coin } from '../../redux/coins/types';
 import LoadingPanel from '../ui/LoadingPanel';
 
@@ -23,7 +23,7 @@ const CoinList = ({
     return (
         <div className="coin-list">
             {selectedCoins.map(coin => (
-                <CoinItem
+                <CoinListItem
                     coinData={coin}
                     currDollar={currDollar}
                     key={coin.id}
