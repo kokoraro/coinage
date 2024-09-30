@@ -7,6 +7,7 @@ import { ApplicationState } from '../redux';
 import Header from './Header';
 import CoinList from './CoinList';
 import Footer from './Footer';
+import NewsFeed from './news/NewsFeed';
 
 const getActiveCoinCodes = (coins: Coin[]) => coins
     .filter(coin => coin.showing)
@@ -57,7 +58,7 @@ const App = () => {
                     />
                 </div>
                 <div className="detail">
-
+                    <NewsFeed />
                 </div>
             </div>
 
