@@ -27,7 +27,7 @@ const CoinItem = ({
 
     return (
         <div className="coin">
-            {isFavouritesView && <img src={coinData.imageURL && `https://www.cryptocompare.com${coinData.imageURL}`} alt={coinData.name} />}
+            <img src={coinData.imageURL && `https://www.cryptocompare.com${coinData.imageURL}`} alt={coinData.name} />
             <div className="coin-code">{coinData.code}</div>
             <div className="coin-name">{coinData.name}</div>
             {!isFavouritesView ? (
