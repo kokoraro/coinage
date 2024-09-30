@@ -27,10 +27,10 @@ const CoinItem = ({
 
     return (
         <div className="coin">
-            <img src={coinData.imageURL && `https://www.cryptocompare.com${coinData.imageURL}`} alt={coinData.name} />
+            {isFavouritesView && <img src={coinData.imageURL && `https://www.cryptocompare.com${coinData.imageURL}`} alt={coinData.name} />}
             <div className="coin-code">{coinData.code}</div>
             <div className="coin-name">{coinData.name}</div>
-            {isFavouritesView ? (
+            {!isFavouritesView ? (
                 <FontAwesomeIcon icon="star" />
             ) : (
                 <div className="coin-price">{formatCoinPrice(coinData, currDollar)}</div>
