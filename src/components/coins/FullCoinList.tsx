@@ -33,7 +33,7 @@ const FullCoinList = ({
         <div className="coin-list">
             {pages[pageIndex].map(coin => (
                 <CoinListItem
-                    coinData={coin}
+                    coin={coin}
                     currDollar={currDollar}
                     key={coin.id}
                     isFavouritesView={false}
