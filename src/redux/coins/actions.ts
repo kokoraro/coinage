@@ -9,5 +9,4 @@ export const getCoinPrice = (codes: string[]) => action(CoinsActionTypes.GET_COI
 export const getCoinPriceSuccess = (data: Coin[]) => action(CoinsActionTypes.GET_COIN_PRICE_SUCCESS, data);
 export const getCoinPriceError = (message: string) => action(CoinsActionTypes.GET_COIN_PRICE_ERROR, message);
 
-export const addCoins = (ids: number[]) => action(CoinsActionTypes.ADD_COINS, ids);
-export const removeCoin = (id: number) => action(CoinsActionTypes.REMOVE_COIN, id);
+export const toggleCoinShowing = (id: number) => action(CoinsActionTypes.TOGGLE_COIN_SHOWING, id);
