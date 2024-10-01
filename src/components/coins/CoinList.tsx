@@ -24,7 +24,7 @@ const CoinList = ({
         <div className="coin-list">
             {selectedCoins.map(coin => (
                 <CoinListItem
-                    coinData={coin}
+                    coin={coin}
                     currDollar={currDollar}
                     key={coin.id}
                     isFavouritesView={isFavouritesView}
