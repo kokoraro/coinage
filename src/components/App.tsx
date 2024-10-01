@@ -34,19 +34,6 @@ const App = () => {
         if (!loading && loadingPrice) updateCoins();
     }, [loading, loadingPrice, updateCoins]);
 
-    // const handleAddCoins = async (ids: number[]) => {
-    //     const action = addCoins(ids);
-    //     dispatch(action);
-    //     // updateCoins();
-    // }
-
-    // const handleDelete = (id: number) => {
-    //     const action = removeCoin(id);
-    //     dispatch(action);
-    // }
-
-    
-
     return (
         <div className="container">
             <Header
