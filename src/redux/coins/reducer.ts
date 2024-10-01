@@ -50,17 +50,10 @@ const reducer: Reducer<CoinState> = (state = INITIAL_STATE, action) => {
         case CoinsActionTypes.GET_COIN_PRICE_ERROR:
             return { ...state, loadingPrice: false, errors: action.payload };
 
-        case CoinsActionTypes.ADD_COINS:
+        case CoinsActionTypes.TOGGLE_COIN_SHOWING:
             return Object.assign({}, state, {
                 data: state.data.map(coin => (
-                    action.payload.includes(coin.id) ? { ...coin, showing: true } : coin
-                )),
-            });
-
-        case CoinsActionTypes.REMOVE_COIN:
-            return Object.assign({}, state, {
-                data: state.data.map(coin => (
-                    coin.id === action.payload ? { ...coin, showing: false } : coin
+                    coin.id === action.payload ? { ...coin, showing: !coin.showing } : coin
                 )),
             });
 

@@ -17,8 +17,7 @@ export enum CoinsActionTypes {
     GET_COIN_PRICE = '@coins/GET_COIN_PRICE_REQUEST',
     GET_COIN_PRICE_SUCCESS = '@coins/GET_COIN_PRICE_SUCCESS',
     GET_COIN_PRICE_ERROR = '@coins/GET_COIN_PRICE_ERROR',
-    ADD_COINS = '@coins/ADD_COINS',
-    REMOVE_COIN = '@coins/REMOVE_COIN',
+    TOGGLE_COIN_SHOWING = '@coins/TOGGLE_COIN_SHOWING',
 }
 
 // readonly modifier to get compile time immutability.
