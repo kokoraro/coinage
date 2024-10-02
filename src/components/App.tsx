@@ -17,7 +17,7 @@ const getActiveCoinCodes = (coins: Coin[]) => coins
 const App = () => {
     const { data: coins, loading, loadingPrice } = useSelector((state: ApplicationState) => state.coins);
     const [isFavouritesView, setIsFavouritesView] = useState<boolean>(false);
-    const [currDollar, setCurrDollar] = useState<boolean>(true);
+    const [isCurrencyDollar, setCurrDollar] = useState<boolean>(true);
     const dispatch = useDispatch();
 
     const updateCoins = useCallback(() => {
@@ -41,9 +41,9 @@ const App = () => {
                 loadingPrice={loadingPrice}
                 onSelectFavourites={() => setIsFavouritesView(true)}
                 onSelectList={() => setIsFavouritesView(false)}
-                onClickCurrency={() => setCurrDollar(!currDollar)}
+                onClickCurrency={() => setCurrDollar(!isCurrencyDollar)}
                 isFavouritesView={isFavouritesView}
-                currDollar={currDollar}
+                isCurrencyDollar={isCurrencyDollar}
             />
 
             <div className="main">
@@ -51,14 +51,14 @@ const App = () => {
                     {isFavouritesView ? (
                         <CoinList
                             coinData={coins}
-                            currDollar={currDollar}
+                            isCurrencyDollar={isCurrencyDollar}
                             loading={loading}
                             isFavouritesView={isFavouritesView}
                         />
                     ) : (
                         <FullCoinList
                             coinData={coins}
-                            currDollar={currDollar}
+                            isCurrencyDollar={isCurrencyDollar}
                             loading={loading}
                         />
                     )}
