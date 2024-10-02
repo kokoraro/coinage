@@ -11,8 +11,8 @@ jobs:
 
       - restore_cache:
           keys:
-            - v1-deps-{{ checksum "package.json" }}
-            - v1-deps-
+            - v2-deps-{{ checksum "package.json" }}
+            - v2-deps-
 
       - run:
           name: Install packages
@@ -30,7 +30,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v1-deps-{{ checksum "package.json" }}
+          key: v2-deps-{{ checksum "package.json" }}
 
       - run:
           name: Run tests

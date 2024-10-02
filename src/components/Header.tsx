@@ -9,7 +9,7 @@ interface HeaderProps {
     onSelectList: () => void;
     isFavouritesView: boolean;
     onClickCurrency: () => void;
-    currDollar: boolean;
+    isCurrencyDollar: boolean;
 }
 
 interface ControlItemProps {
@@ -23,7 +23,7 @@ interface ControlItemProps {
 const ControlItem = ({ icon, text, onClick, iconSpin, active }: ControlItemProps) => (
     <div className={`control-item ${active ? 'active' : ''}`} onClick={onClick}>
         <FontAwesomeIcon icon={icon} spin={iconSpin} />
-        {text && <p>{text}</p>}
+        {text && <p className="control-item-text">{text}</p>}
     </div>
 );
 
@@ -34,7 +34,7 @@ const Header = ({
     onSelectList,
     isFavouritesView,
     onClickCurrency,
-    currDollar
+    isCurrencyDollar
 }: HeaderProps): JSX.Element => (
     <div className="header">
         <h1>coinage</h1>
@@ -42,9 +42,9 @@ const Header = ({
         <div className="controls">
             <ControlItem icon="star" active={isFavouritesView} text="Favourites" onClick={onSelectFavourites} />
             <ControlItem icon="list" active={!isFavouritesView} text="Full List" onClick={onSelectList} />
-            <ControlItem icon={currDollar ? 'pound-sign' : 'dollar-sign'} onClick={onClickCurrency} />
+            <ControlItem icon={isCurrencyDollar ? 'pound-sign' : 'dollar-sign'} onClick={onClickCurrency} />
             <ControlItem icon="sync" onClick={onRefresh} iconSpin={loadingPrice} />
-            {/* <ControlItem icon="cog" onClick={onClickCurrency} /> */}
+            {/* <ControlItem icon="cog" onClick={onClickSettings} /> */}
         </div>
     </div>
 );

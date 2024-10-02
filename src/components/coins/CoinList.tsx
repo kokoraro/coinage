@@ -5,14 +5,14 @@ import LoadingPanel from '../ui/LoadingPanel';
 
 interface CoinList {
     coinData: Coin[];
-    currDollar: boolean;
+    isCurrencyDollar: boolean;
     loading: boolean;
     isFavouritesView: boolean;
 }
 
 const CoinList = ({
     coinData,
-    currDollar,
+    isCurrencyDollar,
     loading,
     isFavouritesView,
 }: CoinList) => {
@@ -24,8 +24,8 @@ const CoinList = ({
         <div className="coin-list">
             {selectedCoins.map(coin => (
                 <CoinListItem
-                    coinData={coin}
-                    currDollar={currDollar}
+                    coin={coin}
+                    isCurrencyDollar={isCurrencyDollar}
                     key={coin.id}
                     isFavouritesView={isFavouritesView}
                 />
