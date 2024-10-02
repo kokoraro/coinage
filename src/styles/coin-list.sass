@@ -18,20 +18,15 @@
         width: 25px
         margin: 0 auto
 
-.coin-delete
-    color: red
-    font-size: 1.3rem
-    cursor: pointer
-    &:hover
-        transform: scale(1.2)
+    &-name
+        grid-column: 3 / 6
 
-.coin-name
-    grid-column: 3 / 6
+    &-price,
+    &-star
+        margin-left: auto
+        text-align: right
+        padding-right: 1rem
+        grid-column: 6 / 8
 
-.coin-price
-    text-align: right
-    padding-right: 10px
-    grid-column: 6 / 8
-
-.coin-code
-    text-transform: uppercase
+    &-code
+        text-transform: uppercase
