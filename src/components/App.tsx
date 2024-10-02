@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getCoinData, getCoinPrice, addCoins, removeCoin } from '../redux/coins/actions';
+import { getCoinData, getCoinPrice } from '../redux/coins/actions';
 import { Coin } from '../redux/coins/types';
 import { ApplicationState } from '../redux';
 import Header from './Header';
-import CoinList from './CoinList';
-import ControlPanel from './ControlPanel';
+import CoinList from './coins/CoinList';
 import Footer from './Footer';
+import NewsFeed from './news/NewsFeed';
+import FullCoinList from './coins/FullCoinList';
 
 const getActiveCoinCodes = (coins: Coin[]) => coins
     .filter(coin => coin.showing)
@@ -15,8 +16,8 @@ const getActiveCoinCodes = (coins: Coin[]) => coins
 
 const App = () => {
     const { data: coins, loading, loadingPrice } = useSelector((state: ApplicationState) => state.coins);
+    const [isFavouritesView, setIsFavouritesView] = useState<boolean>(false);
     const [currDollar, setCurrDollar] = useState<boolean>(true);
-    const [addOpen, setAddOpen] = useState<boolean>(false);
     const dispatch = useDispatch();
 
     const updateCoins = useCallback(() => {
@@ -33,43 +34,37 @@ const App = () => {
         if (!loading && loadingPrice) updateCoins();
     }, [loading, loadingPrice, updateCoins]);
 
-    const handleAddCoins = async (ids: number[]) => {
-        const action = addCoins(ids);
-        dispatch(action);
-        // updateCoins();
-    }
-
-    const handleDelete = (id: number) => {
-        const action = removeCoin(id);
-        dispatch(action);
-    }
-
-    const addCoinList = coins.filter(coin => !coin.showing);
-    const selectedCoins = coins.filter(coin => coin.showing);
-
     return (
         <div className="container">
-            <Header />
+            <Header
+                onRefresh={updateCoins}
+                loadingPrice={loadingPrice}
+                onSelectFavourites={() => setIsFavouritesView(true)}
+                onSelectList={() => setIsFavouritesView(false)}
+                onClickCurrency={() => setCurrDollar(!currDollar)}
+                isFavouritesView={isFavouritesView}
+                currDollar={currDollar}
+            />
 
             <div className="main">
                 <div className="list">
-                    <CoinList
-                        coinData={selectedCoins}
-                        currDollar={currDollar}
-                        addOpen={addOpen}
-                        handleDelete={handleDelete}
-                    />
-                    <ControlPanel
-                        selectCoins={addCoinList}
-                        handleRefresh={updateCoins}
-                        handleAddCoins={handleAddCoins}
-                        addOpen={addOpen}
-                        toggleAddOpen={() => setAddOpen(!addOpen)}
-                        handleCurrency={() => setCurrDollar(!currDollar)}
-                    />
+                    {isFavouritesView ? (
+                        <CoinList
+                            coinData={coins}
+                            currDollar={currDollar}
+                            loading={loading}
+                            isFavouritesView={isFavouritesView}
+                        />
+                    ) : (
+                        <FullCoinList
+                            coinData={coins}
+                            currDollar={currDollar}
+                            loading={loading}
+                        />
+                    )}
                 </div>
                 <div className="detail">
-
+                    <NewsFeed />
                 </div>
             </div>
 

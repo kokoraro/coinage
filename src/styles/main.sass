@@ -19,6 +19,9 @@ a
     &:hover
         color: coral
 
+.active
+    color: coral
+
 .container
     max-width: 1200px
     width: 100%
@@ -27,25 +30,26 @@ a
 .main
     display: flex
     border: 2px solid #e8e8e8
+    height: calc(100vh - 7rem)
+    overflow: hidden
 
 .list
-    width: 60%
+    flex: 6
     background-color: #f6f6f6
+    overflow: scroll
 
 .detail
-    width: 40%
+    flex: 4
+    max-width: 350px
     background-color: #f6f6f6
     border-left: 1px solid #e8e8e8
+    overflow: scroll
 
-.header
-    display: flex
-    justify-content: space-between
-    align-items: center
-    padding: 12px 20px
-
-    p
-        margin: 0
-
+@import './header.sass'
 @import './footer.sass'
 @import './control-panel.sass'
 @import './coin-list.sass'
+@import './loading-spinner.sass'
+@import './loading-panel.sass'
+@import './news-feed.sass'
+@import './pagination.sass'
