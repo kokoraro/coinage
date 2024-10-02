@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { AnyAction, Dispatch } from 'redux';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { getCoinData, getCoinPrice } from '../redux/coins/actions';
+import { getCoinData, getCoinPrice, addCoins, removeCoin } from '../redux/coins/actions';
 import { Coin } from '../redux/coins/types';
 import { ApplicationState } from '../redux';
 import Header from './Header';
@@ -10,94 +9,73 @@ import CoinList from './CoinList';
 import ControlPanel from './ControlPanel';
 import Footer from './Footer';
 
+const getActiveCoinCodes = (coins: Coin[]) => coins
+    .filter(coin => coin.showing)
+    .map(coin => coin.code);
 
-interface Props {
-    coinList: Coin[];
-}
+const App = () => {
+    const { data: coins, loading, loadingPrice } = useSelector((state: ApplicationState) => state.coins);
+    const [currDollar, setCurrDollar] = useState<boolean>(true);
+    const [addOpen, setAddOpen] = useState<boolean>(false);
+    const dispatch = useDispatch();
 
-type BitcoinTrackerProps = Props & AnyAction;
+    const updateCoins = useCallback(() => {
+        const action = getCoinPrice(getActiveCoinCodes(coins));
+        dispatch(action);
+    }, [coins, dispatch])
 
-interface BitcoinTrackerState {
-    currDollar: boolean;
-    addOpen: boolean;
-}
+    useEffect(() => {
+        const action = getCoinData();
+        dispatch(action);
+    }, [dispatch]);
 
-class BitcoinTracker extends Component<BitcoinTrackerProps, BitcoinTrackerState> {
-    state = {
-        currDollar: true,
-        addOpen: false,
+    useEffect(() => {
+        if (!loading && loadingPrice) updateCoins();
+    }, [loading, loadingPrice, updateCoins]);
+
+    const handleAddCoins = async (ids: number[]) => {
+        const action = addCoins(ids);
+        dispatch(action);
+        // updateCoins();
     }
 
-    componentDidMount = async () => {
-        await this.props.getCoinData();
-        this.updateCoins();
+    const handleDelete = (id: number) => {
+        const action = removeCoin(id);
+        dispatch(action);
     }
 
-    updateCoins = () => {
-        const { coinList } = this.props;
-        const codes = coinList.filter(c => c.showing).map(c => c.code);
-        this.props.getCoinPrice(codes);
-    }
+    const addCoinList = coins.filter(coin => !coin.showing);
+    const selectedCoins = coins.filter(coin => coin.showing);
 
-    handleAddCoins = async (ids: number[]) => {
-        const { addCoinsHandler } = this.props;
-        await addCoinsHandler(ids);
-        this.updateCoins();
-    }
+    return (
+        <div className="container">
+            <Header />
 
-    handleDelete = (id: number) => {
-        const { removeCoinHandler } = this.props;
-        removeCoinHandler(id);
-        this.updateCoins();
-    }
-
-    render() {
-        const { coinList } = this.props;
-        const { currDollar, addOpen } = this.state;
-
-        const addCoinList = coinList.filter(coin => !coin.showing);
-        const selectedCoins = coinList.filter(coin => coin.showing);
-
-        return (
-            <div className="container">
-                <Header />
-
-                <div className="main">
-                    <div className="list">
-                        <CoinList
-                            coinData={selectedCoins}
-                            currDollar={currDollar}
-                            addOpen={addOpen}
-                            handleDelete={this.handleDelete}
-                        />
-                        <ControlPanel
-                            selectCoins={addCoinList}
-                            handleRefresh={this.updateCoins}
-                            handleAddCoins={this.handleAddCoins}
-                            addOpen={addOpen}
-                            toggleAddOpen={() => this.setState({ addOpen: !addOpen })}
-                            handleCurrency={() => this.setState({ currDollar: !currDollar })}
-                        />
-                    </div>
-                    <div className="detail">
-
-                    </div>
+            <div className="main">
+                <div className="list">
+                    <CoinList
+                        coinData={selectedCoins}
+                        currDollar={currDollar}
+                        addOpen={addOpen}
+                        handleDelete={handleDelete}
+                    />
+                    <ControlPanel
+                        selectCoins={addCoinList}
+                        handleRefresh={updateCoins}
+                        handleAddCoins={handleAddCoins}
+                        addOpen={addOpen}
+                        toggleAddOpen={() => setAddOpen(!addOpen)}
+                        handleCurrency={() => setCurrDollar(!currDollar)}
+                    />
                 </div>
+                <div className="detail">
 
-                <Footer />
+                </div>
             </div>
-        );
-    }
+
+            <Footer />
+        </div>
+    );
 }
 
-const mapStateToProps = ({ coins }: ApplicationState) => ({
-    errorMessage: coins.errors,
-    coinList: coins.data,
-});
-
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-    getCoinData: () => dispatch(getCoinData()),
-    getCoinPrice: (codes: string[]) => dispatch(getCoinPrice(codes))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(BitcoinTracker);
+export default App;

@@ -7,6 +7,7 @@ import App from './components/App';
 import './styles/main.sass';
 
 const store = createReduxStore();
+iconLibrarySetup();
 
 ReactDOM.render(
     <Provider store={store}>

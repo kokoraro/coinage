@@ -31,7 +31,7 @@ function* handleGetCoinPrice({ payload }: AnyAction) {
         if (response.error) {
             yield put(getCoinPriceError(response.error));
         } else {
-            yield put(getCoinPriceSuccess(response.data));
+            yield put(getCoinPriceSuccess(response));
         }
     } catch (err) {
         if (err instanceof Error) {
