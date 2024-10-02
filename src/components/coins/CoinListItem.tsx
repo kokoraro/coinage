@@ -6,13 +6,13 @@ import { toggleCoinShowing } from '../../redux/coins/actions';
 
 interface CoinListItemProps {
     coin: Coin;
-    currDollar: boolean;
+    isCurrencyDollar: boolean;
     isFavouritesView: boolean;
 }
 
-const formatCoinPrice = (coin: Coin, currDollar: boolean) => {
-    const currency = currDollar ? 'USD' : 'GBP';
-    const currSymbol = currDollar ? '$' : '£';
+const formatCoinPrice = (coin: Coin, isCurrencyDollar: boolean) => {
+    const currency = isCurrencyDollar ? 'USD' : 'GBP';
+    const currSymbol = isCurrencyDollar ? '$' : '£';
     const price = Number(coin.price[currency]);
     const value = price >= 1 ? price.toFixed(2) : price.toFixed(4);
 
@@ -21,7 +21,7 @@ const formatCoinPrice = (coin: Coin, currDollar: boolean) => {
 
 const CoinListItem = ({
     coin,
-    currDollar,
+    isCurrencyDollar,
     isFavouritesView,
 }: CoinListItemProps) => {
     const dispatch = useDispatch();
@@ -37,9 +37,13 @@ const CoinListItem = ({
             <div className="coin-code">{coin.code}</div>
             <div className="coin-name">{coin.name}</div>
             {!isFavouritesView ? (
-                <FontAwesomeIcon icon={[coin.showing ? 'fas' : 'far', 'star']} onClick={handleFavouriteClick} />
+                <FontAwesomeIcon
+                    className="coin-star"
+                    icon={[coin.showing ? 'fas' : 'far', 'star']}
+                    onClick={handleFavouriteClick}
+                />
             ) : (
-                <div className="coin-price">{formatCoinPrice(coin, currDollar)}</div>
+                <div className="coin-price">{formatCoinPrice(coin, isCurrencyDollar)}</div>
             )}
         </div>
     );
