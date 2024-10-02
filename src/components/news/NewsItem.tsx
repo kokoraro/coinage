@@ -1,5 +1,5 @@
 import React from 'react';
-import { NewsArticle } from '../../redux/news/types';
+import { NewsArticle } from './NewsFeed';
 
 interface NewsItemProps {
     article: NewsArticle;
