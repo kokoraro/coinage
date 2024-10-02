@@ -3,7 +3,9 @@ const DEFAULT_FAVOURITE_COINS = [
     'ZEC', 'DSH', 'GNT', 'ADA', 'XVG',
 ];
 
-export default {
+const config =  {
     apiUrl: process.env.REACT_APP_API_ENDPOINT || 'https://min-api.cryptocompare.com',
     defaultFavouriteCoins: DEFAULT_FAVOURITE_COINS,
 }
+
+export default config;
