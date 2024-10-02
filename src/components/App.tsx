@@ -16,7 +16,7 @@ const getActiveCoinCodes = (coins: Coin[]) => coins
 
 const App = () => {
     const { data: coins, loading, loadingPrice } = useSelector((state: ApplicationState) => state.coins);
-    const [isFavouritesView, setIsFavouritesView] = useState<boolean>(false);
+    const [isFavouritesView, setIsFavouritesView] = useState<boolean>(true);
     const [isCurrencyDollar, setCurrDollar] = useState<boolean>(true);
     const dispatch = useDispatch();
 
