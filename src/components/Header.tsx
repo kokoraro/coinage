@@ -1,6 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { useQuery } from 'react-query';
+import { fetchNews, NewsResult } from './api/newsFeed';
 
 interface HeaderProps {
     onRefresh: () => void;
@@ -35,18 +37,27 @@ const Header = ({
     isFavouritesView,
     onClickCurrency,
     isCurrencyDollar
-}: HeaderProps): JSX.Element => (
-    <div className="header">
-        <h1>coinage</h1>
+}: HeaderProps): JSX.Element => {
+    const { refetch: refetchNews } = useQuery<NewsResult, Error>('news', fetchNews, { enabled: false });
 
-        <div className="controls">
-            <ControlItem icon="star" active={isFavouritesView} text="Favourites" onClick={onSelectFavourites} />
-            <ControlItem icon="list" active={!isFavouritesView} text="Full List" onClick={onSelectList} />
-            <ControlItem icon={isCurrencyDollar ? 'pound-sign' : 'dollar-sign'} onClick={onClickCurrency} />
-            <ControlItem icon="sync" onClick={onRefresh} iconSpin={loadingPrice} />
-            {/* <ControlItem icon="cog" onClick={onClickSettings} /> */}
+    const handleRefresh = () => {
+        onRefresh();
+        refetchNews();
+    }
+
+    return (
+        <div className="header">
+            <h1>coinage</h1>
+
+            <div className="controls">
+                <ControlItem icon="star" active={isFavouritesView} text="Favourites" onClick={onSelectFavourites} />
+                <ControlItem icon="list" active={!isFavouritesView} text="Full List" onClick={onSelectList} />
+                <ControlItem icon={isCurrencyDollar ? 'pound-sign' : 'dollar-sign'} onClick={onClickCurrency} />
+                <ControlItem icon="sync" onClick={handleRefresh} iconSpin={loadingPrice} />
+                {/* <ControlItem icon="cog" onClick={onClickSettings} /> */}
+            </div>
         </div>
-    </div>
-);
+    );
+}
 
 export default Header;
