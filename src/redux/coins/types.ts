@@ -23,8 +23,9 @@ export enum CoinsActionTypes {
 
 // readonly modifier to get compile time immutability.
 export interface CoinState {
-    readonly loading: boolean
-    readonly data: Coin[]
-    readonly errors: string
+    readonly loading: boolean;
+    readonly data: Coin[];
+    readonly errors: string;
+    readonly loadingPrice: boolean;
 }
 
