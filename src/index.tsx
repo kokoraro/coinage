@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import { createReduxStore } from './utils/configureStore';
-import { iconLibrarySetup } from './utils/iconConfig';
 import App from './components/App';
 import './styles/main.sass';
 
