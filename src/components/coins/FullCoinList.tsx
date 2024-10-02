@@ -6,13 +6,13 @@ import PageNumbers from '../ui/Pagination';
 
 interface FullCoinListProps {
     coinData: Coin[];
-    currDollar: boolean;
+    isCurrencyDollar: boolean;
     loading: boolean;
 }
 
 const FullCoinList = ({
     coinData,
-    currDollar,
+    isCurrencyDollar,
     loading,
 }: FullCoinListProps) => {
     const [pageIndex, setPageIndex] = useState<number>(0);
@@ -33,8 +33,8 @@ const FullCoinList = ({
         <div className="coin-list">
             {pages[pageIndex].map(coin => (
                 <CoinListItem
-                    coinData={coin}
-                    currDollar={currDollar}
+                    coin={coin}
+                    isCurrencyDollar={isCurrencyDollar}
                     key={coin.id}
                     isFavouritesView={false}
                 />

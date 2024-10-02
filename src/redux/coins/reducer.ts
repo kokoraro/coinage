@@ -1,5 +1,6 @@
 import { Reducer } from 'redux'
 import { CoinState, CoinsActionTypes } from './types'
+import config from '../../utils/config';
 
 const INITIAL_STATE: CoinState = {
     data: [],
@@ -7,11 +8,6 @@ const INITIAL_STATE: CoinState = {
     loading: true,
     loadingPrice: true,
 }
-
-const FAVOURITES = [
-    'BTC', 'XRP', 'LTC', 'ETH', 'XMR',
-    'ZEC', 'DSH', 'GNT', 'ADA', 'XVG',
-]; // TODO: move to config (default favs)
 
 const reducer: Reducer<CoinState> = (state = INITIAL_STATE, action) => {
     switch (action.type) {
@@ -26,7 +22,7 @@ const reducer: Reducer<CoinState> = (state = INITIAL_STATE, action) => {
                 name: coins[coin].CoinName,
                 imageURL: coins[coin].ImageUrl,
                 code: coin,
-                showing: FAVOURITES.includes(coin),
+                showing: config.defaultFavouriteCoins.includes(coin),
                 price: { GBP: '0', USD: '0' },
             }));
 
