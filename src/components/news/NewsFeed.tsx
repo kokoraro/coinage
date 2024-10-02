@@ -1,25 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import LoadingPanel from '../ui/LoadingPanel';
 import NewsItem from './NewsItem';
 import { useQuery } from 'react-query';
-import fetcher from '../../utils/fetcher';
-import config from '../../utils/config';
-
-export interface NewsArticle {
-    id: string;
-    publishedOn: string;
-    imageUrl: string;
-    title: string;
-    url: string;
-    body: string;
-    tags: string;
-}
-
-interface NewsResult {
-    Data: NewsArticle[];
-}
-
-const fetchNews = () => fetcher('get', config.apiUrl, 'data/v2/news/?lang=EN');
+import { fetchNews, NewsResult } from '../api/newsFeed';
 
 const NewsFeed = (): JSX.Element => {
     const { isLoading, data } = useQuery<NewsResult, Error>('news', fetchNews);
@@ -35,4 +18,4 @@ const NewsFeed = (): JSX.Element => {
     );
 };
 
-export default NewsFeed;
+export default memo(NewsFeed);
