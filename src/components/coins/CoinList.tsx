@@ -3,7 +3,7 @@ import CoinListItem from './CoinListItem';
 import { Coin } from '../../redux/coins/types';
 import LoadingPanel from '../ui/LoadingPanel';
 
-interface CoinList {
+interface CoinListProps {
     coinData: Coin[];
     isCurrencyDollar: boolean;
     loading: boolean;
@@ -15,7 +15,7 @@ const CoinList = ({
     isCurrencyDollar,
     loading,
     isFavouritesView,
-}: CoinList) => {
+}: CoinListProps) => {
     if (loading) return <LoadingPanel />;
 
     const selectedCoins = coinData.filter(coin => coin.showing);
