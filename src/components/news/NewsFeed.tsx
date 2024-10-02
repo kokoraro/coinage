@@ -1,26 +1,35 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { getNews } from '../../redux/news/actions';
-import { ApplicationState } from '../../redux';
+import React from 'react';
 import LoadingPanel from '../ui/LoadingPanel';
 import NewsItem from './NewsItem';
+import { useQuery } from 'react-query';
+import fetcher from '../../utils/fetcher';
+import config from '../../utils/config';
+
+export interface NewsArticle {
+    id: string;
+    publishedOn: string;
+    imageUrl: string;
+    title: string;
+    url: string;
+    body: string;
+    tags: string;
+}
+
+interface NewsResult {
+    Data: NewsArticle[];
+}
+
+const fetchNews = () => fetcher('get', config.apiUrl, 'data/v2/news/?lang=EN');
 
 const NewsFeed = (): JSX.Element => {
-    const { data, loading } = useSelector((state: ApplicationState) => state.news);
-    const dispatch = useDispatch();
+    const { isLoading, data } = useQuery<NewsResult, Error>('news', fetchNews);
 
-    useEffect(() => {
-        const action = getNews();
-        dispatch(action);
-    }, [dispatch]);
-
-    if (loading) return <LoadingPanel />
+    if (isLoading) return <LoadingPanel />
 
     return (
         <div className="news-feed">
             <h3 className="news-feed-title">news feed</h3>
-            {data.map(article => <NewsItem key={article.id} article={article} />)}
+            {data?.Data.map(article => <NewsItem key={article.id} article={article} />)}
         </div>
         
     );
