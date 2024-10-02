@@ -1,20 +1,20 @@
 import React from 'react';
 import CoinItem from './Coin';
 import { Coin } from '../redux/coins/types';
+import LoadingPanel from './ui/LoadingPanel';
 
 interface CoinList {
     coinData: Coin[];
     currDollar: boolean;
-    addOpen: boolean;
-    handleDelete: (id: number) => void;
+    loading: boolean;
 }
 
 const CoinList = ({
     coinData,
     currDollar,
-    addOpen,
-    handleDelete,
+    loading,
 }: CoinList) => {
+    if (loading) return <LoadingPanel />
     return (
         <div className="coin-list">
             {coinData.map(c => (
@@ -22,8 +22,6 @@ const CoinList = ({
                     coinData={c}
                     currDollar={currDollar}
                     key={c.id}
-                    addOpen={addOpen}
-                    handleDelete={handleDelete}
                 />
             ))}
         </div>
