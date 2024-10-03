@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 
@@ -26,4 +26,4 @@ const Footer = () => (
     </footer>
 );
 
-export default Footer;
+export default memo(Footer);
