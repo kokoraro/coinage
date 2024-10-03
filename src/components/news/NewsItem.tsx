@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { NewsArticle } from '../api/newsFeed';
 
 interface NewsItemProps {
@@ -15,4 +15,4 @@ const NewsItem = ({ article }: NewsItemProps): JSX.Element => (
     </div>
 );
 
-export default NewsItem;
+export default memo(NewsItem);
