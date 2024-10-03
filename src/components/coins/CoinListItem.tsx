@@ -9,6 +9,7 @@ interface CoinListItemProps {
     handleFavouriteClick?: (coinCode: string) => void;
 }
 
+// TODO: put into utils
 const formatCoinPrice = (coin: Coin, isCurrencyDollar: boolean) => {
     const currency = isCurrencyDollar ? 'USD' : 'GBP';
     const currSymbol = isCurrencyDollar ? '$' : '£';
@@ -18,6 +19,7 @@ const formatCoinPrice = (coin: Coin, isCurrencyDollar: boolean) => {
     return `${currSymbol}${value}`;
 }
 
+// TODO: Make two different components for coins
 const CoinListItem = ({
     coin,
     isCurrencyDollar,
