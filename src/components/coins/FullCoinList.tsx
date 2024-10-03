@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import CoinListItem from './CoinListItem';
-import { Coin } from '../../redux/coins/types';
 import LoadingPanel from '../ui/LoadingPanel';
 import PageNumbers from '../ui/Pagination';
+import { Coin } from '../api/coins';
 
 interface FullCoinListProps {
     coinData: Coin[];

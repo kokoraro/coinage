@@ -1,13 +1,12 @@
 import React from 'react';
-import { Coin } from '../../redux/coins/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useDispatch } from 'react-redux';
-import { toggleCoinShowing } from '../../redux/coins/actions';
+import { Coin } from '../api/coins';
 
 interface CoinListItemProps {
     coin: Coin;
     isCurrencyDollar: boolean;
     isFavouritesView: boolean;
+    handleFavouriteClick?: (coinCode: string) => void;
 }
 
 const formatCoinPrice = (coin: Coin, isCurrencyDollar: boolean) => {
@@ -23,24 +22,18 @@ const CoinListItem = ({
     coin,
     isCurrencyDollar,
     isFavouritesView,
+    handleFavouriteClick,
 }: CoinListItemProps) => {
-    const dispatch = useDispatch();
-
-    const handleFavouriteClick = () => {
-        const action = toggleCoinShowing(coin.id);
-        dispatch(action);
-    }
-
     return (
         <div className="coin">
             <img src={coin.imageURL && `https://www.cryptocompare.com${coin.imageURL}`} alt={coin.name} />
             <div className="coin-code">{coin.code}</div>
             <div className="coin-name">{coin.name}</div>
-            {!isFavouritesView ? (
+            {!isFavouritesView && handleFavouriteClick ? (
                 <FontAwesomeIcon
                     className="coin-star"
                     icon={[coin.showing ? 'fas' : 'far', 'star']}
-                    onClick={handleFavouriteClick}
+                    onClick={() => handleFavouriteClick(coin.code)}
                 />
             ) : (
                 <div className="coin-price">{formatCoinPrice(coin, isCurrencyDollar)}</div>

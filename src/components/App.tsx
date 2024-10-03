@@ -1,44 +1,42 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useQuery } from 'react-query';
 
-import { getCoinData, getCoinPrice } from '../redux/coins/actions';
-import { Coin } from '../redux/coins/types';
-import { ApplicationState } from '../redux';
 import Header from './Header';
 import CoinList from './coins/CoinList';
 import Footer from './Footer';
 import NewsFeed from './news/NewsFeed';
 import FullCoinList from './coins/FullCoinList';
+import { fetchCoinData } from './api/coins';
+import { DEFAULT_FAVOURITE_COINS } from '../utils/config';
 
-const getActiveCoinCodes = (coins: Coin[]) => coins
-    .filter(coin => coin.showing)
-    .map(coin => coin.code);
+interface CoinResponse {
+    CoinName: string;
+    ImageUrl: string;
+}
+interface CoinDataResponse {
+    Data: { [key: string]: CoinResponse }
+}
 
 const App = () => {
-    const { data: coins, loading, loadingPrice } = useSelector((state: ApplicationState) => state.coins);
+    const [activeCoinCodes, setActiveCoinCodes] = useState(DEFAULT_FAVOURITE_COINS);
+    const { isLoading, data } = useQuery<CoinDataResponse, Error>('coins', fetchCoinData);
+
     const [isFavouritesView, setIsFavouritesView] = useState<boolean>(true);
     const [isCurrencyDollar, setCurrDollar] = useState<boolean>(true);
-    const dispatch = useDispatch();
 
-    const updateCoins = useCallback(() => {
-        const action = getCoinPrice(getActiveCoinCodes(coins));
-        dispatch(action);
-    }, [coins, dispatch])
-
-    useEffect(() => {
-        const action = getCoinData();
-        dispatch(action);
-    }, [dispatch]);
-
-    useEffect(() => {
-        if (!loading && loadingPrice) updateCoins();
-    }, [loading, loadingPrice, updateCoins]);
+    const coinData = Object.entries(data?.Data || {}).map(([key, coin], index) => ({
+        id: index,
+        name: coin.CoinName,
+        imageURL: coin.ImageUrl,
+        code: key,
+        showing: activeCoinCodes.includes(key),
+        price: { GBP: '0', USD: '0' },
+    }));
 
     return (
         <div className="container">
             <Header
-                onRefresh={updateCoins}
-                loadingPrice={loadingPrice}
+                activeCoinCodes={activeCoinCodes}
                 onSelectFavourites={() => setIsFavouritesView(true)}
                 onSelectList={() => setIsFavouritesView(false)}
                 onClickCurrency={() => setCurrDollar(!isCurrencyDollar)}
@@ -50,16 +48,18 @@ const App = () => {
                 <div className="list">
                     {isFavouritesView ? (
                         <CoinList
-                            coinData={coins}
+                            coinData={coinData}
                             isCurrencyDollar={isCurrencyDollar}
-                            loading={loading}
+                            loading={isLoading}
                             isFavouritesView={isFavouritesView}
+                            activeCoinCodes={activeCoinCodes}
+                            setActiveCoinCodes={setActiveCoinCodes}
                         />
                     ) : (
                         <FullCoinList
-                            coinData={coins}
+                            coinData={coinData}
                             isCurrencyDollar={isCurrencyDollar}
-                            loading={loading}
+                            loading={isLoading}
                         />
                     )}
                 </div>
