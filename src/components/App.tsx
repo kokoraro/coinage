@@ -53,13 +53,14 @@ const App = () => {
                             loading={isLoading}
                             isFavouritesView={isFavouritesView}
                             activeCoinCodes={activeCoinCodes}
-                            setActiveCoinCodes={setActiveCoinCodes}
                         />
                     ) : (
                         <FullCoinList
                             coinData={coinData}
                             isCurrencyDollar={isCurrencyDollar}
                             loading={isLoading}
+                            activeCoinCodes={activeCoinCodes}
+                            setActiveCoinCodes={setActiveCoinCodes}
                         />
                     )}
                 </div>
