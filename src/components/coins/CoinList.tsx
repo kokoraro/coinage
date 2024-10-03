@@ -10,7 +10,6 @@ interface CoinListProps {
     loading: boolean;
     isFavouritesView: boolean;
     activeCoinCodes: string[];
-    setActiveCoinCodes: (coinCodes: string[]) => void;
 }
 
 type CoinPriceResponse = { [key: string]: { GBP: string; USD: string } };
@@ -21,20 +20,10 @@ const CoinList = ({
     loading,
     isFavouritesView,
     activeCoinCodes,
-    setActiveCoinCodes,
 }: CoinListProps) => {
-    const { isLoading: isLoadingPrice, data: priceData } = useQuery<CoinPriceResponse, Error>('coinsPrice', () => fetchCoinPrice(activeCoinCodes));
+    const { isLoading: isLoadingPrice, data: priceData } = useQuery<CoinPriceResponse, Error>('coinsPrice', () => fetchCoinPrice(activeCoinCodes), { refetchOnMount: false });
 
     if (loading || isLoadingPrice) return <LoadingPanel />;
-
-    const handleFavouriteClick = (coinCode: string) => {
-        if (activeCoinCodes.includes(coinCode)) {
-            const newCoinCodes = activeCoinCodes.filter(code => coinCode !== code);
-            setActiveCoinCodes(newCoinCodes);
-            return;
-        }
-        setActiveCoinCodes([...activeCoinCodes, coinCode]);
-    }
 
     const favouriteCoins = coinData.filter(coin => activeCoinCodes.includes(coin.code));
     const coinsWithPrices = favouriteCoins.map(coin => ({ ...coin, price: priceData?.[coin.code] || { GBP: '0', USD: '0' }}));
@@ -47,7 +36,6 @@ const CoinList = ({
                     isCurrencyDollar={isCurrencyDollar}
                     key={coin.id}
                     isFavouritesView={isFavouritesView}
-                    handleFavouriteClick={handleFavouriteClick}
                 />
             ))}
         </div>

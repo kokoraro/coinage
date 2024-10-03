@@ -29,11 +29,13 @@ const CoinListItem = ({
             <img src={coin.imageURL && `https://www.cryptocompare.com${coin.imageURL}`} alt={coin.name} />
             <div className="coin-code">{coin.code}</div>
             <div className="coin-name">{coin.name}</div>
-            {!isFavouritesView && handleFavouriteClick ? (
+            {!isFavouritesView ? (
                 <FontAwesomeIcon
                     className="coin-star"
                     icon={[coin.showing ? 'fas' : 'far', 'star']}
-                    onClick={() => handleFavouriteClick(coin.code)}
+                    onClick={() => {
+                        if (handleFavouriteClick) handleFavouriteClick(coin.code)
+                    }}
                 />
             ) : (
                 <div className="coin-price">{formatCoinPrice(coin, isCurrencyDollar)}</div>
