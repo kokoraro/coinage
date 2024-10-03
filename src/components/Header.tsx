@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useQuery } from 'react-query';
 import { fetchNews, NewsResult } from './api/newsFeed';
+import { fetchCoinPrice } from './api/coins';
 
 interface HeaderProps {
-    onRefresh: () => void;
-    loadingPrice: boolean;
+    activeCoinCodes: string[];
     onSelectFavourites: () => void;
     onSelectList: () => void;
     isFavouritesView: boolean;
@@ -30,18 +30,18 @@ const ControlItem = ({ icon, text, onClick, iconSpin, active }: ControlItemProps
 );
 
 const Header = ({
-    onRefresh,
-    loadingPrice,
+    activeCoinCodes,
     onSelectFavourites,
     onSelectList,
     isFavouritesView,
     onClickCurrency,
     isCurrencyDollar
 }: HeaderProps): JSX.Element => {
+    const { isLoading: isLoadingPrice, refetch: refetchCoinPrice } = useQuery<{}, Error>('coinsPrice', () => fetchCoinPrice(activeCoinCodes), { enabled: false });
     const { refetch: refetchNews } = useQuery<NewsResult, Error>('news', fetchNews, { enabled: false });
 
     const handleRefresh = () => {
-        onRefresh();
+        refetchCoinPrice();
         refetchNews();
     }
 
@@ -53,7 +53,7 @@ const Header = ({
                 <ControlItem icon="star" active={isFavouritesView} text="Favourites" onClick={onSelectFavourites} />
                 <ControlItem icon="list" active={!isFavouritesView} text="Full List" onClick={onSelectList} />
                 <ControlItem icon={isCurrencyDollar ? 'pound-sign' : 'dollar-sign'} onClick={onClickCurrency} />
-                <ControlItem icon="sync" onClick={handleRefresh} iconSpin={loadingPrice} />
+                <ControlItem icon="sync" onClick={handleRefresh} iconSpin={isLoadingPrice} />
                 {/* <ControlItem icon="cog" onClick={onClickSettings} /> */}
             </div>
         </div>
