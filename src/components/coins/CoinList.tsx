@@ -3,13 +3,13 @@ import CoinListItem from './CoinListItem';
 import LoadingPanel from '../ui/LoadingPanel';
 import { useQuery } from 'react-query';
 import { Coin, fetchCoinPrice } from '../api/coins';
+import { useGlobalStateContext } from '../../utils/GlobalStateProvider';
 
 interface CoinListProps {
     coinData: Coin[];
     isCurrencyDollar: boolean;
     loading: boolean;
     isFavouritesView: boolean;
-    activeCoinCodes: string[];
 }
 
 type CoinPriceResponse = { [key: string]: { GBP: string; USD: string } };
@@ -19,8 +19,9 @@ const CoinList = ({
     isCurrencyDollar,
     loading,
     isFavouritesView,
-    activeCoinCodes,
 }: CoinListProps) => {
+    const { state } = useGlobalStateContext();
+    const { activeCoinCodes } = state;
     const { isLoading: isLoadingPrice, data: priceData } = useQuery<CoinPriceResponse, Error>('coinsPrice', () => fetchCoinPrice(activeCoinCodes), { refetchOnMount: false });
 
     if (loading || isLoadingPrice) return <LoadingPanel />;

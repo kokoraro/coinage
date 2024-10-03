@@ -4,9 +4,9 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useQuery } from 'react-query';
 import { fetchNews, NewsResult } from './api/newsFeed';
 import { fetchCoinPrice } from './api/coins';
+import { useGlobalStateContext } from '../utils/GlobalStateProvider';
 
 interface HeaderProps {
-    activeCoinCodes: string[];
     onSelectFavourites: () => void;
     onSelectList: () => void;
     isFavouritesView: boolean;
@@ -30,14 +30,14 @@ const ControlItem = ({ icon, text, onClick, iconSpin, active }: ControlItemProps
 );
 
 const Header = ({
-    activeCoinCodes,
     onSelectFavourites,
     onSelectList,
     isFavouritesView,
     onClickCurrency,
     isCurrencyDollar
 }: HeaderProps): JSX.Element => {
-    const { isLoading: isLoadingPrice, refetch: refetchCoinPrice } = useQuery<{}, Error>('coinsPrice', () => fetchCoinPrice(activeCoinCodes), { enabled: false });
+    const { state } = useGlobalStateContext();
+    const { isLoading: isLoadingPrice, refetch: refetchCoinPrice } = useQuery<{}, Error>('coinsPrice', () => fetchCoinPrice(state.activeCoinCodes), { enabled: false });
     const { refetch: refetchNews } = useQuery<NewsResult, Error>('news', fetchNews, { enabled: false });
 
     const handleRefresh = () => {

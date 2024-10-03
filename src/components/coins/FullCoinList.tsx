@@ -3,35 +3,28 @@ import CoinListItem from './CoinListItem';
 import LoadingPanel from '../ui/LoadingPanel';
 import PageNumbers from '../ui/Pagination';
 import { Coin } from '../api/coins';
+import { useGlobalStateContext } from '../../utils/GlobalStateProvider';
 
 interface FullCoinListProps {
     coinData: Coin[];
     isCurrencyDollar: boolean;
     loading: boolean;
-    activeCoinCodes: string[];
-    setActiveCoinCodes: (coinCodes: string[]) => void;
 }
 
 const FullCoinList = ({
     coinData,
     isCurrencyDollar,
     loading,
-    activeCoinCodes,
-    setActiveCoinCodes,
 }: FullCoinListProps) => {
     const [pageIndex, setPageIndex] = useState<number>(0);
+    const { dispatch } = useGlobalStateContext();
 
     if (loading) return <LoadingPanel />;
 
     let currentIndex = 0
 
     const handleFavouriteClick = (coinCode: string) => {
-        if (activeCoinCodes.includes(coinCode)) {
-            const newCoinCodes = activeCoinCodes.filter(code => coinCode !== code);
-            setActiveCoinCodes(newCoinCodes);
-            return;
-        }
-        setActiveCoinCodes([...activeCoinCodes, coinCode]);
+        dispatch({ type: 'TOGGLE_ACTIVE_COIN_CODE', payload: coinCode });
     }
 
     const pages = coinData.reduce((acc: Coin[][], cur: Coin, index) => {
