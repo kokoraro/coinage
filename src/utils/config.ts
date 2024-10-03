@@ -1,4 +1,4 @@
-const DEFAULT_FAVOURITE_COINS = [
+export const DEFAULT_FAVOURITE_COINS = [
     'BTC', 'XRP', 'LTC', 'ETH', 'XMR',
     'ZEC', 'DSH', 'GNT', 'ADA', 'XVG',
 ];
