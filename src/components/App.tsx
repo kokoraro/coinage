@@ -7,7 +7,7 @@ import Footer from './Footer';
 import NewsFeed from './news/NewsFeed';
 import FullCoinList from './coins/FullCoinList';
 import { fetchCoinData } from './api/coins';
-import { DEFAULT_FAVOURITE_COINS } from '../utils/config';
+import { useGlobalStateContext } from '../utils/GlobalStateProvider';
 
 interface CoinResponse {
     CoinName: string;
@@ -18,7 +18,8 @@ interface CoinDataResponse {
 }
 
 const App = () => {
-    const [activeCoinCodes, setActiveCoinCodes] = useState(DEFAULT_FAVOURITE_COINS);
+    const { state } = useGlobalStateContext();
+    const { activeCoinCodes } = state;
     const { isLoading, data } = useQuery<CoinDataResponse, Error>('coins', fetchCoinData);
 
     const [isFavouritesView, setIsFavouritesView] = useState<boolean>(true);
@@ -44,7 +45,6 @@ const App = () => {
     return (
         <div className="container">
             <Header
-                activeCoinCodes={activeCoinCodes}
                 onSelectFavourites={toggleFavouritesView}
                 onSelectList={toggleFavouritesView}
                 onClickCurrency={toggleCurrencyDollar}
@@ -60,15 +60,12 @@ const App = () => {
                             isCurrencyDollar={isCurrencyDollar}
                             loading={isLoading}
                             isFavouritesView={isFavouritesView}
-                            activeCoinCodes={activeCoinCodes}
                         />
                     ) : (
                         <FullCoinList
                             coinData={coinData}
                             isCurrencyDollar={isCurrencyDollar}
                             loading={isLoading}
-                            activeCoinCodes={activeCoinCodes}
-                            setActiveCoinCodes={setActiveCoinCodes}
                         />
                     )}
                 </div>
