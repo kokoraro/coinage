@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 
 import Header from './Header';
@@ -22,17 +22,6 @@ const App = () => {
     const { activeCoinCodes } = state;
     const { isLoading, data } = useQuery<CoinDataResponse, Error>('coins', fetchCoinData);
 
-    const [isFavouritesView, setIsFavouritesView] = useState<boolean>(true);
-    const [isCurrencyDollar, setCurrDollar] = useState<boolean>(true);
-
-    const toggleCurrencyDollar = useCallback(() => {
-        setCurrDollar((current) => !current);
-    }, []);
-    
-    const toggleFavouritesView = useCallback(() => {
-        setIsFavouritesView((current) => !current);
-    }, []);
-
     const coinData = Object.entries(data?.Data || {}).map(([key, coin], index) => ({
         id: index,
         name: coin.CoinName,
@@ -44,31 +33,17 @@ const App = () => {
 
     return (
         <div className="container">
-            <Header
-                onSelectFavourites={toggleFavouritesView}
-                onSelectList={toggleFavouritesView}
-                onClickCurrency={toggleCurrencyDollar}
-                isFavouritesView={isFavouritesView}
-                isCurrencyDollar={isCurrencyDollar}
-            />
+            <Header />
 
             <div className="main">
                 <div className="list">
-                    {isFavouritesView ? (
-                        <CoinList
-                            coinData={coinData}
-                            isCurrencyDollar={isCurrencyDollar}
-                            loading={isLoading}
-                            isFavouritesView={isFavouritesView}
-                        />
+                    {state.isFavouritesView ? (
+                        <CoinList coinData={coinData} loading={isLoading} />
                     ) : (
-                        <FullCoinList
-                            coinData={coinData}
-                            isCurrencyDollar={isCurrencyDollar}
-                            loading={isLoading}
-                        />
+                        <FullCoinList coinData={coinData} loading={isLoading} />
                     )}
                 </div>
+
                 <div className="detail">
                     <NewsFeed />
                 </div>

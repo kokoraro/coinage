@@ -7,17 +7,15 @@ import { useGlobalStateContext } from '../../utils/GlobalStateProvider';
 
 interface FullCoinListProps {
     coinData: Coin[];
-    isCurrencyDollar: boolean;
     loading: boolean;
 }
 
 const FullCoinList = ({
     coinData,
-    isCurrencyDollar,
     loading,
 }: FullCoinListProps) => {
     const [pageIndex, setPageIndex] = useState<number>(0);
-    const { dispatch } = useGlobalStateContext();
+    const { state, dispatch } = useGlobalStateContext();
 
     if (loading) return <LoadingPanel />;
 
@@ -40,7 +38,7 @@ const FullCoinList = ({
             {pages[pageIndex].map(coin => (
                 <CoinListItem
                     coin={coin}
-                    isCurrencyDollar={isCurrencyDollar}
+                    isCurrencyDollar={state.isCurrencyDollar}
                     key={coin.id}
                     isFavouritesView={false}
                     handleFavouriteClick={handleFavouriteClick}

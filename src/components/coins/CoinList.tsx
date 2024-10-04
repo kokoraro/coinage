@@ -7,18 +7,14 @@ import { useGlobalStateContext } from '../../utils/GlobalStateProvider';
 
 interface CoinListProps {
     coinData: Coin[];
-    isCurrencyDollar: boolean;
     loading: boolean;
-    isFavouritesView: boolean;
 }
 
 type CoinPriceResponse = { [key: string]: { GBP: string; USD: string } };
 
 const CoinList = ({
     coinData,
-    isCurrencyDollar,
     loading,
-    isFavouritesView,
 }: CoinListProps) => {
     const { state } = useGlobalStateContext();
     const { activeCoinCodes } = state;
@@ -34,9 +30,9 @@ const CoinList = ({
             {coinsWithPrices.map(coin => (
                 <CoinListItem
                     coin={coin}
-                    isCurrencyDollar={isCurrencyDollar}
+                    isCurrencyDollar={state.isCurrencyDollar}
                     key={coin.id}
-                    isFavouritesView={isFavouritesView}
+                    isFavouritesView
                 />
             ))}
         </div>
