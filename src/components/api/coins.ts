@@ -1,12 +1,14 @@
 import config from "../../utils/config";
 import fetcher from "../../utils/fetcher";
 
+export interface CoinPrice {
+    GBP: string;
+    USD: string;
+};
+
 export interface Coin {
     id: number;
-    price: {
-        GBP: string,
-        USD: string,
-    };
+    price: CoinPrice;
     showing: boolean;
     code: string;
     name: string;

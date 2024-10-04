@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useQuery } from 'react-query';
@@ -14,26 +14,30 @@ interface ControlItemProps {
     active?: boolean;
 }
 
-const ControlItem = ({ icon, text, onClick, iconSpin, active }: ControlItemProps) => (
+const ControlItem = memo(({ icon, text, onClick, iconSpin, active }: ControlItemProps) => (
     <div className={`control-item ${active ? 'active' : ''}`} onClick={onClick}>
         <FontAwesomeIcon icon={icon} spin={iconSpin} />
         {text && <p className="control-item-text">{text}</p>}
     </div>
-);
+));
 
 const Header = (): JSX.Element => {
     const { state, dispatch } = useGlobalStateContext();
     const { isLoading: isLoadingPrice, refetch: refetchCoinPrice } = useQuery<{}, Error>('coinsPrice', () => fetchCoinPrice(state.activeCoinCodes), { enabled: false });
     const { refetch: refetchNews } = useQuery<NewsResult, Error>('news', fetchNews, { enabled: false });
 
-    const handleToggleFavourites = () => dispatch({ type: 'TOGGLE_IS_FAVOURITES' });
+    const handleToggleFavourites = useCallback(() => {
+        dispatch({ type: 'TOGGLE_IS_FAVOURITES' });
+    }, [dispatch]);
 
-    const handleToggleIsDollar = () => dispatch({ type: 'TOGGLE_CURRENCY_DOLLAR' });
+    const handleToggleIsDollar = useCallback(() => {
+        dispatch({ type: 'TOGGLE_CURRENCY_DOLLAR' });
+    }, [dispatch]);
 
-    const handleRefresh = () => {
+    const handleRefresh = useCallback(() => {
         refetchCoinPrice();
         refetchNews();
-    }
+    }, [refetchCoinPrice, refetchNews])
 
     return (
         <div className="header">

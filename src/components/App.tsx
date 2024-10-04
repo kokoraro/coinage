@@ -19,7 +19,7 @@ interface CoinDataResponse {
 
 const App = () => {
     const { state } = useGlobalStateContext();
-    const { activeCoinCodes } = state;
+    const { activeCoinCodes, isFavouritesView } = state;
     const { isLoading, data } = useQuery<CoinDataResponse, Error>('coins', fetchCoinData);
 
     const coinData = Object.entries(data?.Data || {}).map(([key, coin], index) => ({
@@ -37,7 +37,7 @@ const App = () => {
 
             <div className="main">
                 <div className="list">
-                    {state.isFavouritesView ? (
+                    {isFavouritesView ? (
                         <CoinList coinData={coinData} loading={isLoading} />
                     ) : (
                         <FullCoinList coinData={coinData} loading={isLoading} />
