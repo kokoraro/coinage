@@ -3,17 +3,19 @@ import { DEFAULT_FAVOURITE_COINS } from "./config";
 
 interface State {
     activeCoinCodes: string[];
+    isFavouritesView: boolean;
+    isCurrencyDollar: boolean;
 }
 
 interface GlobalStateProviderProps {
     children: ReactNode;
 }
 
-type Action = { type: 'TOGGLE_ACTIVE_COIN_CODE', payload: string };
+type Action = { type: 'TOGGLE_ACTIVE_COIN_CODE', payload: string } | { type: 'TOGGLE_CURRENCY_DOLLAR' } | { type: 'TOGGLE_IS_FAVOURITES'};
 
 const Reducer = (state: State, action: Action): State => {
     switch(action.type) {
-        case('TOGGLE_ACTIVE_COIN_CODE'): {
+        case 'TOGGLE_ACTIVE_COIN_CODE': {
             if (state.activeCoinCodes.includes(action.payload)) {
                 return {
                     ...state,
@@ -25,6 +27,19 @@ const Reducer = (state: State, action: Action): State => {
                 activeCoinCodes: [...state.activeCoinCodes, action.payload]
             }
         }
+
+        case 'TOGGLE_CURRENCY_DOLLAR':
+            return {
+                ...state,
+                isCurrencyDollar: !state.isCurrencyDollar,
+            }
+
+        case 'TOGGLE_IS_FAVOURITES':
+            return {
+                ...state,
+                isFavouritesView: !state.isFavouritesView,
+            }
+
         default:
             return state;
     }
@@ -32,6 +47,8 @@ const Reducer = (state: State, action: Action): State => {
 
 const initialState: State = {
     activeCoinCodes: DEFAULT_FAVOURITE_COINS,
+    isFavouritesView: true,
+    isCurrencyDollar: true,
 };
 
 interface ContextProps {
