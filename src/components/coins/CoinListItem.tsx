@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Coin, CoinPrice } from '../api/coins';
-import { useDispatch } from '../../utils/GlobalStateProvider';
+import { ActionType, useDispatch } from '../../utils/GlobalStateProvider';
 
 interface CoinListItemProps {
     coin: Coin;
@@ -29,7 +29,7 @@ const CoinListItem = ({
     const coinCode = coin.code;
 
     const handleFavouriteClick = () => {
-        dispatch({ type: 'TOGGLE_ACTIVE_COIN_CODE', payload: coinCode });
+        dispatch({ type: ActionType.ToggleActiveCoinCode, payload: coinCode });
     }
 
     return (
