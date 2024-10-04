@@ -6,7 +6,7 @@ import { ActionType, useDispatch } from '../../utils/GlobalStateProvider';
 interface CoinListItemProps {
     coin: Coin;
     isCurrencyDollar: boolean;
-    isFavouritesView: boolean;
+    coinPrice?: CoinPrice;
 }
 
 // TODO: put into utils
@@ -23,7 +23,7 @@ const formatCoinPrice = (coinPrice: CoinPrice, isCurrencyDollar: boolean) => {
 const CoinListItem = ({
     coin,
     isCurrencyDollar,
-    isFavouritesView,
+    coinPrice,
 }: CoinListItemProps) => {
     const dispatch = useDispatch();
     const coinCode = coin.code;
@@ -37,13 +37,13 @@ const CoinListItem = ({
             <img src={coin.imageURL && `https://www.cryptocompare.com${coin.imageURL}`} alt={coin.name} />
             <div className="coin-code">{coin.code}</div>
             <div className="coin-name">{coin.name}</div>
-            {!isFavouritesView ? (
+            {coinPrice ? <div className="coin-price">{formatCoinPrice(coinPrice, isCurrencyDollar)}</div> : (
                 <FontAwesomeIcon
                     className="coin-star"
                     icon={[coin.showing ? 'fas' : 'far', 'star']}
                     onClick={handleFavouriteClick}
                 />
-            ) : <div className="coin-price">{formatCoinPrice(coin.price, isCurrencyDollar)}</div>}
+            )}
         </div>
     );
 };

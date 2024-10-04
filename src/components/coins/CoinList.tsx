@@ -12,6 +12,8 @@ interface CoinListProps {
 
 type CoinPriceResponse = { [key: string]: { GBP: string; USD: string } };
 
+const DEFAULT_COIN_PRICE = { GBP: '0', USD: '0' };
+
 const CoinList = ({
     coinData,
     loading,
@@ -23,21 +25,19 @@ const CoinList = ({
     if (loading || isLoadingPrice) return <LoadingPanel />;
 
     const favouriteCoins = coinData.filter(coin => activeCoinCodes.includes(coin.code));
-    const coinsWithPrices = favouriteCoins.map(coin => ({ ...coin, price: priceData?.[coin.code] || { GBP: '0', USD: '0' }}));
 
     return (
         <div className="coin-list">
-            {coinsWithPrices.map(coin => (
+            {favouriteCoins.map(coin => (
                 <CoinListItem
                     coin={coin}
                     isCurrencyDollar={state.isCurrencyDollar}
                     key={coin.id}
-                    isFavouritesView
+                    coinPrice={priceData?.[coin.code] || DEFAULT_COIN_PRICE}
                 />
             ))}
         </div>
     );
 }
-
 
 export default CoinList;
