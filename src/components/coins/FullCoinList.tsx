@@ -36,7 +36,6 @@ const FullCoinList = ({
                     coin={coin}
                     isCurrencyDollar={state.isCurrencyDollar}
                     key={coin.id}
-                    isFavouritesView={false}
                 />
             ))}
 
