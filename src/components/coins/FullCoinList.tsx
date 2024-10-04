@@ -15,15 +15,11 @@ const FullCoinList = ({
     loading,
 }: FullCoinListProps) => {
     const [pageIndex, setPageIndex] = useState<number>(0);
-    const { state, dispatch } = useGlobalStateContext();
+    const { state } = useGlobalStateContext();
 
     if (loading) return <LoadingPanel />;
 
     let currentIndex = 0
-
-    const handleFavouriteClick = (coinCode: string) => {
-        dispatch({ type: 'TOGGLE_ACTIVE_COIN_CODE', payload: coinCode });
-    }
 
     const pages = coinData.reduce((acc: Coin[][], cur: Coin, index) => {
         if (!acc[currentIndex]) acc.push([]);
@@ -41,7 +37,6 @@ const FullCoinList = ({
                     isCurrencyDollar={state.isCurrencyDollar}
                     key={coin.id}
                     isFavouritesView={false}
-                    handleFavouriteClick={handleFavouriteClick}
                 />
             ))}
 
