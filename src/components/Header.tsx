@@ -4,7 +4,7 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useQuery } from 'react-query';
 import { fetchNews, NewsResult } from './api/newsFeed';
 import { fetchCoinPrice } from './api/coins';
-import { useGlobalStateContext } from '../utils/GlobalStateProvider';
+import { ActionType, useGlobalStateContext } from '../utils/GlobalStateProvider';
 
 interface ControlItemProps {
     icon: IconProp;
@@ -27,11 +27,11 @@ const Header = (): JSX.Element => {
     const { refetch: refetchNews } = useQuery<NewsResult, Error>('news', fetchNews, { enabled: false });
 
     const handleToggleFavourites = useCallback(() => {
-        dispatch({ type: 'TOGGLE_IS_FAVOURITES' });
+        dispatch({ type: ActionType.ToggleIsFavourites });
     }, [dispatch]);
 
     const handleToggleIsDollar = useCallback(() => {
-        dispatch({ type: 'TOGGLE_CURRENCY_DOLLAR' });
+        dispatch({ type: ActionType.ToggleCurrencyDollar });
     }, [dispatch]);
 
     const handleRefresh = useCallback(() => {
