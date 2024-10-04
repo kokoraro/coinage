@@ -73,4 +73,14 @@ export const useGlobalStateContext = () => {
     return {state, dispatch};
 }
 
+export const useSelector = (stateKey: keyof State) => {
+    const { state } = useContext(StoreContext);
+    return state[stateKey];
+};
+
+export const useDispatch = () => {
+    const { dispatch } = useContext(StoreContext);
+    return dispatch;
+};
+
 export default GlobalStateProvider;
