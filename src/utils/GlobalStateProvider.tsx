@@ -11,11 +11,20 @@ interface GlobalStateProviderProps {
     children: ReactNode;
 }
 
-type Action = { type: 'TOGGLE_ACTIVE_COIN_CODE', payload: string } | { type: 'TOGGLE_CURRENCY_DOLLAR' } | { type: 'TOGGLE_IS_FAVOURITES'};
+export enum ActionType {
+    ToggleActiveCoinCode,
+    ToggleCurrencyDollar,
+    ToggleIsFavourites
+}
+
+type Action = 
+    { type: ActionType.ToggleActiveCoinCode, payload: string } | 
+    { type: ActionType.ToggleCurrencyDollar } | 
+    { type: ActionType.ToggleIsFavourites};
 
 const Reducer = (state: State, action: Action): State => {
     switch(action.type) {
-        case 'TOGGLE_ACTIVE_COIN_CODE': {
+        case ActionType.ToggleActiveCoinCode: {
             if (state.activeCoinCodes.includes(action.payload)) {
                 return {
                     ...state,
@@ -28,13 +37,13 @@ const Reducer = (state: State, action: Action): State => {
             }
         }
 
-        case 'TOGGLE_CURRENCY_DOLLAR':
+        case ActionType.ToggleCurrencyDollar:
             return {
                 ...state,
                 isCurrencyDollar: !state.isCurrencyDollar,
             }
 
-        case 'TOGGLE_IS_FAVOURITES':
+        case ActionType.ToggleIsFavourites:
             return {
                 ...state,
                 isFavouritesView: !state.isFavouritesView,
