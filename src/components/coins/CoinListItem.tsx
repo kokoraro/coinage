@@ -7,6 +7,7 @@ interface CoinListItemProps {
     coin: Coin;
     isCurrencyDollar: boolean;
     coinPrice?: CoinPrice;
+    isFavourite: boolean;
 }
 
 // TODO: put into utils
@@ -19,11 +20,12 @@ const formatCoinPrice = (coinPrice: CoinPrice, isCurrencyDollar: boolean) => {
     return `${currSymbol}${value}`;
 }
 
-// TODO: Make two different components for coins
+// TODO: Make two different components for coins?
 const CoinListItem = ({
     coin,
     isCurrencyDollar,
     coinPrice,
+    isFavourite,
 }: CoinListItemProps) => {
     const dispatch = useDispatch();
     const coinCode = coin.code;
@@ -40,7 +42,7 @@ const CoinListItem = ({
             {coinPrice ? <div className="coin-price">{formatCoinPrice(coinPrice, isCurrencyDollar)}</div> : (
                 <FontAwesomeIcon
                     className="coin-star"
-                    icon={[coin.showing ? 'fas' : 'far', 'star']}
+                    icon={[isFavourite ? 'fas' : 'far', 'star']}
                     onClick={handleFavouriteClick}
                 />
             )}
