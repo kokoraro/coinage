@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Coin, CoinPrice } from '../api/coins';
 import { ActionType, useDispatch } from '../../utils/GlobalStateProvider';
+import { formatCoinPrice } from './utils';
 
 interface CoinListItemProps {
     coin: Coin;
@@ -10,17 +11,6 @@ interface CoinListItemProps {
     isFavourite: boolean;
 }
 
-// TODO: put into utils
-const formatCoinPrice = (coinPrice: CoinPrice, isCurrencyDollar: boolean) => {
-    const currency = isCurrencyDollar ? 'USD' : 'GBP';
-    const currSymbol = isCurrencyDollar ? '$' : '£';
-    const price = Number(coinPrice[currency]);
-    const value = price >= 1 ? price.toFixed(2) : price.toFixed(4);
-
-    return `${currSymbol}${value}`;
-}
-
-// TODO: Make two different components for coins?
 const CoinListItem = ({
     coin,
     isCurrencyDollar,
