@@ -7,9 +7,7 @@ export interface CoinPrice {
 };
 
 export interface Coin {
-    id: number;
-    price: CoinPrice;
-    showing: boolean;
+    id: string;
     code: string;
     name: string;
     imageURL: string;
