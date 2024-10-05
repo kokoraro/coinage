@@ -6,7 +6,6 @@ import NewsFeed from './news/NewsFeed';
 import FullCoinList from './coins/FullCoinList';
 import { useGlobalStateContext } from '../utils/GlobalStateProvider';
 
-
 const App = () => {
     const { state } = useGlobalStateContext();
     const { isFavouritesView } = state;
