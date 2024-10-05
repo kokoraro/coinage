@@ -19,7 +19,6 @@ const App = () => {
                 <div className="list">
                     {isFavouritesView ? <CoinList /> : <FullCoinList />}
                 </div>
-
                 <div className="detail">
                     <NewsFeed />
                 </div>
