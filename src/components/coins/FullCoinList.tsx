@@ -3,7 +3,7 @@ import LoadingPanel from '../ui/LoadingPanel';
 import useCoinDataQuery from '../hooks/useCoinDataQuery';
 import PaginatedList from '../ui/pagination/PaginatedList';
 import CoinListItem from './CoinListItem';
-import { useGlobalStateContext } from '../../utils/GlobalStateProvider';
+import { useGlobalStateContext } from '../global-state/hooks';
 
 const FullCoinList = () => {
     const { isLoading, data } = useCoinDataQuery();
