@@ -13,8 +13,7 @@ Try the app [here](https://coinage.charlietaylorcoder.com)
 - [React](https://reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Sass](https://sass-lang.com/)
-- [Redux](https://redux.js.org/)
-- [Redux Saga](https://redux-saga.js.org/)
+- [React Query](https://react-query.tanstack.com/)
 
 #### To Run Locally
 
