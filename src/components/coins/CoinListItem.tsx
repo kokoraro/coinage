@@ -1,8 +1,9 @@
 import React, { memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Coin, CoinPrice } from '../api/coins';
-import { ActionType, useDispatch } from '../../utils/GlobalStateProvider';
 import { formatCoinPrice } from './utils';
+import { ActionType } from '../global-state/types';
+import { useDispatch } from '../global-state/hooks';
 
 interface CoinListItemProps {
     coin: Coin;

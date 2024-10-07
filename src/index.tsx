@@ -5,7 +5,7 @@ import { QueryClientProvider, QueryClient } from 'react-query';
 import { iconLibrarySetup } from './utils/iconConfig';
 import App from './components/App';
 import './styles/main.sass';
-import GlobalStateProvider from './utils/GlobalStateProvider';
+import GlobalStateProvider from './components/global-state/GlobalStateProvider';
 
 iconLibrarySetup();
 
