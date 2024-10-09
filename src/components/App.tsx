@@ -4,7 +4,7 @@ import CoinList from './coins/CoinList';
 import Footer from './Footer';
 import NewsFeed from './news/NewsFeed';
 import FullCoinList from './coins/FullCoinList';
-import { useGlobalStateContext } from '../utils/GlobalStateProvider';
+import { useGlobalStateContext } from './global-state/hooks';
 
 const App = () => {
     const { state } = useGlobalStateContext();
