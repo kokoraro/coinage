@@ -14,13 +14,15 @@ const CoinList = () => {
     const { state } = useGlobalStateContext();
     const { activeCoinCodes } = state;
     const { isLoading, data } = useCoinDataQuery();
-    const { isLoading: isLoadingPrice, data: priceData } = useQuery<CoinPriceResponse, Error>(['coinsPrice', activeCoinCodes], () => fetchCoinPrice(activeCoinCodes));
+    const { isLoading: isLoadingPrice, data: priceData } = useQuery<CoinPriceResponse, Error>(['coinsPrice', activeCoinCodes], () =>
+        fetchCoinPrice(activeCoinCodes),
+    );
 
     if (isLoading || isLoadingPrice) return <LoadingPanel />;
 
     return (
         <div className="coin-list">
-            {activeCoinCodes.map(coinCode => {
+            {activeCoinCodes.map((coinCode) => {
                 const coinData = data?.Data[coinCode];
                 if (!coinData) return null;
                 const coin = {
@@ -28,7 +30,7 @@ const CoinList = () => {
                     name: coinData.CoinName,
                     imageURL: coinData.ImageUrl,
                     code: coinCode,
-                }
+                };
 
                 return (
                     <CoinListItem
@@ -42,6 +44,6 @@ const CoinList = () => {
             })}
         </div>
     );
-}
+};
 
 export default CoinList;
