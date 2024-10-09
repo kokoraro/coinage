@@ -1,20 +1,20 @@
 # Coinage
 
-[![CircleCI](https://circleci.com/gh/chazmcgrill/coinage/tree/master.svg?style=svg)](https://circleci.com/gh/chazmcgrill/coinage/tree/master)
 [![GitHub Release](https://img.shields.io/github/v/release/chazmcgrill/coinage)](https://github.com/chazmcgrill/coinage/releases)
 [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 [![Twitter Follow](https://img.shields.io/twitter/follow/charlietcoder.svg?style=social)](https://twitter.com/charlietcoder)
 
-Simple cryptocurrency price tracking app. Search and select available coins pulled from cryptocompare api and see current prices in dollars or sterling.
+Simple cryptocurrency price tracking app. Search and select available coins pulled from cryptocompare api and see
+current prices in dollars or sterling.
 
 Try the app [here](https://coinage.charlietaylorcoder.com)
 
 #### Tech Stack
-- [React](https://reactjs.org/)
-- [Typescript](https://www.typescriptlang.org/)
-- [Sass](https://sass-lang.com/)
-- [Redux](https://redux.js.org/)
-- [Redux Saga](https://redux-saga.js.org/)
+
+-   [React](https://reactjs.org/)
+-   [Typescript](https://www.typescriptlang.org/)
+-   [Sass](https://sass-lang.com/)
+-   [React Query](https://react-query.tanstack.com/)
 
 #### To Run Locally
 

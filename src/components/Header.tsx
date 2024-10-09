@@ -4,7 +4,8 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useQuery } from 'react-query';
 import { fetchNews, NewsResult } from './api/newsFeed';
 import { fetchCoinPrice } from './api/coins';
-import { ActionType, useGlobalStateContext } from '../utils/GlobalStateProvider';
+import { useGlobalStateContext } from './global-state/hooks';
+import { ActionType } from './global-state/types';
 
 interface ControlItemProps {
     icon: IconProp;

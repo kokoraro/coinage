@@ -13,12 +13,12 @@ interface PaginatedListProps<T> {
     itemsPerPage?: number;
 }
 
-const PaginatedList = <T, >({ data, renderItem, itemsPerPage }: PaginatedListProps<T>): JSX.Element => {
+const PaginatedList = <T,>({ data, renderItem, itemsPerPage }: PaginatedListProps<T>): JSX.Element => {
     const [pageIndex, setPageIndex] = useState<number>(0);
     const pages = divideDataIntoSubArrays(data, itemsPerPage);
-    
+
     return (
-        <Fragment>
+        <>
             {pages[pageIndex].map((item, index) => renderItem({ item, index }))}
 
             <PaginationControl
@@ -26,7 +26,7 @@ const PaginatedList = <T, >({ data, renderItem, itemsPerPage }: PaginatedListPro
                 totalPages={pages.length}
                 onChangePage={(newPage) => setPageIndex(newPage)}
             />
-        </Fragment>
+        </>
     );
 };
 

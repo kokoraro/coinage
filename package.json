@@ -1,50 +1,63 @@
 {
-  "name": "coinage",
-  "version": "2.1.0",
-  "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-brands-svg-icons": "^5.13.0",
-    "@fortawesome/free-regular-svg-icons": "^5.13.0",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@fortawesome/react-fontawesome": "^0.1.9",
-    "@types/jest": "24.0.23",
-    "@types/node": "12.12.7",
-    "@types/react-dom": "16.9.4",
-    "node-sass": "^4.13.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-query": "^3.15.2",
-    "react-scripts": "4.0.3",
-    "typescript": "3.7.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "echo \"Add tests please.\"",
-    "testwatch": "react-scripts test",
-    "eject": "react-scripts eject",
-    "preversion": "npm test",
-    "version": "git add .",
-    "postversion": "git push && git push --tags",
-    "lint": "eslint . --ext .ts"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@types/react": "^16.9.11"
-  }
+    "name": "coinage",
+    "version": "2.2.0",
+    "private": true,
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.28",
+        "@fortawesome/free-brands-svg-icons": "^5.13.0",
+        "@fortawesome/free-regular-svg-icons": "^5.13.0",
+        "@fortawesome/free-solid-svg-icons": "^5.13.0",
+        "@fortawesome/react-fontawesome": "^0.1.9",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-query": "^3.39.2",
+        "react-scripts": "^5.0.1"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "echo \"Add tests please.\"",
+        "testwatch": "react-scripts test",
+        "eject": "react-scripts eject",
+        "preversion": "npm test",
+        "version": "git add .",
+        "postversion": "git push && git push --tags",
+        "lint": "eslint src --ext .ts,.tsx",
+        "prepare": "husky install",
+        "check-types": "tsc --noEmit",
+        "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json|ts|tsx)\"",
+        "validate": "npm run lint && npm run check-types && npm test",
+        "pre-commit": "lint-staged",
+        "format": "npm run prettier -- --write"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@types/jest": "^29.2.5",
+        "@types/node": "^18.11.18",
+        "@types/react": "^18.0.26",
+        "@types/react-dom": "^18.0.10",
+        "husky": "^8.0.0",
+        "lint-staged": "^13.1.0",
+        "prettier": "^2.8.3",
+        "sass": "^1.57.1",
+        "typescript": "^4.9.4"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+        "*.{js,jsx,ts,tsx,json}": "prettier --write"
+    }
 }
