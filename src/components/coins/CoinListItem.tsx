@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Coin, CoinPrice } from '../api/coins';
 import { ActionType, useDispatch } from '../../utils/GlobalStateProvider';
+import { formatCoinPrice } from './utils';
 
 interface CoinListItemProps {
     coin: Coin;
@@ -26,6 +27,7 @@ const CoinListItem = ({
     isCurrencyDollar,
     coinPrice,
     isFavourite,
+    isFavourite,
 }: CoinListItemProps) => {
     const dispatch = useDispatch();
     const coinCode = coin.code;
@@ -42,6 +44,7 @@ const CoinListItem = ({
             {coinPrice ? <div className="coin-price">{formatCoinPrice(coinPrice, isCurrencyDollar)}</div> : (
                 <FontAwesomeIcon
                     className="coin-star"
+                    icon={[isFavourite ? 'fas' : 'far', 'star']}
                     icon={[isFavourite ? 'fas' : 'far', 'star']}
                     onClick={handleFavouriteClick}
                 />
