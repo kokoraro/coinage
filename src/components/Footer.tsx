@@ -15,14 +15,18 @@ const Icon = ({ url, icon }: IconProps) => (
 
 const Footer = () => (
     <footer>
-        <p>coded by<a href="https://www.charlietaylorcoder.com"> charlie taylor</a></p>
+        <p>
+            coded by<a href="https://www.charlietaylorcoder.com"> charlie taylor</a>
+        </p>
         <div className="footer-icons">
             <Icon url="http://twitter.com/charlietcoder" icon="twitter" />
             <Icon url="http://www.instagram.com/charlietcoder" icon="instagram" />
             <Icon url="https://codepen.io/chazmcgrill" icon="codepen" />
             <Icon url="https://github.com/chazmcgrill" icon="github" />
         </div>
-        <p>data sourced from<a href="https://www.cryptocompare.com/api/"> cryptocompare api</a></p>
+        <p>
+            data sourced from<a href="https://www.cryptocompare.com/api/"> cryptocompare api</a>
+        </p>
     </footer>
 );
 

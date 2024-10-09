@@ -7,14 +7,15 @@ import { fetchNews, NewsResult } from '../api/newsFeed';
 const NewsFeed = (): JSX.Element => {
     const { isLoading, data } = useQuery<NewsResult, Error>('news', fetchNews);
 
-    if (isLoading) return <LoadingPanel />
+    if (isLoading) return <LoadingPanel />;
 
     return (
         <div className="news-feed">
             <h3 className="news-feed-title">news feed</h3>
-            {data?.Data.map(article => <NewsItem key={article.id} article={article} />)}
+            {data?.Data.map((article) => (
+                <NewsItem key={article.id} article={article} />
+            ))}
         </div>
-        
     );
 };
 

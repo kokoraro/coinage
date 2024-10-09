@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export interface State {
     activeCoinCodes: string[];
@@ -18,10 +18,10 @@ export interface ContextProps {
 export enum ActionType {
     ToggleActiveCoinCode,
     ToggleCurrencyDollar,
-    ToggleIsFavourites
+    ToggleIsFavourites,
 }
 
 export type Action =
-    { type: ActionType.ToggleActiveCoinCode, payload: string } |
-    { type: ActionType.ToggleCurrencyDollar } |
-    { type: ActionType.ToggleIsFavourites };
+    | { type: ActionType.ToggleActiveCoinCode; payload: string }
+    | { type: ActionType.ToggleCurrencyDollar }
+    | { type: ActionType.ToggleIsFavourites };

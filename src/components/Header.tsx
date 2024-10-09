@@ -24,7 +24,9 @@ const ControlItem = memo(({ icon, text, onClick, iconSpin, active }: ControlItem
 
 const Header = (): JSX.Element => {
     const { state, dispatch } = useGlobalStateContext();
-    const { isLoading: isLoadingPrice, refetch: refetchCoinPrice } = useQuery<{}, Error>('coinsPrice', () => fetchCoinPrice(state.activeCoinCodes), { enabled: false });
+    const { isLoading: isLoadingPrice, refetch: refetchCoinPrice } = useQuery<{}, Error>('coinsPrice', () => fetchCoinPrice(state.activeCoinCodes), {
+        enabled: false,
+    });
     const { refetch: refetchNews } = useQuery<NewsResult, Error>('news', fetchNews, { enabled: false });
 
     const handleToggleFavourites = useCallback(() => {
@@ -38,7 +40,7 @@ const Header = (): JSX.Element => {
     const handleRefresh = useCallback(() => {
         refetchCoinPrice();
         refetchNews();
-    }, [refetchCoinPrice, refetchNews])
+    }, [refetchCoinPrice, refetchNews]);
 
     return (
         <div className="header">
@@ -52,6 +54,6 @@ const Header = (): JSX.Element => {
             </div>
         </div>
     );
-}
+};
 
 export default memo(Header);

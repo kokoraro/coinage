@@ -11,7 +11,5 @@ export function divideDataIntoSubArrays<T>(data: T[], size: number = 50) {
 }
 
 export function getNumberRangeArray(start: number, end: number) {
-    return Array
-        .from(Array(end - start + 1).keys())
-        .map(key => start + key);
+    return Array.from(Array(end - start + 1).keys()).map((key) => start + key);
 }

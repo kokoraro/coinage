@@ -21,11 +21,7 @@ const PaginatedList = <T,>({ data, renderItem, itemsPerPage }: PaginatedListProp
         <>
             {pages[pageIndex].map((item, index) => renderItem({ item, index }))}
 
-            <PaginationControl
-                currentPageIndex={pageIndex}
-                totalPages={pages.length}
-                onChangePage={(newPage) => setPageIndex(newPage)}
-            />
+            <PaginationControl currentPageIndex={pageIndex} totalPages={pages.length} onChangePage={(newPage) => setPageIndex(newPage)} />
         </>
     );
 };

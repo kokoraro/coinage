@@ -1,10 +1,10 @@
-import config from "../../utils/config";
-import fetcher from "../../utils/fetcher";
+import config from '../../utils/config';
+import fetcher from '../../utils/fetcher';
 
 export interface CoinPrice {
     GBP: string;
     USD: string;
-};
+}
 
 export interface Coin {
     id: string;
