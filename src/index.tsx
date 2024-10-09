@@ -9,7 +9,7 @@ import GlobalStateProvider from './components/global-state/GlobalStateProvider';
 
 iconLibrarySetup();
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 ReactDOM.render(
     <QueryClientProvider client={queryClient}>
