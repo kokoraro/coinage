@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter|Roboto')
+
+body
+    font-family: Roboto
+    background: #fff
+    font-size: 16px
+    margin: 0px
+
+h1
+    color: coral
+    font-family: 'Bitter', serif
+    font-size: 1.8rem
+    margin: 0
+
+a
+    color: black
+    text-decoration: none
+
+    &:hover
+        color: coral
+
+.active
+    color: coral
+
+.container
+    max-width: 1200px
+    width: 100%
+    margin: 0 auto
+
+.main
+    display: flex
+    border: 2px solid #e8e8e8
+    height: calc(100vh - 7rem)
+    overflow: hidden
+    flex-direction: row
+
+.list
+    flex: 6
+    background-color: #f6f6f6
+    overflow: scroll
+
+.detail
+    flex: 4
+    max-width: 350px
+    background-color: #f6f6f6
+    border-left: 1px solid #e8e8e8
+    overflow: scroll
+
+@media screen and (max-width: 700px)
+    .main
+        height: 100%
+        overflow: scroll
+    .detail
+        display: none
+
+@import './header.sass'
+@import './footer.sass'
+@import './control-panel.sass'
+@import './coin-list.sass'
+@import './loading-spinner.sass'
+@import './loading-panel.sass'
+@import './news-feed.sass'
+@import './pagination.sass'

@@ -1,5 +1,6 @@
 {
     "name": "coinage",
+    "homepage": "https://chazmcgrill.github.io/coinage/",
     "version": "2.2.0",
     "private": true,
     "dependencies": {
