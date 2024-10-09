@@ -3,7 +3,7 @@ import { QueryClientProvider, QueryClient } from 'react-query';
 import { iconLibrarySetup } from './utils/iconConfig';
 import GlobalStateProvider from './components/global-state/GlobalStateProvider';
 import App from './components/App';
-import './styles/main.sass';
+import './styles/index.sass';
 
 const queryClient = new QueryClient();
 iconLibrarySetup();
