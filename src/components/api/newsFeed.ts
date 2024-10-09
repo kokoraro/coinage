@@ -1,5 +1,5 @@
-import config from "../../utils/config";
-import fetcher from "../../utils/fetcher";
+import config from '../../utils/config';
+import fetcher from '../../utils/fetcher';
 
 export interface NewsArticle {
     id: string;

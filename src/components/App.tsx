@@ -15,9 +15,7 @@ const App = () => {
             <Header />
 
             <div className="main">
-                <div className="list">
-                    {isFavouritesView ? <CoinList /> : <FullCoinList />}
-                </div>
+                <div className="list">{isFavouritesView ? <CoinList /> : <FullCoinList />}</div>
                 <div className="detail">
                     <NewsFeed />
                 </div>
@@ -26,6 +24,6 @@ const App = () => {
             <Footer />
         </div>
     );
-}
+};
 
 export default App;
