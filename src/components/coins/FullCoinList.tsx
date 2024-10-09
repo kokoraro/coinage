@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import CoinListItem from './CoinListItem';
+import React from 'react';
 import LoadingPanel from '../ui/LoadingPanel';
 import PageNumbers from '../ui/Pagination';
 import { Coin } from '../api/coins';
@@ -10,7 +9,7 @@ import useCoinDataQuery from '../hooks/useCoinDataQuery';
 
 
 const FullCoinList = () => {
-    const [pageIndex, setPageIndex] = useState<number>(0);
+    const { isLoading, data } = useCoinDataQuery();
     const { state } = useGlobalStateContext();
     const { isLoading, data } = useCoinDataQuery();
 
