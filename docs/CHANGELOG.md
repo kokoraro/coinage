@@ -1,3 +1,10 @@
+## [2.2.3](https://github.com/chazmcgrill/coinage/compare/v2.2.2...v2.2.3) (2023-01-15)
+
+
+### Bug Fixes
+
+* uses boilerplate public folder setup ([b1f18b7](https://github.com/chazmcgrill/coinage/commit/b1f18b725d29d3962445004bc0048fc63215ce55))
+
 ## [2.2.2](https://github.com/chazmcgrill/coinage/compare/v2.2.1...v2.2.2) (2023-01-15)
 
 
