@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useQuery } from 'react-query';
 import { fetchNews, NewsResult } from './api/newsFeed';
-import { fetchCoinPrice } from './api/coins';
+import { CoinPrice, fetchCoinPrice } from './api/coins';
 import { useGlobalStateContext } from './global-state/hooks';
 import { ActionType } from './global-state/types';
 
@@ -16,8 +16,8 @@ interface ControlItemProps {
 }
 
 const ControlItem = memo(({ icon, text, onClick, iconSpin, active }: ControlItemProps) => (
-    <div className={`control-item ${active ? 'active' : ''}`} onClick={onClick}>
-        <FontAwesomeIcon icon={icon} spin={iconSpin} />
+    <div className={`control-item ${active ? 'active' : ''}`} onClick={onClick} data-testid={icon}>
+        <FontAwesomeIcon icon={icon} spin={iconSpin} data-testid={iconSpin ? 'loading-spinner' : ''} />
         {text && <p className="control-item-text">{text}</p>}
     </div>
 ));
@@ -26,11 +26,14 @@ ControlItem.displayName = 'ControlItem';
 
 const Header = (): JSX.Element => {
     const { state, dispatch } = useGlobalStateContext();
-    // TODO: fix types here
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    const { isLoading: isLoadingPrice, refetch: refetchCoinPrice } = useQuery<{}, Error>('coinsPrice', () => fetchCoinPrice(state.activeCoinCodes), {
-        enabled: false,
-    });
+
+    const { isLoading: isLoadingPrice, refetch: refetchCoinPrice } = useQuery<CoinPrice, Error>(
+        'coinsPrice',
+        () => fetchCoinPrice(state.activeCoinCodes),
+        {
+            enabled: false,
+        },
+    );
     const { refetch: refetchNews } = useQuery<NewsResult, Error>('news', fetchNews, { enabled: false });
 
     const handleToggleFavourites = useCallback(() => {
