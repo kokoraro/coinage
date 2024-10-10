@@ -2,11 +2,9 @@ import React from 'react';
 import CoinListItem from './CoinListItem';
 import LoadingPanel from '../ui/LoadingPanel';
 import { useQuery } from 'react-query';
-import { fetchCoinPrice } from '../api/coins';
+import { CoinPriceResponse, fetchCoinPrice } from '../api/coins';
 import useCoinDataQuery from '../hooks/useCoinDataQuery';
 import { useGlobalStateContext } from '../global-state/hooks';
-
-type CoinPriceResponse = { [key: string]: { GBP: string; USD: string } };
 
 const DEFAULT_COIN_PRICE = { GBP: '0', USD: '0' };
 
