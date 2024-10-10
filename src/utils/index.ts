@@ -1,4 +1,4 @@
-export function divideDataIntoSubArrays<T>(data: T[], size: number = 50) {
+export function divideDataIntoSubArrays<T>(data: T[], size = 50) {
     let currentIndex = 0;
 
     return data.reduce((acc: T[][], cur: T, index) => {
