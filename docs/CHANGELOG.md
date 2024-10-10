@@ -1,3 +1,10 @@
+## [2.2.4](https://github.com/chazmcgrill/coinage/compare/v2.2.3...v2.2.4) (2023-01-24)
+
+
+### Bug Fixes
+
+* fixes styling ralted to making the code accessable ([873eb46](https://github.com/chazmcgrill/coinage/commit/873eb46efe6418632354d4843b3485e0f4b4a23d))
+
 ## [2.2.3](https://github.com/chazmcgrill/coinage/compare/v2.2.2...v2.2.3) (2023-01-15)
 
 
