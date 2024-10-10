@@ -19,4 +19,9 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint', 'prettier'],
     rules: {},
+    settings: {
+        react: {
+            version: 'detect',
+        },
+    },
 };
