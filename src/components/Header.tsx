@@ -22,8 +22,12 @@ const ControlItem = memo(({ icon, text, onClick, iconSpin, active }: ControlItem
     </div>
 ));
 
+ControlItem.displayName = 'ControlItem';
+
 const Header = (): JSX.Element => {
     const { state, dispatch } = useGlobalStateContext();
+    // TODO: fix types here
+    // eslint-disable-next-line @typescript-eslint/ban-types
     const { isLoading: isLoadingPrice, refetch: refetchCoinPrice } = useQuery<{}, Error>('coinsPrice', () => fetchCoinPrice(state.activeCoinCodes), {
         enabled: false,
     });

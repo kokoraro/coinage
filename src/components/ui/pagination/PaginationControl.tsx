@@ -29,8 +29,8 @@ const PaginationControl = ({ currentPageIndex, totalPages, onChangePage }: Pagin
                 <FontAwesomeIcon icon="long-arrow-alt-left" className="pagination-icon" onClick={() => onChangePage(currentPageIndex - 1)} />
             )}
 
-            {pages.map((page) => (
-                <Fragment>
+            {pages.map((page, index) => (
+                <Fragment key={index}>
                     {!page ? <Ellipses /> : <PageNumber page={page} onPageClick={onChangePage} active={currentPageIndex + 1 === page} />}
                 </Fragment>
             ))}
