@@ -28,7 +28,13 @@ const CoinListItem = ({ coin, isCurrencyDollar, coinPrice, isFavourite }: CoinLi
             {coinPrice ? (
                 <div className="coin-price">{formatCoinPrice(coinPrice, isCurrencyDollar)}</div>
             ) : (
-                <FontAwesomeIcon className="coin-star" icon={[isFavourite ? 'fas' : 'far', 'star']} onClick={handleFavouriteClick} />
+                <button
+                    className="button-no-style coin-star"
+                    aria-label={`Coin favourite ${isFavourite ? '' : 'un-'}selected`}
+                    onClick={handleFavouriteClick}
+                >
+                    <FontAwesomeIcon icon={[isFavourite ? 'fas' : 'far', 'star']} />
+                </button>
             )}
         </div>
     );
