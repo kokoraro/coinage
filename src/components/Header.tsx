@@ -13,10 +13,15 @@ interface ControlItemProps {
     onClick: () => void;
     iconSpin?: boolean;
     active?: boolean;
+    testIdPrefix?: string;
 }
 
-const ControlItem = memo(({ icon, text, onClick, iconSpin, active }: ControlItemProps) => (
-    <div className={`control-item ${active ? 'active' : ''}`} onClick={onClick} data-testid={icon}>
+const ControlItem = memo(({ icon, text, onClick, iconSpin, active, testIdPrefix }: ControlItemProps) => (
+    <div
+        className={`control-item ${active ? 'active' : ''}`}
+        onClick={onClick}
+        data-testid={testIdPrefix ? `${testIdPrefix}${active ? '-active' : ''}` : icon}
+    >
         <FontAwesomeIcon icon={icon} spin={iconSpin} data-testid={iconSpin ? 'loading-spinner' : ''} />
         {text && <p className="control-item-text">{text}</p>}
     </div>
@@ -52,8 +57,8 @@ const Header = (): JSX.Element => {
             <h1>coinage</h1>
 
             <div className="controls">
-                <ControlItem icon="star" active={isFavouritesView} text="Favourites" onClick={handleToggleFavourites} />
-                <ControlItem icon="list" active={!isFavouritesView} text="Full List" onClick={handleToggleFavourites} />
+                <ControlItem icon="star" active={isFavouritesView} text="Favourites" onClick={handleToggleFavourites} testIdPrefix="favourites" />
+                <ControlItem icon="list" active={!isFavouritesView} text="Full List" onClick={handleToggleFavourites} testIdPrefix="full-list" />
                 <ControlItem icon={isCurrencyDollar ? 'pound-sign' : 'dollar-sign'} onClick={handleToggleIsDollar} />
                 <ControlItem icon="sync" onClick={handleRefresh} iconSpin={isLoadingPrice} />
             </div>

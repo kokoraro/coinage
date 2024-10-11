@@ -1,31 +1,25 @@
-import React from 'react';
 import { vi, describe, it } from 'vitest';
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 import Header from './Header';
-import { ActionType, State } from './global-state/types';
-import * as globalStateHooks from './global-state/hooks';
 import { render } from '../test/testUtils';
 
 import * as newsQueryClient from './api/newsFeed';
 import * as coinQueryClient from './api/coins';
 
 describe('Header component', () => {
-    it.skip('toggle favourites function is called when favourites control is clicked', () => {
-        const mockDispatch = vi.fn();
-        const useGlobalStateContextSpy = vi.spyOn(globalStateHooks, 'useGlobalStateContext');
-        useGlobalStateContextSpy.mockReturnValue({ dispatch: mockDispatch, state: {} as State });
+    it('toggling between favourites change full list to active', () => {
         render(<Header />);
+        expect(screen.getByTestId('favourites-active')).toBeDefined();
         fireEvent.click(screen.getByText('Favourites'));
-        expect(mockDispatch).toHaveBeenCalledWith({ type: ActionType.ToggleIsFavourites });
+        expect(screen.getByTestId('full-list-active')).toBeDefined();
+        expect(screen.getByTestId('favourites')).toBeDefined();
     });
 
-    it.skip('currency is toggled when currency control is clicked', () => {
-        const mockDispatch = vi.fn();
-        const useGlobalStateContextSpy = vi.spyOn(globalStateHooks, 'useGlobalStateContext');
-        useGlobalStateContextSpy.mockReturnValue({ dispatch: mockDispatch, state: {} as State });
+    it('currency is toggled when currency control is clicked', () => {
         render(<Header />);
-        fireEvent.click(screen.getByTestId('dollar-sign'));
-        expect(mockDispatch).toHaveBeenCalledWith({ type: ActionType.ToggleCurrencyDollar });
+        expect(screen.getByTestId('pound-sign')).toBeDefined();
+        fireEvent.click(screen.getByTestId('pound-sign'));
+        expect(screen.getByTestId('dollar-sign')).toBeDefined();
     });
 
     it('news and coin price is refetched when refresh control is clicked', () => {
