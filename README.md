@@ -16,6 +16,7 @@ Try the app [here](https://coinage.charlietaylorcoder.com)
 -   [Typescript](https://www.typescriptlang.org/)
 -   [Sass](https://sass-lang.com/)
 -   [React Query](https://react-query.tanstack.com/)
+-   [Jotai](https://jotai.org/)
 
 #### To Run Locally
 
