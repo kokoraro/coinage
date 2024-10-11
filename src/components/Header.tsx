@@ -1,11 +1,11 @@
-import React, { memo, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useQuery } from 'react-query';
 import { fetchNews, NewsResult } from './api/newsFeed';
 import { CoinPrice, fetchCoinPrice } from './api/coins';
-import { useGlobalStateContext } from './global-state/hooks';
-import { ActionType } from './global-state/types';
+import { useAtom } from 'jotai';
+import { favouriteCoinCodesDerivedAtom, isCurrencyDollarAtom, isFavouritesViewAtom } from '../store/global';
 
 interface ControlItemProps {
     icon: IconProp;
@@ -25,24 +25,22 @@ const ControlItem = memo(({ icon, text, onClick, iconSpin, active }: ControlItem
 ControlItem.displayName = 'ControlItem';
 
 const Header = (): JSX.Element => {
-    const { state, dispatch } = useGlobalStateContext();
+    const [isFavouritesView, setIsFavouritesView] = useAtom(isFavouritesViewAtom);
+    const [isCurrencyDollar, setIsCurrencyDollar] = useAtom(isCurrencyDollarAtom);
+    const [activeCoinCodes] = useAtom(favouriteCoinCodesDerivedAtom);
 
-    const { isLoading: isLoadingPrice, refetch: refetchCoinPrice } = useQuery<CoinPrice, Error>(
-        'coinsPrice',
-        () => fetchCoinPrice(state.activeCoinCodes),
-        {
-            enabled: false,
-        },
-    );
+    const { isLoading: isLoadingPrice, refetch: refetchCoinPrice } = useQuery<CoinPrice, Error>('coinsPrice', () => fetchCoinPrice(activeCoinCodes), {
+        enabled: false,
+    });
     const { refetch: refetchNews } = useQuery<NewsResult, Error>('news', fetchNews, { enabled: false });
 
     const handleToggleFavourites = useCallback(() => {
-        dispatch({ type: ActionType.ToggleIsFavourites });
-    }, [dispatch]);
+        setIsFavouritesView(!isFavouritesView);
+    }, [isFavouritesView, setIsFavouritesView]);
 
     const handleToggleIsDollar = useCallback(() => {
-        dispatch({ type: ActionType.ToggleCurrencyDollar });
-    }, [dispatch]);
+        setIsCurrencyDollar(!isCurrencyDollar);
+    }, [isCurrencyDollar, setIsCurrencyDollar]);
 
     const handleRefresh = useCallback(() => {
         void refetchCoinPrice();
@@ -54,9 +52,9 @@ const Header = (): JSX.Element => {
             <h1>coinage</h1>
 
             <div className="controls">
-                <ControlItem icon="star" active={state.isFavouritesView} text="Favourites" onClick={handleToggleFavourites} />
-                <ControlItem icon="list" active={!state.isFavouritesView} text="Full List" onClick={handleToggleFavourites} />
-                <ControlItem icon={state.isCurrencyDollar ? 'pound-sign' : 'dollar-sign'} onClick={handleToggleIsDollar} />
+                <ControlItem icon="star" active={isFavouritesView} text="Favourites" onClick={handleToggleFavourites} />
+                <ControlItem icon="list" active={!isFavouritesView} text="Full List" onClick={handleToggleFavourites} />
+                <ControlItem icon={isCurrencyDollar ? 'pound-sign' : 'dollar-sign'} onClick={handleToggleIsDollar} />
                 <ControlItem icon="sync" onClick={handleRefresh} iconSpin={isLoadingPrice} />
             </div>
         </div>
