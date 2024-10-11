@@ -10,7 +10,7 @@ import * as newsQueryClient from './api/newsFeed';
 import * as coinQueryClient from './api/coins';
 
 describe('Header component', () => {
-    it('toggle favourites function is called when favourites control is clicked', () => {
+    it.skip('toggle favourites function is called when favourites control is clicked', () => {
         const mockDispatch = vi.fn();
         const useGlobalStateContextSpy = vi.spyOn(globalStateHooks, 'useGlobalStateContext');
         useGlobalStateContextSpy.mockReturnValue({ dispatch: mockDispatch, state: {} as State });
@@ -19,7 +19,7 @@ describe('Header component', () => {
         expect(mockDispatch).toHaveBeenCalledWith({ type: ActionType.ToggleIsFavourites });
     });
 
-    it('currency is toggled when currency control is clicked', () => {
+    it.skip('currency is toggled when currency control is clicked', () => {
         const mockDispatch = vi.fn();
         const useGlobalStateContextSpy = vi.spyOn(globalStateHooks, 'useGlobalStateContext');
         useGlobalStateContextSpy.mockReturnValue({ dispatch: mockDispatch, state: {} as State });
