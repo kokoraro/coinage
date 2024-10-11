@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from 'react';
+import { createContext, useReducer } from 'react';
 import { DEFAULT_FAVOURITE_COINS } from '../../utils/config';
 import { Reducer } from './reducer';
 import { ContextProps, GlobalStateProviderProps, State } from './types';
