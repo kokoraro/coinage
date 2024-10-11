@@ -15,9 +15,13 @@ const Ellipses = () => (
 );
 
 const PageNumber = ({ page, onPageClick, active }: { page: number; onPageClick: (page: number) => void; active: boolean }) => (
-    <div className={`pagination-button${active ? '_active' : ''}`} onClick={() => onPageClick(page - 1)}>
+    <button
+        aria-label={active ? 'selected page' : `select page ${page}`}
+        className={`button-no-style pagination-button${active ? '_active' : ''}`}
+        onClick={() => onPageClick(page - 1)}
+    >
         <span>{page}</span>
-    </div>
+    </button>
 );
 
 const PaginationControl = ({ currentPageIndex, totalPages, onChangePage }: PaginationControlProps): JSX.Element => {
