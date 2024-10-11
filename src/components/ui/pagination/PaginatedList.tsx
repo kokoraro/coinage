@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { divideDataIntoSubArrays } from '../../../utils';
 import PaginationControl from './PaginationControl';
 
