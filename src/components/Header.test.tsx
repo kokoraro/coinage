@@ -33,7 +33,7 @@ describe('Header component', () => {
         const fetchNewsSpy = vi.spyOn(newsQueryClient, 'fetchNews').mockResolvedValueOnce(null);
         render(<Header />);
         fireEvent.click(screen.getByTestId('sync'));
-        waitFor(() => screen.getByTestId('loading-spinner'));
+        void waitFor(() => screen.getByTestId('loading-spinner'));
         expect(fetchCoinPriceSpy).toHaveBeenCalledTimes(1);
         expect(fetchNewsSpy).toHaveBeenCalledTimes(1);
     });

@@ -13,7 +13,7 @@ vi.mock('../../utils/config', () => ({
 
 describe('fetchNews', () => {
     it('should call fetcher with the correct arguments', () => {
-        fetchNews();
+        void fetchNews();
         expect(fetcher).toHaveBeenCalledWith('get', dummyApiUrl, 'data/v2/news/?lang=EN');
     });
 });

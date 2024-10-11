@@ -1,6 +1,7 @@
 import { describe, it } from 'vitest';
-import fetch from 'vitest-fetch-mock';
 import fetcher from './fetcher';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import fetch from 'vitest-fetch-mock';
 
 describe('fetcher', () => {
     const mockData = {

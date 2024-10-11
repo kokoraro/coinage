@@ -13,14 +13,14 @@ vi.mock('../../utils/config', () => ({
 
 describe('fetchCoinData', () => {
     it('should call fetcher with the correct arguments', () => {
-        fetchCoinData();
+        void fetchCoinData();
         expect(fetcher).toHaveBeenCalledWith('get', dummyApiUrl, 'data/all/coinlist');
     });
 });
 
 describe('fetchCoinPrice', () => {
     it('should call fetcher with the correct arguments', () => {
-        fetchCoinPrice(['BTC', 'ETH']);
+        void fetchCoinPrice(['BTC', 'ETH']);
         expect(fetcher).toHaveBeenCalledWith('get', dummyApiUrl, 'data/pricemulti?fsyms=BTC,ETH&tsyms=USD,GBP');
     });
 });
