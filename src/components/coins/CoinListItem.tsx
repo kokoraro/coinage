@@ -1,24 +1,20 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Coin, CoinPrice } from '../api/coins';
 import { formatCoinPrice } from './utils';
-import { ActionType } from '../global-state/types';
-import { useDispatch } from '../global-state/hooks';
+import { useAtom } from 'jotai';
+import { favouriteCoinCodesDerivedAtom, isCurrencyDollarAtom } from '../../store/global';
 
 interface CoinListItemProps {
     coin: Coin;
-    isCurrencyDollar: boolean;
     coinPrice?: CoinPrice;
     isFavourite: boolean;
 }
 
-const CoinListItem = ({ coin, isCurrencyDollar, coinPrice, isFavourite }: CoinListItemProps) => {
-    const dispatch = useDispatch();
+const CoinListItem = ({ coin, coinPrice, isFavourite }: CoinListItemProps) => {
+    const [, toggleCoinCode] = useAtom(favouriteCoinCodesDerivedAtom);
+    const [isCurrencyDollar] = useAtom(isCurrencyDollarAtom);
     const coinCode = coin.code;
-
-    const handleFavouriteClick = () => {
-        dispatch({ type: ActionType.ToggleActiveCoinCode, payload: coinCode });
-    };
 
     return (
         <div className="coin">
@@ -28,7 +24,11 @@ const CoinListItem = ({ coin, isCurrencyDollar, coinPrice, isFavourite }: CoinLi
             {coinPrice ? (
                 <div className="coin-price">{formatCoinPrice(coinPrice, isCurrencyDollar)}</div>
             ) : (
-                <button className="button-no-style coin-star" aria-label={`${isFavourite ? 'un' : ''}favourite coin`} onClick={handleFavouriteClick}>
+                <button
+                    className="button-no-style coin-star"
+                    aria-label={`${isFavourite ? 'un' : ''}favourite coin`}
+                    onClick={() => toggleCoinCode(coinCode)}
+                >
                     <FontAwesomeIcon icon={[isFavourite ? 'fas' : 'far', 'star']} />
                 </button>
             )}

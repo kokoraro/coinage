@@ -1,16 +1,15 @@
-import React from 'react';
 import CoinListItem from './CoinListItem';
 import LoadingPanel from '../ui/LoadingPanel';
 import { useQuery } from 'react-query';
 import { CoinPriceResponse, fetchCoinPrice } from '../api/coins';
 import useCoinDataQuery from '../hooks/useCoinDataQuery';
-import { useGlobalStateContext } from '../global-state/hooks';
+import { useAtom } from 'jotai';
+import { favouriteCoinCodesDerivedAtom } from '../../store/global';
 
 const DEFAULT_COIN_PRICE = { GBP: '0', USD: '0' };
 
 const CoinList = () => {
-    const { state } = useGlobalStateContext();
-    const { activeCoinCodes } = state;
+    const [activeCoinCodes] = useAtom(favouriteCoinCodesDerivedAtom);
     const { isLoading, data } = useCoinDataQuery();
     const { isLoading: isLoadingPrice, data: priceData } = useQuery<CoinPriceResponse, Error>(['coinsPrice', activeCoinCodes], () =>
         fetchCoinPrice(activeCoinCodes),
@@ -30,15 +29,7 @@ const CoinList = () => {
                     code: coinCode,
                 };
 
-                return (
-                    <CoinListItem
-                        coin={coin}
-                        isCurrencyDollar={state.isCurrencyDollar}
-                        key={coin.id}
-                        coinPrice={priceData?.[coin.code] || DEFAULT_COIN_PRICE}
-                        isFavourite
-                    />
-                );
+                return <CoinListItem coin={coin} key={coin.id} coinPrice={priceData?.[coin.code] || DEFAULT_COIN_PRICE} isFavourite />;
             })}
         </div>
     );

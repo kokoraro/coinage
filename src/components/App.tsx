@@ -1,14 +1,13 @@
-import React from 'react';
+import { useAtom } from 'jotai';
 import Header from './Header';
 import CoinList from './coins/CoinList';
 import Footer from './Footer';
 import NewsFeed from './news/NewsFeed';
 import FullCoinList from './coins/FullCoinList';
-import { useGlobalStateContext } from './global-state/hooks';
+import { isFavouritesViewAtom } from '../store/global';
 
 const App = () => {
-    const { state } = useGlobalStateContext();
-    const { isFavouritesView } = state;
+    const [isFavouritesView] = useAtom(isFavouritesViewAtom);
 
     return (
         <div className="container">
