@@ -1,4 +1,4 @@
-async function fetcher(method: string, url: string, path: string, data?: any) {
+async function fetcher<T>(method: string, url: string, path: string, data?: T) {
     const reponse = await fetch(`${url}/${path}`, {
         method,
         headers: {
