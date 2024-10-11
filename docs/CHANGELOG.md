@@ -1,3 +1,10 @@
+## [2.2.5](https://github.com/chazmcgrill/coinage/compare/v2.2.4...v2.2.5) (2023-01-26)
+
+
+### Bug Fixes
+
+* makes styling match previous look ([4f92f63](https://github.com/chazmcgrill/coinage/commit/4f92f63981f965db0a0a22e95d353e7e6d3ef9c0))
+
 ## [2.2.4](https://github.com/chazmcgrill/coinage/compare/v2.2.3...v2.2.4) (2023-01-24)
 
 
