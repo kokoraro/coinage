@@ -11,3 +11,7 @@ const fetchMock = createFetchMock(vi);
 fetchMock.enableMocks();
 
 expect.extend(matchers);
+
+process.env = {
+    REACT_APP_API_ENDPOINT: 'foo-endpoint',
+};
