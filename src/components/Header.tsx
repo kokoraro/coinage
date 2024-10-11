@@ -45,8 +45,8 @@ const Header = (): JSX.Element => {
     }, [dispatch]);
 
     const handleRefresh = useCallback(() => {
-        refetchCoinPrice();
-        refetchNews();
+        void refetchCoinPrice();
+        void refetchNews();
     }, [refetchCoinPrice, refetchNews]);
 
     return (
