@@ -1,13 +1,13 @@
-import React from 'react';
 import LoadingPanel from '../ui/LoadingPanel';
 import useCoinDataQuery from '../hooks/useCoinDataQuery';
 import PaginatedList from '../ui/pagination/PaginatedList';
 import CoinListItem from './CoinListItem';
-import { useGlobalStateContext } from '../global-state/hooks';
+import { useAtom } from 'jotai';
+import { favouriteCoinCodesDerivedAtom } from '../../store/global';
 
 const FullCoinList = () => {
     const { isLoading, data } = useCoinDataQuery();
-    const { state } = useGlobalStateContext();
+    const [activeCoinCodes] = useAtom(favouriteCoinCodesDerivedAtom);
 
     if (isLoading) return <LoadingPanel />;
 
@@ -22,14 +22,7 @@ const FullCoinList = () => {
         <div className="coin-list">
             <PaginatedList
                 data={coinData}
-                renderItem={({ item }) => (
-                    <CoinListItem
-                        coin={item}
-                        isCurrencyDollar={state.isCurrencyDollar}
-                        key={item.id}
-                        isFavourite={state.activeCoinCodes.includes(item.code)}
-                    />
-                )}
+                renderItem={({ item }) => <CoinListItem coin={item} key={item.id} isFavourite={activeCoinCodes.includes(item.code)} />}
             />
         </div>
     );
