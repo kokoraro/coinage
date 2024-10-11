@@ -1,10 +1,10 @@
-import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { iconLibrarySetup } from './utils/iconConfig';
-import GlobalStateProvider from './components/global-state/GlobalStateProvider';
 import App from './components/App';
 import './styles/index.sass';
+import { Provider } from 'jotai';
+import { mainStore } from './store';
 
 const queryClient = new QueryClient();
 iconLibrarySetup();
@@ -14,8 +14,8 @@ const root = createRoot(container as HTMLElement);
 
 root.render(
     <QueryClientProvider client={queryClient}>
-        <GlobalStateProvider>
+        <Provider store={mainStore}>
             <App />
-        </GlobalStateProvider>
+        </Provider>
     </QueryClientProvider>,
 );
