@@ -1,10 +1,9 @@
-import React from 'react';
-import { describe, it, vi } from 'vitest';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { describe, it } from 'vitest';
+import { render, screen } from '@testing-library/react';
 import { Coin } from '../api/coins';
 import CoinListItem from './CoinListItem';
-import * as globalStateHooks from '../global-state/hooks';
-import { ActionType } from '../global-state/types';
+import { TestProvider } from '../../test/StoreTestProviders';
+import { isCurrencyDollarAtom } from '../../store/global';
 
 const coin = {
     id: 'BTC',
@@ -34,8 +33,12 @@ describe('CoinListItem', () => {
         expect(screen.getByText('$999.00')).toBeTruthy();
     });
 
-    it.skip('should display the sterling coin price when it is available', () => {
-        render(<CoinListItem coin={coin} coinPrice={coinPrice} isFavourite={false} />);
+    it('should display the sterling coin price when it is available', () => {
+        render(
+            <TestProvider initialValues={[[isCurrencyDollarAtom, false]]}>
+                <CoinListItem coin={coin} coinPrice={coinPrice} isFavourite={false} />
+            </TestProvider>,
+        );
         expect(screen.getByText('£666.00')).toBeTruthy();
     });
 
@@ -47,17 +50,5 @@ describe('CoinListItem', () => {
     it('should display a filled star icon when the coin is a favourite', () => {
         render(<CoinListItem coin={coin} isFavourite={true} />);
         expect(screen.getByRole('button', { name: 'unfavourite coin' })).toBeTruthy();
-    });
-
-    it.skip('should toggle the coin as a favourite when the star icon is clicked', () => {
-        const mockDispatch = vi.fn();
-        const useDispatchSpy = vi.spyOn(globalStateHooks, 'useDispatch');
-        useDispatchSpy.mockReturnValue(mockDispatch);
-
-        render(<CoinListItem coin={coin} isFavourite={false} />);
-        fireEvent.click(screen.getByRole('button', { name: 'favourite coin' }));
-
-        expect(mockDispatch).toHaveBeenCalledTimes(1);
-        expect(mockDispatch).toHaveBeenCalledWith({ type: ActionType.ToggleActiveCoinCode, payload: 'BTC' });
     });
 });
