@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createPaginationArray } from './utils';
 
@@ -30,7 +30,9 @@ const PaginationControl = ({ currentPageIndex, totalPages, onChangePage }: Pagin
     return (
         <div className="pagination">
             {currentPageIndex > 0 && (
-                <FontAwesomeIcon icon="long-arrow-alt-left" className="pagination-icon" onClick={() => onChangePage(currentPageIndex - 1)} />
+                <button className="button-no-style" aria-label="navigate to previous page" onClick={() => onChangePage(currentPageIndex - 1)}>
+                    <FontAwesomeIcon icon="long-arrow-alt-left" className="pagination-icon" />
+                </button>
             )}
 
             {pages.map((page, index) => (
@@ -40,7 +42,9 @@ const PaginationControl = ({ currentPageIndex, totalPages, onChangePage }: Pagin
             ))}
 
             {currentPageIndex < totalPages - 1 && (
-                <FontAwesomeIcon icon="long-arrow-alt-right" className="pagination-icon" onClick={() => onChangePage(currentPageIndex + 1)} />
+                <button className="button-no-style" aria-label="navigate to next page" onClick={() => onChangePage(currentPageIndex + 1)}>
+                    <FontAwesomeIcon icon="long-arrow-alt-right" className="pagination-icon" />
+                </button>
             )}
         </div>
     );
