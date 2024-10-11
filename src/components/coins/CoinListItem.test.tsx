@@ -41,12 +41,12 @@ describe('CoinListItem', () => {
 
     it('should display a star icon when the coin is not a favourite', () => {
         render(<CoinListItem coin={coin} isCurrencyDollar={false} isFavourite={false} />);
-        expect(screen.getByRole('button', { name: 'Coin favourite un-selected' })).toBeTruthy();
+        expect(screen.getByRole('button', { name: 'favourite coin' })).toBeTruthy();
     });
 
     it('should display a filled star icon when the coin is a favourite', () => {
         render(<CoinListItem coin={coin} isCurrencyDollar={false} isFavourite={true} />);
-        expect(screen.getByRole('button', { name: 'Coin favourite selected' })).toBeTruthy();
+        expect(screen.getByRole('button', { name: 'unfavourite coin' })).toBeTruthy();
     });
 
     it('should toggle the coin as a favourite when the star icon is clicked', () => {
@@ -55,7 +55,7 @@ describe('CoinListItem', () => {
         useDispatchSpy.mockReturnValue(mockDispatch);
 
         render(<CoinListItem coin={coin} isCurrencyDollar={false} isFavourite={false} />);
-        fireEvent.click(screen.getByRole('button', { name: 'Coin favourite un-selected' }));
+        fireEvent.click(screen.getByRole('button', { name: 'favourite coin' }));
 
         expect(mockDispatch).toHaveBeenCalledTimes(1);
         expect(mockDispatch).toHaveBeenCalledWith({ type: ActionType.ToggleActiveCoinCode, payload: 'BTC' });
