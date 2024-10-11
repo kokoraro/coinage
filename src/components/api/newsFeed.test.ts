@@ -1,10 +1,9 @@
 import { vi } from 'vitest';
-import fetcher from '../../utils/fetcher';
+import * as fetcher from '../../utils/fetcher';
 import { fetchNews } from './newsFeed';
 
-const dummyApiUrl = 'foo';
+const dummyApiUrl = 'foo-endpoint';
 
-vi.mock('../../utils/fetcher');
 vi.mock('../../utils/config', () => ({
     default: {
         apiUrl: 'foo',
@@ -13,7 +12,8 @@ vi.mock('../../utils/config', () => ({
 
 describe('fetchNews', () => {
     it('should call fetcher with the correct arguments', () => {
+        const fetcherSpy = vi.spyOn(fetcher, 'default').mockResolvedValueOnce({});
         void fetchNews();
-        expect(fetcher).toHaveBeenCalledWith('get', dummyApiUrl, 'data/v2/news/?lang=EN');
+        expect(fetcherSpy).toHaveBeenCalledWith('get', dummyApiUrl, 'data/v2/news/?lang=EN');
     });
 });
