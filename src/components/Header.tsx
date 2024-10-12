@@ -1,13 +1,10 @@
 import { memo, useCallback } from 'react';
+import { useAtom } from 'jotai';
+import { useIsFetching, useQueryClient } from 'react-query';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { useQuery } from 'react-query';
-import { fetchCoinPrice } from '../features/coin-list/api/coins';
-import { useAtom } from 'jotai';
-import { favouriteCoinCodesDerivedAtom, isCurrencyDollarAtom, isFavouritesViewAtom } from '../store/global';
-import { getNews } from '../features/news/api/getNews';
-import { NewsResult } from '../features/news/types/NewsResult';
-import { CoinPrice } from '../features/coin-list/types/CoinPrice';
+import { isCurrencyDollarAtom, isFavouritesViewAtom } from '@/store/global';
+import queryKeys from '@/config/query-keys';
 
 interface ControlItemProps {
     icon: IconProp;
@@ -34,12 +31,10 @@ ControlItem.displayName = 'ControlItem';
 const Header = (): JSX.Element => {
     const [isFavouritesView, setIsFavouritesView] = useAtom(isFavouritesViewAtom);
     const [isCurrencyDollar, setIsCurrencyDollar] = useAtom(isCurrencyDollarAtom);
-    const [activeCoinCodes] = useAtom(favouriteCoinCodesDerivedAtom);
 
-    const { isLoading: isLoadingPrice, refetch: refetchCoinPrice } = useQuery<CoinPrice, Error>('coinsPrice', () => fetchCoinPrice(activeCoinCodes), {
-        enabled: false,
-    });
-    const { refetch: refetchNews } = useQuery<NewsResult, Error>('news', getNews, { enabled: false });
+    const queryClient = useQueryClient();
+    const isFetchingCount = useIsFetching({ queryKey: queryKeys.coinPrices });
+    const isLoadingPrices = isFetchingCount > 0;
 
     const handleToggleFavourites = useCallback(() => {
         setIsFavouritesView(!isFavouritesView);
@@ -50,9 +45,9 @@ const Header = (): JSX.Element => {
     }, [isCurrencyDollar, setIsCurrencyDollar]);
 
     const handleRefresh = useCallback(() => {
-        void refetchCoinPrice();
-        void refetchNews();
-    }, [refetchCoinPrice, refetchNews]);
+        void queryClient.invalidateQueries(queryKeys.news);
+        void queryClient.invalidateQueries(queryKeys.coinPrices);
+    }, [queryClient]);
 
     return (
         <div className="header">
@@ -62,7 +57,7 @@ const Header = (): JSX.Element => {
                 <ControlItem icon="star" active={isFavouritesView} text="Favourites" onClick={handleToggleFavourites} testIdPrefix="favourites" />
                 <ControlItem icon="list" active={!isFavouritesView} text="Full List" onClick={handleToggleFavourites} testIdPrefix="full-list" />
                 <ControlItem icon={isCurrencyDollar ? 'pound-sign' : 'dollar-sign'} onClick={handleToggleIsDollar} />
-                <ControlItem icon="sync" onClick={handleRefresh} iconSpin={isLoadingPrice} />
+                <ControlItem icon="sync" onClick={handleRefresh} iconSpin={isLoadingPrices} />
             </div>
         </div>
     );

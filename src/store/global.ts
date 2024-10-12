@@ -1,5 +1,5 @@
 import { atom } from 'jotai';
-import { DEFAULT_FAVOURITE_COINS } from '../utils/config';
+import { DEFAULT_FAVOURITE_COINS } from '@/config';
 
 export const isFavouritesViewAtom = atom(true);
 export const isCurrencyDollarAtom = atom(true);

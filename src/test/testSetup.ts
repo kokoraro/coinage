@@ -1,7 +1,7 @@
 import matchers from '@testing-library/jest-dom/matchers';
 import createFetchMock from 'vitest-fetch-mock';
 import { vi, expect } from 'vitest';
-import { iconLibrarySetup } from '../utils/iconConfig';
+import { iconLibrarySetup } from '@/config/icon';
 
 iconLibrarySetup();
 

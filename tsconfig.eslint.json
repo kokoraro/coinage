@@ -4,5 +4,6 @@
         "jsx": "react",
         "module": "commonjs"
     },
-    "exclude": []
+    "exclude": [],
+    "include": ["src", "vite.config.ts"]
 }
