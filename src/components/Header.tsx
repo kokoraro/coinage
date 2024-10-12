@@ -2,11 +2,12 @@ import { memo, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useQuery } from 'react-query';
-import { CoinPrice, fetchCoinPrice } from './api/coins';
+import { fetchCoinPrice } from '../features/coin-list/api/coins';
 import { useAtom } from 'jotai';
 import { favouriteCoinCodesDerivedAtom, isCurrencyDollarAtom, isFavouritesViewAtom } from '../store/global';
 import { getNews } from '../features/news/api/getNews';
 import { NewsResult } from '../features/news/types/NewsResult';
+import { CoinPrice } from '../features/coin-list/types/CoinPrice';
 
 interface ControlItemProps {
     icon: IconProp;
