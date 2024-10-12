@@ -1,4 +1,4 @@
-async function fetcher<T>(method: string, url: string, path: string, data?: T) {
+async function fetcher<R, B = void>(method: string, url: string, path: string, data?: B): Promise<R> {
     const reponse = await fetch(`${url}/${path}`, {
         method,
         headers: {

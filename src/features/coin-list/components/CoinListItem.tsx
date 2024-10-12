@@ -1,10 +1,10 @@
 import { memo } from 'react';
+import { useAtom } from 'jotai';
+import { favouriteCoinCodesDerivedAtom, isCurrencyDollarAtom } from '@/store/global';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { formatCoinPrice } from '../utils/formatCoinPrice';
-import { useAtom } from 'jotai';
-import { favouriteCoinCodesDerivedAtom, isCurrencyDollarAtom } from '../../../store/global';
-import { Coin } from '../types/Coin';
-import { CoinPrice } from '../types/CoinPrice';
+import { Coin } from '../types';
+import { CoinPrice } from '../types';
 
 interface CoinListItemProps {
     coin: Coin;

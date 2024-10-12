@@ -1,4 +1,4 @@
-import { getNumberRangeArray } from '../../../utils';
+import { getNumberRangeArray } from '@/utils/getNumberRangeArray';
 
 export const createPaginationArray = (currentPageNo: number, totalPages: number) => {
     switch (true) {
