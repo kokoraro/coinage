@@ -3,7 +3,7 @@ import { fireEvent, screen, waitFor } from '@testing-library/react';
 import Header from './Header';
 import { render } from '../test/testUtils';
 
-import * as newsQueryClient from './api/newsFeed';
+import * as newsQueryClient from '../features/news/api/getNews';
 import * as coinQueryClient from './api/coins';
 
 describe('Header component', () => {
@@ -24,7 +24,7 @@ describe('Header component', () => {
 
     it('news and coin price is refetched when refresh control is clicked', () => {
         const fetchCoinPriceSpy = vi.spyOn(coinQueryClient, 'fetchCoinPrice').mockResolvedValueOnce({} as coinQueryClient.CoinPrice);
-        const fetchNewsSpy = vi.spyOn(newsQueryClient, 'fetchNews').mockResolvedValueOnce(null);
+        const fetchNewsSpy = vi.spyOn(newsQueryClient, 'getNews').mockResolvedValueOnce(null);
         render(<Header />);
         fireEvent.click(screen.getByTestId('sync'));
         void waitFor(() => screen.getByTestId('loading-spinner'));
