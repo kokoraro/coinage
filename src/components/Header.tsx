@@ -2,10 +2,11 @@ import { memo, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { useQuery } from 'react-query';
-import { fetchNews, NewsResult } from './api/newsFeed';
 import { CoinPrice, fetchCoinPrice } from './api/coins';
 import { useAtom } from 'jotai';
 import { favouriteCoinCodesDerivedAtom, isCurrencyDollarAtom, isFavouritesViewAtom } from '../store/global';
+import { getNews } from '../features/news/api/getNews';
+import { NewsResult } from '../features/news/types/NewsResult';
 
 interface ControlItemProps {
     icon: IconProp;
@@ -37,7 +38,7 @@ const Header = (): JSX.Element => {
     const { isLoading: isLoadingPrice, refetch: refetchCoinPrice } = useQuery<CoinPrice, Error>('coinsPrice', () => fetchCoinPrice(activeCoinCodes), {
         enabled: false,
     });
-    const { refetch: refetchNews } = useQuery<NewsResult, Error>('news', fetchNews, { enabled: false });
+    const { refetch: refetchNews } = useQuery<NewsResult, Error>('news', getNews, { enabled: false });
 
     const handleToggleFavourites = useCallback(() => {
         setIsFavouritesView(!isFavouritesView);
