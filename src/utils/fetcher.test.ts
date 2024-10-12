@@ -31,14 +31,15 @@ describe('fetcher', () => {
 
         const url = 'https://example.com';
         const path = 'users';
-        const result = await fetcher<typeof mockData>('POST', url, path, mockData);
+        const body = { foo: 'bar ' };
+        const result = await fetcher<typeof mockData, typeof body>('POST', url, path, body);
 
         expect(fetchMock.mock.calls.length).toEqual(1);
         expect(fetchMock.mock.calls[0][0]).toEqual(`${url}/${path}`);
         expect(fetchMock.mock.calls[0][1]).toEqual({
             method: 'POST',
             headers: { Accept: 'application/json' },
-            body: JSON.stringify(mockData),
+            body: JSON.stringify(body),
         });
         expect(result).toEqual(mockData);
     });

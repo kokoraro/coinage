@@ -1,17 +1,11 @@
 import { useQuery } from 'react-query';
 import { fetchCoinData } from '../api/coins';
+import queryKeys from '@/config/query-keys';
 
-interface CoinResponse {
-    CoinName: string;
-    ImageUrl: string;
-}
-
-interface CoinDataResponse {
-    Data: Record<string, CoinResponse>;
-}
+const FIVE_MINUTES_IN_MILLISECONDS = 1000 * 60 * 5;
 
 const useCoinDataQuery = () => {
-    return useQuery<CoinDataResponse, Error>('coins', fetchCoinData, { staleTime: 1000 * 60 * 5 });
+    return useQuery(queryKeys.coins, fetchCoinData, { staleTime: FIVE_MINUTES_IN_MILLISECONDS });
 };
 
 export default useCoinDataQuery;

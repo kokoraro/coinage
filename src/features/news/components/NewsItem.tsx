@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { NewsArticle } from '../types/NewsArticle';
+import { NewsArticle } from '../types';
 
 interface NewsItemProps {
     article: NewsArticle;

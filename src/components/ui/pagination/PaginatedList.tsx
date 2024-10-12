@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { divideDataIntoSubArrays } from '../../../utils';
+import { divideDataIntoSubArrays } from '@/utils/divideDataIntoSubArrays';
 import PaginationControl from './PaginationControl';
 
 interface RenderItemProps<T> {

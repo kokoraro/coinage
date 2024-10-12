@@ -1,10 +1,9 @@
 import { useAtom } from 'jotai';
 import Header from './Header';
-import CoinList from '../features/coin-list/components/CoinList';
 import Footer from './Footer';
-import NewsFeed from '../features/news/components/NewsFeed';
-import FullCoinList from '../features/coin-list/components/FullCoinList';
-import { isFavouritesViewAtom } from '../store/global';
+import { isFavouritesViewAtom } from '@/store/global';
+import { CoinList, FullCoinList } from '@/features/coin-list';
+import { NewsFeed } from '@/features/news';
 
 const App = () => {
     const [isFavouritesView] = useAtom(isFavouritesViewAtom);
