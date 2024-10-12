@@ -17,6 +17,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+
+      - name: Install packages
+        run: npm install
       
       - name: Validate code
         run: npm run validate
