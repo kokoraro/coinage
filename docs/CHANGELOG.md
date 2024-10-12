@@ -1,3 +1,11 @@
+# [2.3.0](https://github.com/chazmcgrill/coinage/compare/v2.2.5...v2.3.0) (2023-10-22)
+
+
+### Features
+
+* installs jotai audit fixes and fixes tests ([0fbd131](https://github.com/chazmcgrill/coinage/commit/0fbd1316ddb2c87618c6c20302f13550dd514fb2))
+* replaces custom store with jotai in components ([1271ea9](https://github.com/chazmcgrill/coinage/commit/1271ea9415297c4b1638f2e30cf50ed7e049f763))
+
 ## [2.2.5](https://github.com/chazmcgrill/coinage/compare/v2.2.4...v2.2.5) (2023-01-26)
 
 
