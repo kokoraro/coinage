@@ -6,21 +6,71 @@ on:
             - master
 
 jobs:
-    release:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
-              with:
-                  persist-credentials: false
+  validate:
+    name: Validate code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      
+      - name: Install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      
+      - name: Validate code
+        run: npm run validate
+  
+  release:
+    name: Create release
+    needs: validate
+    runs-on: ubuntu-latest
+    outputs:
+      new_release_published: ${{steps.semantic.outputs.new_release_published}}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+            persist-credentials: false
 
-            - name: Semantic release
-              uses: cycjimmy/semantic-release-action@v3
-              id: semantic
-              with:
-                  extra_plugins: |
-                      @semantic-release/git
-                      @semantic-release/changelog
-                      conventional-changelog-conventionalcommits
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Semantic release
+        uses: cycjimmy/semantic-release-action@v3
+        id: semantic
+        with:
+            semantic_version: 19.0.5
+            extra_plugins: |
+                @semantic-release/git@10.0.1
+                @semantic-release/changelog@6.0.3
+                conventional-changelog-conventionalcommits@6.1.0
+        env:
+            GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+  publish:
+    name: Publish app to Github Pages
+    needs: release
+    runs-on: ubuntu-latest
+    if: needs.release.outputs.new_release_published == 'true'
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install packages
+        run: npm install
+      
+      - name: Build app
+        run: npm run build
+      
+      - name: Publish to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+    
+      - name: Set Deployment Status
+        run: |
+          echo ::set-output name=deployment_status::${{ job.status }}
