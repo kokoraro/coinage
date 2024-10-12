@@ -2,7 +2,7 @@ import { useAtom } from 'jotai';
 import Header from './Header';
 import CoinList from './coins/CoinList';
 import Footer from './Footer';
-import NewsFeed from './news/NewsFeed';
+import NewsFeed from '../features/news/components/NewsFeed';
 import FullCoinList from './coins/FullCoinList';
 import { isFavouritesViewAtom } from '../store/global';
 
