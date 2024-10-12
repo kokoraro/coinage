@@ -1,9 +1,9 @@
 import { useAtom } from 'jotai';
 import Header from './Header';
-import CoinList from './coins/CoinList';
+import CoinList from '../features/coin-list/components/CoinList';
 import Footer from './Footer';
 import NewsFeed from '../features/news/components/NewsFeed';
-import FullCoinList from './coins/FullCoinList';
+import FullCoinList from '../features/coin-list/components/FullCoinList';
 import { isFavouritesViewAtom } from '../store/global';
 
 const App = () => {
