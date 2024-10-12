@@ -1,5 +1,5 @@
 import { describe, vi } from 'vitest';
-import * as fetcher from '../../../utils/fetcher';
+import * as fetcher from '@/utils/fetcher';
 import { fetchCoinData, fetchCoinPrice } from './coins';
 
 const dummyApiUrl = 'foo-endpoint';

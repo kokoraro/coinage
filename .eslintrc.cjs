@@ -27,11 +27,17 @@ module.exports = {
         'no-warning-comments': ['warn', { terms: ['@todo', 'todo', 'fixme'], location: 'start' }],
         'react/react-in-jsx-scope': 'off',
         'spaced-comment': 'error',
+        'no-restricted-imports': [
+            'error',
+            {
+                patterns: ['@/features/*/*'],
+            },
+        ],
     },
     settings: {
         react: {
             version: 'detect',
         },
     },
-    ignorePatterns: ['.eslintrc.cjs', 'vite-env.d.ts'],
+    ignorePatterns: ['.eslintrc.cjs', 'vite-env.d.ts', 'vite.config.ts'],
 };

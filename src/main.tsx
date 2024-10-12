@@ -1,10 +1,10 @@
+import { Provider } from 'jotai';
 import { createRoot } from 'react-dom/client';
 import { QueryClientProvider, QueryClient } from 'react-query';
-import { iconLibrarySetup } from './utils/iconConfig';
-import App from './components/App';
-import './styles/index.sass';
-import { Provider } from 'jotai';
-import { mainStore } from './store';
+import { iconLibrarySetup } from '@/config/icon';
+import App from '@/components/App';
+import { mainStore } from '@/store';
+import '@/styles/index.sass';
 
 const queryClient = new QueryClient();
 iconLibrarySetup();

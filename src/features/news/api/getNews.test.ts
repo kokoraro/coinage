@@ -1,10 +1,10 @@
 import { vi } from 'vitest';
-import * as fetcher from '../../../utils/fetcher';
+import * as fetcher from '@/utils/fetcher';
 import { getNews } from './getNews';
 
 const dummyApiUrl = 'foo-endpoint';
 
-vi.mock('../../utils/config', () => ({
+vi.mock('@/config', () => ({
     default: {
         apiUrl: 'foo',
     },
