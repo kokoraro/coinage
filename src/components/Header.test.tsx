@@ -4,8 +4,16 @@ import Header from './Header';
 import { render } from '@/test/testUtils';
 import * as reactQuery from 'react-query';
 import queryKeys from '@/config/query-keys';
+import * as useTheme from '@/hooks/useTheme';
 
 describe('Header component', () => {
+    beforeEach(() => {
+        vi.spyOn(useTheme, 'default').mockReturnValue({
+            themeMode: useTheme.ThemeMode.Dark,
+            handleToggleThemeMode: vi.fn(),
+        });
+    });
+
     it('toggling between favourites change full list to active', () => {
         render(<Header />);
         expect(screen.getByTestId('favourites-active')).toBeDefined();
