@@ -1,26 +1,39 @@
 @import url('https://fonts.googleapis.com/css?family=Bitter|Roboto')
 
+:root[color-mode="light"] 
+    --background: #e6e6e6
+    --background-offset: #f2f2f2
+    --text: #111111
+    --accent: #01408e
+
+:root[color-mode="dark"]
+    --background: #262626
+    --background-offset: #333
+    --text: #fff
+    --accent: #8daacd
+
 body
     font-family: Roboto
-    background: #fff
+    color: var(--text, #fff)
+    background: var(--background, #333)
     font-size: 16px
     margin: 0px
 
 h1
-    color: coral
+    color: var(--accent, #8daacd)
     font-family: 'Bitter', serif
     font-size: 1.8rem
     margin: 0
 
 a
-    color: black
+    color: var(--text, #fff)
     text-decoration: none
 
     &:hover
-        color: coral
+        color: var(--accent, #8daacd)
 
 .active
-    color: coral
+    color: var(--accent, #8daacd)
 
 .container
     max-width: 1200px
@@ -29,21 +42,21 @@ a
 
 .main
     display: flex
-    border: 2px solid #e8e8e8
+    border: 2px solid var(--background, #333)
     height: calc(100vh - 7rem)
     overflow: hidden
     flex-direction: row
 
 .list
     flex: 6
-    background-color: #f6f6f6
+    background-color: var(--background-offset, #3a3a3a)
     overflow: scroll
 
 .detail
     flex: 4
     max-width: 350px
-    background-color: #f6f6f6
-    border-left: 1px solid #e8e8e8
+    background-color: var(--background-offset, #3a3a3a)
+    border-left: 1px solid var(--background, #333)
     overflow: scroll
 
 .button-no-style
@@ -63,7 +76,6 @@ a
         background-color: transparent
         color: inherit
 
-
 @media screen and (max-width: 700px)
     .main
         height: 100%
@@ -73,7 +85,6 @@ a
 
 @import './header.sass'
 @import './footer.sass'
-@import './control-panel.sass'
 @import './coin-list.sass'
 @import './loading-spinner.sass'
 @import './loading-panel.sass'
