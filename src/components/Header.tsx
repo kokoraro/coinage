@@ -45,8 +45,7 @@ const Header = (): JSX.Element => {
     }, [isCurrencyDollar, setIsCurrencyDollar]);
 
     const handleRefresh = useCallback(() => {
-        void queryClient.invalidateQueries(queryKeys.news);
-        void queryClient.invalidateQueries(queryKeys.coinPrices);
+        void queryClient.invalidateQueries([queryKeys.news, queryKeys.coinPrices]);
     }, [queryClient]);
 
     return (
