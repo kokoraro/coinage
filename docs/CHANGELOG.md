@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/chazmcgrill/coinage/compare/v2.3.0...v2.3.1) (2023-12-20)
+
+
+### Bug Fixes
+
+* fixes minor audit issues ([f529650](https://github.com/chazmcgrill/coinage/commit/f5296500dfbaeba277eca7aa97b1460ae7ff55b9))
+
 # [2.3.0](https://github.com/chazmcgrill/coinage/compare/v2.2.5...v2.3.0) (2023-10-22)
 
 
