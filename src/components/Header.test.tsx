@@ -1,11 +1,9 @@
-import { describe, it } from 'vitest';
+import { describe, it, vi } from 'vitest';
 import { fireEvent, screen } from '@testing-library/react';
 import Header from './Header';
 import { render } from '@/test/testUtils';
-// import * as newsQueryClient from '@/features/news/api/getNews';
-// import * as coinQueryClient from '@/features/coin-list/api/coins';
-// import { CoinPriceResponse } from '@/features/coin-list';
-// import { NewsResult } from '@/features/news';
+import * as reactQuery from 'react-query';
+import queryKeys from '@/config/query-keys';
 
 describe('Header component', () => {
     it('toggling between favourites change full list to active', () => {
@@ -23,13 +21,12 @@ describe('Header component', () => {
         expect(screen.getByTestId('dollar-sign')).toBeDefined();
     });
 
-    // it.skip('news and coin price is refetched when refresh control is clicked', () => {
-    //     const fetchCoinPriceSpy = vi.spyOn(coinQueryClient, 'fetchCoinPrice').mockResolvedValueOnce({} as CoinPriceResponse);
-    //     const fetchNewsSpy = vi.spyOn(newsQueryClient, 'getNews').mockResolvedValueOnce({} as NewsResult);
-    //     render(<Header />);
-    //     fireEvent.click(screen.getByTestId('sync'));
-    //     void waitFor(() => screen.getByTestId('loading-spinner'));
-    //     expect(fetchCoinPriceSpy).toHaveBeenCalledTimes(1);
-    //     expect(fetchNewsSpy).toHaveBeenCalledTimes(1);
-    // });
+    it('news and coin price is refetched when refresh control is clicked', () => {
+        const invalidateQueriesMock = vi.fn();
+        vi.spyOn(reactQuery, 'useQueryClient').mockReturnValue({ invalidateQueries: invalidateQueriesMock } as any);
+        render(<Header />);
+        fireEvent.click(screen.getByTestId('sync'));
+        expect(invalidateQueriesMock).toHaveBeenCalledTimes(1);
+        expect(invalidateQueriesMock).toHaveBeenCalledWith([queryKeys.news, queryKeys.coinPrices]);
+    });
 });
