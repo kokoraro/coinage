@@ -3,8 +3,9 @@ import { useAtom } from 'jotai';
 import { useIsFetching, useQueryClient } from 'react-query';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { ThemeMode, isCurrencyDollarAtom, isFavouritesViewAtom, themeModeAtom } from '@/store/global';
+import { ThemeMode, isCurrencyDollarAtom, isFavouritesViewAtom } from '@/store/global';
 import queryKeys from '@/config/query-keys';
+import useTheme from '@/hooks/useTheme';
 
 interface ControlItemProps {
     icon: IconProp;
@@ -31,7 +32,7 @@ ControlItem.displayName = 'ControlItem';
 const Header = (): JSX.Element => {
     const [isFavouritesView, setIsFavouritesView] = useAtom(isFavouritesViewAtom);
     const [isCurrencyDollar, setIsCurrencyDollar] = useAtom(isCurrencyDollarAtom);
-    const [themeMode, setThemeMode] = useAtom(themeModeAtom);
+    const { themeMode, handleToggleThemeMode } = useTheme();
 
     const queryClient = useQueryClient();
     const isFetchingCount = useIsFetching({ queryKey: queryKeys.coinPrices });
@@ -44,11 +45,6 @@ const Header = (): JSX.Element => {
     const handleToggleIsDollar = useCallback(() => {
         setIsCurrencyDollar(!isCurrencyDollar);
     }, [isCurrencyDollar, setIsCurrencyDollar]);
-
-    const handleToggleThemeMode = useCallback(() => {
-        document.documentElement.setAttribute('color-mode', themeMode === ThemeMode.Light ? 'dark' : 'light');
-        setThemeMode(themeMode === ThemeMode.Light ? ThemeMode.Dark : ThemeMode.Light);
-    }, [themeMode, setThemeMode]);
 
     const handleRefresh = useCallback(() => {
         void queryClient.invalidateQueries([queryKeys.news, queryKeys.coinPrices]);
