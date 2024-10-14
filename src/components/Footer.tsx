@@ -19,7 +19,7 @@ const Footer = () => (
             coded by<a href="https://www.charlietaylorcoder.com"> charlie taylor</a>
         </p>
         <div className="footer-icons">
-            <Icon url="http://twitter.com/charlietcoder" icon="twitter" />
+            <Icon url="http://twitter.com/charlietdev" icon="twitter" />
             <Icon url="http://www.instagram.com/charlietcoder" icon="instagram" />
             <Icon url="https://codepen.io/chazmcgrill" icon="codepen" />
             <Icon url="https://github.com/chazmcgrill" icon="github" />
