@@ -46,6 +46,7 @@ const Header = (): JSX.Element => {
     }, [isCurrencyDollar, setIsCurrencyDollar]);
 
     const handleToggleThemeMode = useCallback(() => {
+        document.documentElement.setAttribute('color-mode', themeMode === ThemeMode.Light ? 'dark' : 'light');
         setThemeMode(themeMode === ThemeMode.Light ? ThemeMode.Dark : ThemeMode.Light);
     }, [themeMode, setThemeMode]);
 
