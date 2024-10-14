@@ -3,7 +3,7 @@
 [![Deployment Status](https://github.com/chazmcgrill/coinage/workflows/Deploy/badge.svg)](https://github.com/chazmcgrill/coinage/actions?query=workflow%3ADeploy)
 [![GitHub Release](https://img.shields.io/github/v/release/chazmcgrill/coinage)](https://github.com/chazmcgrill/coinage/releases)
 [![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
-[![Twitter Follow](https://img.shields.io/twitter/follow/charlietcoder.svg?style=social)](https://twitter.com/charlietcoder)
+[![Twitter Follow](https://img.shields.io/twitter/follow/charlietdev.svg?style=social)](https://twitter.com/charlietdev)
 
 Simple cryptocurrency price tracking app. Search and select available coins pulled from cryptocompare api and see current prices in dollars or
 sterling.
@@ -17,6 +17,7 @@ Try the app [here](https://coinage.charlietaylorcoder.com)
 -   [Sass](https://sass-lang.com/)
 -   [React Query](https://react-query.tanstack.com/)
 -   [Jotai](https://jotai.org/)
+-   [Vite](https://vitejs.dev/)
 
 #### To Run Locally
 
