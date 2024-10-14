@@ -1,8 +1,13 @@
 import { Provider } from 'jotai';
 import { useHydrateAtoms } from 'jotai/utils';
+import type { WritableAtom } from 'jotai/vanilla';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyWritableAtom = WritableAtom<unknown, any[], any>;
+type AtomTuple<A = AnyWritableAtom, V = unknown> = readonly [A, V];
 
 interface TestProviderProps {
-    initialValues: any;
+    initialValues: AtomTuple<AnyWritableAtom, unknown>[];
     children: JSX.Element;
 }
 
