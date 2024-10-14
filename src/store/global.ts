@@ -2,8 +2,8 @@ import { atom } from 'jotai';
 import { DEFAULT_FAVOURITE_COINS } from '@/config';
 
 export enum ThemeMode {
-    Light,
-    Dark,
+    Light = 'light',
+    Dark = 'dark',
 }
 
 export const isFavouritesViewAtom = atom(true);
