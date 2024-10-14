@@ -3,7 +3,7 @@ import { useAtom } from 'jotai';
 import { useIsFetching, useQueryClient } from 'react-query';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { isCurrencyDollarAtom, isFavouritesViewAtom } from '@/store/global';
+import { ThemeMode, isCurrencyDollarAtom, isFavouritesViewAtom, themeModeAtom } from '@/store/global';
 import queryKeys from '@/config/query-keys';
 
 interface ControlItemProps {
@@ -31,6 +31,7 @@ ControlItem.displayName = 'ControlItem';
 const Header = (): JSX.Element => {
     const [isFavouritesView, setIsFavouritesView] = useAtom(isFavouritesViewAtom);
     const [isCurrencyDollar, setIsCurrencyDollar] = useAtom(isCurrencyDollarAtom);
+    const [themeMode, setThemeMode] = useAtom(themeModeAtom);
 
     const queryClient = useQueryClient();
     const isFetchingCount = useIsFetching({ queryKey: queryKeys.coinPrices });
@@ -44,6 +45,10 @@ const Header = (): JSX.Element => {
         setIsCurrencyDollar(!isCurrencyDollar);
     }, [isCurrencyDollar, setIsCurrencyDollar]);
 
+    const handleToggleThemeMode = useCallback(() => {
+        setThemeMode(themeMode === ThemeMode.Light ? ThemeMode.Dark : ThemeMode.Light);
+    }, [themeMode, setThemeMode]);
+
     const handleRefresh = useCallback(() => {
         void queryClient.invalidateQueries([queryKeys.news, queryKeys.coinPrices]);
     }, [queryClient]);
@@ -56,6 +61,7 @@ const Header = (): JSX.Element => {
                 <ControlItem icon="star" active={isFavouritesView} text="Favourites" onClick={handleToggleFavourites} testIdPrefix="favourites" />
                 <ControlItem icon="list" active={!isFavouritesView} text="Full List" onClick={handleToggleFavourites} testIdPrefix="full-list" />
                 <ControlItem icon={isCurrencyDollar ? 'pound-sign' : 'dollar-sign'} onClick={handleToggleIsDollar} />
+                <ControlItem icon={themeMode === ThemeMode.Light ? 'sun' : 'moon'} onClick={handleToggleThemeMode} />
                 <ControlItem icon="sync" onClick={handleRefresh} iconSpin={isLoadingPrices} />
             </div>
         </div>
