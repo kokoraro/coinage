@@ -23,7 +23,7 @@ describe('Header component', () => {
 
     it('news and coin price is refetched when refresh control is clicked', () => {
         const invalidateQueriesMock = vi.fn();
-        vi.spyOn(reactQuery, 'useQueryClient').mockReturnValue({ invalidateQueries: invalidateQueriesMock } as any);
+        vi.spyOn(reactQuery, 'useQueryClient').mockReturnValue({ invalidateQueries: invalidateQueriesMock } as unknown as reactQuery.QueryClient);
         render(<Header />);
         fireEvent.click(screen.getByTestId('sync'));
         expect(invalidateQueriesMock).toHaveBeenCalledTimes(1);
