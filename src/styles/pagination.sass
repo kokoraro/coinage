@@ -16,12 +16,12 @@
 
     &-button
         background-color: transparent
-        color: #333
+        color: var(--text, #fff)
 
     &-button_active,
     &-button_active:hover
-        background-color: coral
-        color: #fff
+        background-color: var(--accent, #8daacd)
+        color: var(--text, #fff)
         cursor: auto
 
     &-divider
@@ -33,5 +33,5 @@
 
     &-icon
         margin: .5rem
-        color: coral
+        color: var(--accent, #8daacd)
         cursor: pointer
