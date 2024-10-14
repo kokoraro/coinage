@@ -1,19 +1,34 @@
-import { useCallback } from 'react';
-import { useAtom } from 'jotai';
-import { ThemeMode, themeModeAtom } from '@/store/global';
+import { useCallback, useEffect } from 'react';
+import { atom, useAtom } from 'jotai';
+
+export enum ThemeMode {
+    Light = 'light',
+    Dark = 'dark',
+}
+
+export const themeModeAtom = atom(ThemeMode.Dark);
 
 const useTheme = () => {
     const [themeMode, setThemeMode] = useAtom(themeModeAtom);
 
-    const handleSetThemeAttribute = useCallback((newColorMode: 'light' | 'dark') => {
-        document.documentElement.setAttribute('color-mode', newColorMode);
-    }, []);
+    const handleSetTheme = useCallback(
+        (newTheme: ThemeMode) => {
+            document.documentElement.setAttribute('color-mode', newTheme);
+            setThemeMode(newTheme);
+        },
+        [setThemeMode],
+    );
 
     const handleToggleThemeMode = useCallback(() => {
         const newThemeMode = themeMode === ThemeMode.Light ? ThemeMode.Dark : ThemeMode.Light;
-        handleSetThemeAttribute(newThemeMode);
-        setThemeMode(newThemeMode);
-    }, [themeMode, setThemeMode, handleSetThemeAttribute]);
+        handleSetTheme(newThemeMode);
+    }, [themeMode, handleSetTheme]);
+
+    useEffect(() => {
+        const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const defaultTheme = userPrefersDark ? ThemeMode.Dark : ThemeMode.Light;
+        handleSetTheme(defaultTheme);
+    }, [handleSetTheme]);
 
     return {
         handleToggleThemeMode,

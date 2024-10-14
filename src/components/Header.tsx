@@ -3,9 +3,9 @@ import { useAtom } from 'jotai';
 import { useIsFetching, useQueryClient } from 'react-query';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { ThemeMode, isCurrencyDollarAtom, isFavouritesViewAtom } from '@/store/global';
+import { isCurrencyDollarAtom, isFavouritesViewAtom } from '@/store/global';
 import queryKeys from '@/config/query-keys';
-import useTheme from '@/hooks/useTheme';
+import useTheme, { ThemeMode } from '@/hooks/useTheme';
 
 interface ControlItemProps {
     icon: IconProp;
