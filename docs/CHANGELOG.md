@@ -1,3 +1,19 @@
+# [2.4.0](https://github.com/chazmcgrill/coinage/compare/v2.3.1...v2.4.0) (2023-12-20)
+
+
+### Bug Fixes
+
+* fixes twitter link ([6c481cd](https://github.com/chazmcgrill/coinage/commit/6c481cd26f5ccea71b6116cd047dbbb90a8f6be4))
+
+
+### Features
+
+* adds local storage for persisting user theme choice ([1e0ed55](https://github.com/chazmcgrill/coinage/commit/1e0ed55df800a4c1ffa0906b8fac9cac0875ca46))
+* adds theme styling ([763bc55](https://github.com/chazmcgrill/coinage/commit/763bc553c81108bf1673510025581e6ad3625bf9))
+* adds theme toggle switch ([b1006ff](https://github.com/chazmcgrill/coinage/commit/b1006fffde42c0abbb816bddb20540d3ddc5feae))
+* adds user preference theme and moves state into the theme hook ([8aff44d](https://github.com/chazmcgrill/coinage/commit/8aff44deaaa5ab2cf8210adcd7e660f66f57e46b))
+* makes toggle switch edit color-mode attribute ([64e7414](https://github.com/chazmcgrill/coinage/commit/64e7414536090584f6b2e069f59a21d258b25f52))
+
 ## [2.3.1](https://github.com/chazmcgrill/coinage/compare/v2.3.0...v2.3.1) (2023-12-20)
 
 
