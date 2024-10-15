@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/chazmcgrill/coinage/compare/v2.4.0...v2.4.1) (2023-12-20)
+
+
+### Bug Fixes
+
+* fixes page title ([dbcccb1](https://github.com/chazmcgrill/coinage/commit/dbcccb1d464db008fcc9dde71d0694a438e29ef7))
+
 # [2.4.0](https://github.com/chazmcgrill/coinage/compare/v2.3.1...v2.4.0) (2023-12-20)
 
 
