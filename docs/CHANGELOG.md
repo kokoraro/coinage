@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/chazmcgrill/coinage/compare/v2.4.1...v2.5.0) (2023-12-20)
+
+
+### Features
+
+* adds theme transition ([c38f829](https://github.com/chazmcgrill/coinage/commit/c38f829ebb21419c30766800c0b65f5fa9d7147e))
+
 ## [2.4.1](https://github.com/chazmcgrill/coinage/compare/v2.4.0...v2.4.1) (2023-12-20)
 
 
